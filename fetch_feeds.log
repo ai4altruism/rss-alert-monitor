@@ -1,0 +1,54 @@
+2025-02-02 08:55:18,629 [INFO] Database initialized successfully.
+2025-02-02 08:55:18,629 [INFO] Disaster Alert Bot is running... Scheduled to run every 5 minutes.
+2025-02-02 09:00:18,688 [INFO] Fetching disaster reports...
+2025-02-02 09:00:18,689 [INFO] Loaded 269 sent entries from the database.
+2025-02-02 09:00:18,689 [INFO] Fetching feed: https://gdacs.org/xml/rss_24h.xml
+2025-02-02 09:00:19,301 [INFO] Parsed Feed Keys: ['bozo', 'entries', 'feed', 'headers', 'encoding', 'version', 'bozo_exception', 'namespaces']
+2025-02-02 09:00:19,301 [INFO] Fetching feed: https://reliefweb.int/disasters/rss.xml
+2025-02-02 09:00:19,831 [INFO] Parsed Feed Keys: ['bozo', 'entries', 'feed', 'headers', 'encoding', 'version', 'namespaces']
+2025-02-02 09:00:19,831 [INFO] Fetching feed: https://inciweb.wildfire.gov/incidents/rss.xml
+2025-02-02 09:00:20,124 [INFO] Parsed Feed Keys: ['bozo', 'entries', 'feed', 'headers', 'encoding', 'version', 'namespaces']
+2025-02-02 09:00:20,125 [INFO] Fetching feed: http://www.spc.noaa.gov/products/spcrss.xml
+2025-02-02 09:00:20,588 [INFO] Parsed Feed Keys: ['bozo', 'entries', 'feed', 'headers', 'encoding', 'version', 'namespaces']
+2025-02-02 09:00:20,589 [INFO] Fetching feed: https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.atom
+2025-02-02 09:00:20,683 [INFO] Parsed Feed Keys: ['bozo', 'entries', 'feed', 'headers', 'encoding', 'version', 'namespaces']
+2025-02-02 09:00:20,683 [INFO] No new disaster reports.
+2025-02-02 10:19:44,898 [INFO] Database initialized successfully.
+2025-02-02 10:19:44,898 [INFO] Disaster Alert Bot is running... Scheduled to run every 5 minutes.
+2025-02-02 10:24:44,959 [INFO] Fetching disaster reports...
+2025-02-02 10:24:44,960 [INFO] Loaded 269 sent entries from the database.
+2025-02-02 10:24:44,960 [INFO] Fetching feed: https://gdacs.org/xml/rss_24h.xml
+2025-02-02 10:24:45,743 [INFO] Parsed Feed Keys: ['bozo', 'entries', 'feed', 'headers', 'encoding', 'version', 'bozo_exception', 'namespaces']
+2025-02-02 10:24:45,743 [INFO] Fetching feed: https://reliefweb.int/disasters/rss.xml
+2025-02-02 10:24:46,128 [INFO] Parsed Feed Keys: ['bozo', 'entries', 'feed', 'headers', 'encoding', 'version', 'namespaces']
+2025-02-02 10:24:46,128 [INFO] Fetching feed: https://inciweb.wildfire.gov/incidents/rss.xml
+2025-02-02 10:24:46,307 [INFO] Parsed Feed Keys: ['bozo', 'entries', 'feed', 'headers', 'encoding', 'version', 'namespaces']
+2025-02-02 10:24:46,307 [INFO] Fetching feed: http://www.spc.noaa.gov/products/spcrss.xml
+2025-02-02 10:24:46,946 [INFO] Parsed Feed Keys: ['bozo', 'entries', 'feed', 'headers', 'encoding', 'version', 'namespaces']
+2025-02-02 10:24:46,946 [INFO] Fetching feed: https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.atom
+2025-02-02 10:24:47,051 [INFO] Parsed Feed Keys: ['bozo', 'entries', 'feed', 'headers', 'encoding', 'version', 'namespaces']
+2025-02-02 10:24:47,051 [INFO] Processing 6 new disaster reports.
+2025-02-02 10:24:56,288 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-02 10:24:56,297 [INFO] Successfully obtained summary from OpenAI.
+2025-02-02 10:24:56,557 [INFO] Block message sent: 1738517096.491549
+2025-02-02 10:24:56,565 [INFO] Saved 6 new sent entries to the database.
+2025-02-02 10:24:56,566 [INFO] Disaster alert sent to Slack.
+2025-02-02 10:47:27,257 [INFO] Database initialized successfully.
+2025-02-02 10:47:27,257 [INFO] Disaster Alert Bot is running... Scheduled to run every 5 minutes.
+2025-02-02 10:49:35,713 [INFO] Database initialized successfully.
+2025-02-02 10:49:35,714 [INFO] Disaster Alert Bot is running... Scheduled to run every 5 minutes.
+2025-02-02 10:49:53,282 [INFO] Database initialized successfully.
+2025-02-02 10:49:53,282 [INFO] Disaster Alert Bot is running... Scheduled to run every 5 minutes.
+2025-02-02 10:54:53,340 [INFO] Fetching disaster reports...
+2025-02-02 10:54:53,341 [INFO] Loaded 275 sent entries from the database.
+2025-02-02 10:54:53,341 [INFO] Fetching feed: https://gdacs.org/xml/rss_24h.xml
+2025-02-02 10:54:53,976 [INFO] Parsed Feed Keys: ['bozo', 'entries', 'feed', 'headers', 'encoding', 'version', 'bozo_exception', 'namespaces']
+2025-02-02 10:54:53,976 [INFO] Fetching feed: https://reliefweb.int/disasters/rss.xml
+2025-02-02 10:54:54,388 [INFO] Parsed Feed Keys: ['bozo', 'entries', 'feed', 'headers', 'encoding', 'version', 'namespaces']
+2025-02-02 10:54:54,388 [INFO] Fetching feed: https://inciweb.wildfire.gov/incidents/rss.xml
+2025-02-02 10:54:54,592 [INFO] Parsed Feed Keys: ['bozo', 'entries', 'feed', 'headers', 'encoding', 'version', 'namespaces']
+2025-02-02 10:54:54,592 [INFO] Fetching feed: http://www.spc.noaa.gov/products/spcrss.xml
+2025-02-02 10:54:55,102 [INFO] Parsed Feed Keys: ['bozo', 'entries', 'feed', 'headers', 'encoding', 'version', 'namespaces']
+2025-02-02 10:54:55,103 [INFO] Fetching feed: https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.atom
+2025-02-02 10:54:55,183 [INFO] Parsed Feed Keys: ['bozo', 'entries', 'feed', 'headers', 'encoding', 'version', 'namespaces']
+2025-02-02 10:54:55,184 [INFO] No new disaster reports.
