@@ -2,7 +2,7 @@
 
 A Python-based disaster alert monitoring application that fetches potential disaster alerts from RSS feeds, processes and aggregates the data, and sends formatted reports to a Slack channel. The application is designed to be containerized with Docker for deployment flexibility. This application is currently deployed for operations in Aid Arena.
 
-## Features
+## 🚀 Features
 - Fetches disaster reports from multiple RSS feeds.
 - Intelligent filtering of alerts based on severity, alert level, and report type.
 - Processes and groups disaster data by type, location, and date.
@@ -26,7 +26,7 @@ The system implements multi-layered filtering to reduce noise and focus on signi
 - OpenAI API key
 - RSS feed URLs
 
-## Setup
+## 📜 Setup
 
 ### 1. Clone the Repository
 ```bash
@@ -91,7 +91,7 @@ View container logs to confirm the application is running:
 docker logs disaster-monitor-bot
 ```
 
-## File Structure
+## 📁 File Structure
 ```
 project-root/
 ├── fetch_feeds.py        # Fetches disaster reports from RSS feeds with filtering
@@ -127,26 +127,26 @@ You can modify these thresholds in the `process_data.py` file.
 ## Contributing
 Feel free to submit issues or pull requests. Contributions are welcome!
 
-## License
-This project is licensed under the GNU General Public License v3.0.
+## 📜 License
 
-Copyright (C) 2025
+This project is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html). Copyright (c) 2025 AI for Altruism Inc.
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+When using or distributing this software, please attribute as follows:
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
+```
+RSS Disaster Alert Monitor
+Copyright (c) 2025 AI for Altruism Inc
+License: GNU GPL v3.0
+```
 
 ## Acknowledgments
 - Slack SDK for Python
 - OpenAI GPT API
 - Feedparser for RSS parsing
 - BeautifulSoup for XML parsing
+
+## 📩 Contact
+
+For issues or questions, please open a GitHub issue or contact:
+
+- **Email**: team@ai4altruism.org
