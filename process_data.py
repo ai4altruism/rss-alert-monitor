@@ -17,9 +17,13 @@ from bs4 import BeautifulSoup
 load_dotenv()
 
 # Load the model name from environment variables
-MODEL_NAME = os.getenv("MODEL_NAME", "gpt-4o-mini")
-EXTRACTION_MODEL = os.getenv("EXTRACTION_MODEL", "gpt-3.5-turbo")  # Use a faster/cheaper model for extraction
+MODEL_NAME = os.getenv("MODEL_NAME", "gpt-5-mini")
+EXTRACTION_MODEL = os.getenv("EXTRACTION_MODEL", "gpt-5-mini")  # Use gpt-5-mini for extraction
 BATCH_SIZE = int(os.getenv("BATCH_SIZE", "10"))  # Number of entries to process in a single API call
+
+# GPT-5 specific settings
+REASONING_EFFORT_EXTRACTION = os.getenv("REASONING_EFFORT_EXTRACTION", "low")
+REASONING_EFFORT_SUMMARY = os.getenv("REASONING_EFFORT_SUMMARY", "medium")
 
 # Configure logging with both file and console handlers
 logging.basicConfig(
@@ -311,18 +315,17 @@ def extract_details_in_batch(entries, max_retries=2, backoff_factor=2):
         elif entry['source_type'] == "gdacs":
             batch_prompt += "Note: This is from GDACS. Carefully extract the alert level (Green, Orange, Red) and include it in the alert_level field. Also extract the magnitude for earthquakes.\n"
     
-    # Call the API with retries
+    # Call the API with retries using the new Responses API
     for attempt in range(1, max_retries + 1):
         try:
-            response = client.chat.completions.create(
+            response = client.responses.create(
                 model=EXTRACTION_MODEL,
-                messages=[{"role": "user", "content": batch_prompt}],
-                response_format={"type": "json_object"},
-                temperature=0,
-                max_tokens=4000  # Increased for batch processing
+                reasoning={"effort": REASONING_EFFORT_EXTRACTION},
+                instructions="Extract detailed disaster information from alerts and return as structured JSON. Focus on accuracy and consistency in field extraction. IMPORTANT: Return valid JSON only.",
+                input=batch_prompt,
             )
             
-            result_text = response.choices[0].message.content
+            result_text = response.output_text
             
             try:
                 # Parse the JSON response
@@ -585,24 +588,17 @@ def process_disasters(disasters, max_retries=3, backoff_factor=2):
     # Log the prompt for debugging
     logging.debug(f"Prompt sent to OpenAI:\n{prompt}")
 
-    # Call OpenAI's API with retries
+    # Call OpenAI's API with retries using the new Responses API
     for attempt in range(1, max_retries + 1):
         try:
-            chat_completion = client.chat.completions.create(
-                messages=[
-                    {
-                        "role": "system",
-                        "content": "You process disaster alert data and format it for concise, informative Slack messages. Focus on providing clear what/where/when information."
-                    },
-                    {
-                        "role": "user",
-                        "content": prompt,
-                    }
-                ],
+            response = client.responses.create(
                 model=MODEL_NAME,
+                reasoning={"effort": REASONING_EFFORT_SUMMARY},
+                instructions="You process disaster alert data and format it for concise, informative Slack messages. Focus on providing clear what/where/when information.",
+                input=prompt,
             )
-            # Access the response using attributes
-            summary = chat_completion.choices[0].message.content.strip()
+            # Access the response using the new format
+            summary = response.output_text.strip()
 
             logging.info("Successfully obtained summary from OpenAI.")
             

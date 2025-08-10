@@ -8156,3 +8156,711 @@ NameError: name 'source_type' is not defined
 2025-04-20 06:19:52,526 [INFO] Total disaster reports fetched: 89
 2025-04-20 06:19:52,527 [INFO] Fetched 89 disaster reports from RSS feeds.
 2025-04-20 06:19:52,527 [INFO] No new disaster reports to process.
+2025-08-10 08:03:18,776 [INFO] Using User-Agent: DisasterMonitor/1.1.0 (team@ai4altruism.org; https://ai4altruism.org/) Python/3.12.3 Platform/Linux
+2025-08-10 08:03:18,776 [INFO] Fetching feed: https://gdacs.org/xml/rss_24h.xml
+2025-08-10 08:03:19,385 [INFO] Successfully fetched 47 entries from GDACS RSS information
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.3M, Depth:70.918km) in Russian Federation 10/08/2025 11:19 UTC, 2 thousand in 100km.
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.9M, Depth:10km) in Russia 10/08/2025 10:47 UTC, Few people affected in 100km.
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.7M, Depth:10km) in [unknown] 10/08/2025 09:58 UTC, No people affected in 100km.
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5M, Depth:10km) in [unknown] 10/08/2025 09:29 UTC, No people affected in 100km.
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green alert for tropical cyclone IVO-25. Population affected by Category 1 (120 km/h) wind speeds or higher is 0  (0 in Tropical Storm).
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green alert for tropical cyclone HENRIETTE-25. Population affected by Category 1 (120 km/h) wind speeds or higher is 0  (0 in Tropical Storm).
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.2M, Depth:10km) in Russia 10/08/2025 06:59 UTC, No people affected in 100km.
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:10km) in Guatemala 10/08/2025 06:14 UTC, 3 thousand in 100km.
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.8M, Depth:20.846km) in Taiwan 10/08/2025 06:03 UTC, 1.5 million in 100km.
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green alert for tropical cyclone PODUL-25. Population affected by Category 1 (120 km/h) wind speeds or higher is 0  (0 in Tropical Storm).
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.4M, Depth:10km) in Guam 10/08/2025 05:57 UTC, 170 thousand in 100km.
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:10km) in [unknown] 10/08/2025 05:12 UTC, No people affected in 100km.
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.9M, Depth:16km) in Guam 10/08/2025 04:56 UTC, 90 thousand in 100km.
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.7M, Depth:10km) in Russia 10/08/2025 04:04 UTC, No people affected in 100km.
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in [unknown] 10/08/2025 03:28 UTC, No people affected in 100km.
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.9M, Depth:58.763km) in Indonesia 10/08/2025 03:27 UTC, 1.2 million in 100km.
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in [unknown] 10/08/2025 03:11 UTC, No people affected in 100km.
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.8M, Depth:22.033km) in Russia 10/08/2025 02:44 UTC, No people affected in 100km.
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.9M, Depth:10km) in Russia 10/08/2025 02:39 UTC, No people affected in 100km.
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in Vanuatu 10/08/2025 01:24 UTC, 120 thousand in 100km.
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in Indonesia 10/08/2025 00:39 UTC, 4.2 million in 100km.
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Canada
+2025-08-10 08:03:19,385 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Albania
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Canada
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Canada
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Bolivia
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in United States
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.7M, Depth:10km) in Russia 09/08/2025 23:11 UTC, No people affected in 100km.
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in [unknown] 09/08/2025 22:51 UTC, No people affected in 100km.
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.9M, Depth:9km) in Guatemala 09/08/2025 20:40 UTC, No people affected in 100km.
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.8M, Depth:35km) in Russia 09/08/2025 19:21 UTC, Few people affected in 100km.
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:10km) in [unknown] 09/08/2025 18:30 UTC, No people affected in 100km.
+2025-08-10 08:03:19,386 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:23.423km) in [unknown] 09/08/2025 16:17 UTC, No people affected in 100km.
+2025-08-10 08:03:19,386 [INFO] Fetching feed: https://reliefweb.int/disasters/rss.xml
+2025-08-10 08:03:19,840 [INFO] Successfully fetched 20 entries from ReliefWeb - Disasters
+2025-08-10 08:03:19,840 [INFO] Fetching feed: https://inciweb.wildfire.gov/incidents/rss.xml
+2025-08-10 08:03:20,040 [INFO] Successfully fetched 50 entries from InciWeb
+2025-08-10 08:03:20,040 [INFO] Fetching feed: http://www.spc.noaa.gov/products/spcrss.xml
+2025-08-10 08:03:20,609 [INFO] Pre-filtered SPC report in XML parsing: SPC - No MDs are in effect as of Sun Aug 10 13:27:01 UTC 2025
+2025-08-10 08:03:20,609 [INFO] Pre-filtered SPC report in XML parsing: SPC Aug 10, 2025 1300 UTC Day 1 Convective Outlook
+2025-08-10 08:03:20,609 [INFO] Pre-filtered 2 of 3 SPC reports in XML parsing
+2025-08-10 08:03:20,613 [INFO] Successfully fetched 1 entries from SPC Forecast Products
+2025-08-10 08:03:20,613 [INFO] Fetching feed: https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.atom
+2025-08-10 08:03:20,764 [INFO] Successfully fetched 27 entries from USGS Magnitude 4.5+ Earthquakes, Past Day
+2025-08-10 08:03:20,764 [INFO] Fetching feed: https://www.nhc.noaa.gov/gtwo.xml
+2025-08-10 08:03:21,058 [INFO] Successfully fetched 3 entries from National Hurricane Center Graphical Tropical Weather Outlooks
+2025-08-10 08:03:21,059 [INFO] Total disaster reports fetched: 101
+2025-08-10 08:03:21,059 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.3 - 80 km ese of ozernovskiy, russia (M5.3)
+2025-08-10 08:03:21,059 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.9 - 167 km ese of petropavlovsk-kamchatsky, russia (M4.9)
+2025-08-10 08:03:21,059 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.7 - 161 km se of petropavlovsk-kamchatsky, russia (M4.7)
+2025-08-10 08:03:21,059 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.0 - 158 km se of petropavlovsk-kamchatsky, russia (M5.0)
+2025-08-10 08:03:21,059 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.2 - 180 km sse of vilyuchinsk, russia (M5.2)
+2025-08-10 08:03:21,059 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 100 km ssw of champerico, guatemala (M4.5)
+2025-08-10 08:03:21,059 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.8 - 25 km s of hualien city, taiwan (M4.8)
+2025-08-10 08:03:21,059 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.4 - 84 km se of yigo village, guam (M5.4)
+2025-08-10 08:03:21,059 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 254 km ese of severo-kuril’sk, russia (M4.5)
+2025-08-10 08:03:21,059 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.7 - 172 km sse of vilyuchinsk, russia (M4.7)
+2025-08-10 08:03:21,059 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - western indian-antarctic ridge (M4.6)
+2025-08-10 08:03:21,059 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.9 - 60 km s of bengkulu, indonesia (M4.9)
+2025-08-10 08:03:21,060 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 257 km ese of severo-kuril’sk, russia (M4.6)
+2025-08-10 08:03:21,060 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.8 - 160 km sse of vilyuchinsk, russia (M4.8)
+2025-08-10 08:03:21,060 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.9 - 175 km sse of vilyuchinsk, russia (M4.9)
+2025-08-10 08:03:21,060 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 62 km w of port-vila, vanuatu (M4.6)
+2025-08-10 08:03:21,060 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 29 km nne of labuan lombok, indonesia (M4.6)
+2025-08-10 08:03:21,060 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.7 - 212 km ese of ozernovskiy, russia (M4.7)
+2025-08-10 08:03:21,060 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - central mid-atlantic ridge (M4.6)
+2025-08-10 08:03:21,060 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.8 - 131 km se of petropavlovsk-kamchatsky, russia (M4.8)
+2025-08-10 08:03:21,060 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 155 km se of severo-kuril’sk, russia (M4.5)
+2025-08-10 08:03:21,060 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 185 km sse of severo-kuril’sk, russia (M4.5)
+2025-08-10 08:03:21,060 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 205 km ssw of severo-kuril’sk, russia (M4.6)
+2025-08-10 08:03:21,060 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 282 km ese of severo-kuril’sk, russia (M4.6)
+2025-08-10 08:03:21,060 [INFO] Processing 77 entries after initial filtering
+2025-08-10 08:03:21,066 [INFO] Processing batch 1 with 10 entries
+2025-08-10 08:03:21,176 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'verbosity'
+2025-08-10 08:03:23,176 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'verbosity'
+2025-08-10 08:03:23,196 [INFO] Processing batch 2 with 10 entries
+2025-08-10 08:03:23,196 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'verbosity'
+2025-08-10 08:03:25,197 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'verbosity'
+2025-08-10 08:03:25,199 [INFO] Processing batch 3 with 10 entries
+2025-08-10 08:03:25,199 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'verbosity'
+2025-08-10 08:03:27,200 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'verbosity'
+2025-08-10 08:03:27,202 [INFO] Processing batch 4 with 10 entries
+2025-08-10 08:03:27,203 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'verbosity'
+2025-08-10 08:03:29,203 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'verbosity'
+2025-08-10 08:03:29,205 [INFO] Processing batch 5 with 10 entries
+2025-08-10 08:03:29,206 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'verbosity'
+2025-08-10 08:03:31,206 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'verbosity'
+2025-08-10 08:03:31,209 [INFO] Processing batch 6 with 10 entries
+2025-08-10 08:03:31,209 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'verbosity'
+2025-08-10 08:03:33,209 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'verbosity'
+2025-08-10 08:03:33,211 [INFO] Processing batch 7 with 10 entries
+2025-08-10 08:03:33,211 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'verbosity'
+2025-08-10 08:03:35,212 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'verbosity'
+2025-08-10 08:03:35,214 [INFO] Processing batch 8 with 7 entries
+2025-08-10 08:03:35,214 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'verbosity'
+2025-08-10 08:03:37,215 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'verbosity'
+2025-08-10 08:03:37,219 [ERROR] Attempt 1: Unexpected error: Responses.create() got an unexpected keyword argument 'verbosity'
+2025-08-10 08:03:37,530 [INFO] Message sent successfully to #disaster-alerts (timestamp: 1754834617.448949)
+2025-08-10 08:03:37,530 [INFO] Retrying in 2 seconds...
+2025-08-10 08:03:39,530 [ERROR] Attempt 2: Unexpected error: Responses.create() got an unexpected keyword argument 'verbosity'
+2025-08-10 08:03:39,772 [INFO] Message sent successfully to #disaster-alerts (timestamp: 1754834619.701919)
+2025-08-10 08:03:39,773 [INFO] Retrying in 4 seconds...
+2025-08-10 08:03:43,773 [ERROR] Attempt 3: Unexpected error: Responses.create() got an unexpected keyword argument 'verbosity'
+2025-08-10 08:03:44,005 [INFO] Message sent successfully to #disaster-alerts (timestamp: 1754834623.932499)
+2025-08-10 08:03:44,005 [ERROR] Max retries reached. Failed to obtain summary from OpenAI.
+2025-08-10 08:03:44,221 [INFO] Message sent successfully to #disaster-alerts (timestamp: 1754834624.153299)
+2025-08-10 08:07:37,278 [INFO] Using User-Agent: DisasterMonitor/1.1.0 (team@ai4altruism.org; https://ai4altruism.org/) Python/3.12.3 Platform/Linux
+2025-08-10 08:07:37,278 [INFO] Fetching feed: https://gdacs.org/xml/rss_24h.xml
+2025-08-10 08:07:37,752 [INFO] Successfully fetched 47 entries from GDACS RSS information
+2025-08-10 08:07:37,752 [INFO] Filtered GDACS green alert in feedparser stage: Green alert for tropical cyclone PODUL-25. Population affected by Category 1 (120 km/h) wind speeds or higher is 0  (0 in Tropical Storm).
+2025-08-10 08:07:37,752 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.3M, Depth:70.918km) in Russian Federation 10/08/2025 11:19 UTC, 2 thousand in 100km.
+2025-08-10 08:07:37,752 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.9M, Depth:10km) in Russia 10/08/2025 10:47 UTC, Few people affected in 100km.
+2025-08-10 08:07:37,752 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.7M, Depth:10km) in [unknown] 10/08/2025 09:58 UTC, No people affected in 100km.
+2025-08-10 08:07:37,752 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5M, Depth:10km) in [unknown] 10/08/2025 09:29 UTC, No people affected in 100km.
+2025-08-10 08:07:37,752 [INFO] Filtered GDACS green alert in feedparser stage: Green alert for tropical cyclone IVO-25. Population affected by Category 1 (120 km/h) wind speeds or higher is 0  (0 in Tropical Storm).
+2025-08-10 08:07:37,752 [INFO] Filtered GDACS green alert in feedparser stage: Green alert for tropical cyclone HENRIETTE-25. Population affected by Category 1 (120 km/h) wind speeds or higher is 0  (0 in Tropical Storm).
+2025-08-10 08:07:37,752 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.2M, Depth:10km) in Russia 10/08/2025 06:59 UTC, No people affected in 100km.
+2025-08-10 08:07:37,752 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:10km) in Guatemala 10/08/2025 06:14 UTC, 3 thousand in 100km.
+2025-08-10 08:07:37,752 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.8M, Depth:20.846km) in Taiwan 10/08/2025 06:03 UTC, 1.5 million in 100km.
+2025-08-10 08:07:37,752 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.4M, Depth:10km) in Guam 10/08/2025 05:57 UTC, 170 thousand in 100km.
+2025-08-10 08:07:37,752 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:10km) in [unknown] 10/08/2025 05:12 UTC, No people affected in 100km.
+2025-08-10 08:07:37,752 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.9M, Depth:16km) in Guam 10/08/2025 04:56 UTC, 90 thousand in 100km.
+2025-08-10 08:07:37,752 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.7M, Depth:10km) in Russia 10/08/2025 04:04 UTC, No people affected in 100km.
+2025-08-10 08:07:37,752 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in [unknown] 10/08/2025 03:28 UTC, No people affected in 100km.
+2025-08-10 08:07:37,752 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.9M, Depth:58.763km) in Indonesia 10/08/2025 03:27 UTC, 1.2 million in 100km.
+2025-08-10 08:07:37,752 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in [unknown] 10/08/2025 03:11 UTC, No people affected in 100km.
+2025-08-10 08:07:37,752 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.8M, Depth:22.033km) in Russia 10/08/2025 02:44 UTC, No people affected in 100km.
+2025-08-10 08:07:37,752 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.9M, Depth:10km) in Russia 10/08/2025 02:39 UTC, No people affected in 100km.
+2025-08-10 08:07:37,752 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in Vanuatu 10/08/2025 01:24 UTC, 120 thousand in 100km.
+2025-08-10 08:07:37,752 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in Indonesia 10/08/2025 00:39 UTC, 4.2 million in 100km.
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Canada
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Albania
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Canada
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Canada
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Bolivia
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in United States
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.7M, Depth:10km) in Russia 09/08/2025 23:11 UTC, No people affected in 100km.
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in [unknown] 09/08/2025 22:51 UTC, No people affected in 100km.
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.9M, Depth:9km) in Guatemala 09/08/2025 20:40 UTC, No people affected in 100km.
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.8M, Depth:35km) in Russia 09/08/2025 19:21 UTC, Few people affected in 100km.
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:10km) in [unknown] 09/08/2025 18:30 UTC, No people affected in 100km.
+2025-08-10 08:07:37,753 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:23.423km) in [unknown] 09/08/2025 16:17 UTC, No people affected in 100km.
+2025-08-10 08:07:37,753 [INFO] Fetching feed: https://reliefweb.int/disasters/rss.xml
+2025-08-10 08:07:38,120 [INFO] Successfully fetched 20 entries from ReliefWeb - Disasters
+2025-08-10 08:07:38,120 [INFO] Fetching feed: https://inciweb.wildfire.gov/incidents/rss.xml
+2025-08-10 08:07:38,333 [INFO] Successfully fetched 50 entries from InciWeb
+2025-08-10 08:07:38,333 [INFO] Fetching feed: http://www.spc.noaa.gov/products/spcrss.xml
+2025-08-10 08:07:38,815 [INFO] Pre-filtered SPC report in XML parsing: SPC - No MDs are in effect as of Sun Aug 10 13:27:01 UTC 2025
+2025-08-10 08:07:38,816 [INFO] Pre-filtered SPC report in XML parsing: SPC Aug 10, 2025 1300 UTC Day 1 Convective Outlook
+2025-08-10 08:07:38,816 [INFO] Pre-filtered 2 of 3 SPC reports in XML parsing
+2025-08-10 08:07:38,822 [INFO] Successfully fetched 1 entries from SPC Forecast Products
+2025-08-10 08:07:38,822 [INFO] Fetching feed: https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.atom
+2025-08-10 08:07:38,925 [INFO] Successfully fetched 26 entries from USGS Magnitude 4.5+ Earthquakes, Past Day
+2025-08-10 08:07:38,925 [INFO] Fetching feed: https://www.nhc.noaa.gov/gtwo.xml
+2025-08-10 08:07:39,157 [INFO] Successfully fetched 3 entries from National Hurricane Center Graphical Tropical Weather Outlooks
+2025-08-10 08:07:39,157 [INFO] Total disaster reports fetched: 100
+2025-08-10 08:07:39,157 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.3 - 80 km ese of ozernovskiy, russia (M5.3)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.9 - 167 km ese of petropavlovsk-kamchatsky, russia (M4.9)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.7 - 161 km se of petropavlovsk-kamchatsky, russia (M4.7)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.0 - 158 km se of petropavlovsk-kamchatsky, russia (M5.0)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.2 - 180 km sse of vilyuchinsk, russia (M5.2)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 100 km ssw of champerico, guatemala (M4.5)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.8 - 25 km s of hualien city, taiwan (M4.8)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.4 - 84 km se of yigo village, guam (M5.4)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 254 km ese of severo-kuril’sk, russia (M4.5)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.7 - 172 km sse of vilyuchinsk, russia (M4.7)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - western indian-antarctic ridge (M4.6)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.9 - 60 km s of bengkulu, indonesia (M4.9)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 257 km ese of severo-kuril’sk, russia (M4.6)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.8 - 160 km sse of vilyuchinsk, russia (M4.8)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.9 - 175 km sse of vilyuchinsk, russia (M4.9)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 62 km w of port-vila, vanuatu (M4.6)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 29 km nne of labuan lombok, indonesia (M4.6)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.7 - 212 km ese of ozernovskiy, russia (M4.7)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - central mid-atlantic ridge (M4.6)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.8 - 131 km se of petropavlovsk-kamchatsky, russia (M4.8)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 155 km se of severo-kuril’sk, russia (M4.5)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 185 km sse of severo-kuril’sk, russia (M4.5)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 205 km ssw of severo-kuril’sk, russia (M4.6)
+2025-08-10 08:07:39,158 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 282 km ese of severo-kuril’sk, russia (M4.6)
+2025-08-10 08:07:39,158 [INFO] Processing 76 entries after initial filtering
+2025-08-10 08:07:39,166 [INFO] Processing batch 1 with 10 entries
+2025-08-10 08:07:39,296 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'response_format'
+2025-08-10 08:07:41,297 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'response_format'
+2025-08-10 08:07:41,306 [INFO] Processing batch 2 with 10 entries
+2025-08-10 08:07:41,306 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'response_format'
+2025-08-10 08:07:43,306 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'response_format'
+2025-08-10 08:07:43,309 [INFO] Processing batch 3 with 10 entries
+2025-08-10 08:07:43,309 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'response_format'
+2025-08-10 08:07:45,310 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'response_format'
+2025-08-10 08:07:45,312 [INFO] Processing batch 4 with 10 entries
+2025-08-10 08:07:45,312 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'response_format'
+2025-08-10 08:07:47,313 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'response_format'
+2025-08-10 08:07:47,316 [INFO] Processing batch 5 with 10 entries
+2025-08-10 08:07:47,316 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'response_format'
+2025-08-10 08:07:49,317 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'response_format'
+2025-08-10 08:07:49,319 [INFO] Processing batch 6 with 10 entries
+2025-08-10 08:07:49,320 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'response_format'
+2025-08-10 08:07:51,320 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'response_format'
+2025-08-10 08:07:51,323 [INFO] Processing batch 7 with 10 entries
+2025-08-10 08:07:51,323 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'response_format'
+2025-08-10 08:07:53,324 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'response_format'
+2025-08-10 08:07:53,326 [INFO] Processing batch 8 with 6 entries
+2025-08-10 08:07:53,326 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'response_format'
+2025-08-10 08:07:55,327 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'response_format'
+2025-08-10 08:08:58,126 [INFO] HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-08-10 08:08:58,191 [INFO] Successfully obtained summary from OpenAI.
+2025-08-10 08:09:35,248 [INFO] Using User-Agent: DisasterMonitor/1.1.0 (team@ai4altruism.org; https://ai4altruism.org/) Python/3.12.3 Platform/Linux
+2025-08-10 08:09:35,248 [INFO] Fetching feed: https://gdacs.org/xml/rss_24h.xml
+2025-08-10 08:09:35,707 [INFO] Successfully fetched 47 entries from GDACS RSS information
+2025-08-10 08:09:35,707 [INFO] Filtered GDACS green alert in feedparser stage: Green alert for tropical cyclone PODUL-25. Population affected by Category 1 (120 km/h) wind speeds or higher is 0  (0 in Tropical Storm).
+2025-08-10 08:09:35,707 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.3M, Depth:70.918km) in Russian Federation 10/08/2025 11:19 UTC, 2 thousand in 100km.
+2025-08-10 08:09:35,707 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.9M, Depth:10km) in Russia 10/08/2025 10:47 UTC, Few people affected in 100km.
+2025-08-10 08:09:35,707 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.7M, Depth:10km) in [unknown] 10/08/2025 09:58 UTC, No people affected in 100km.
+2025-08-10 08:09:35,707 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5M, Depth:10km) in [unknown] 10/08/2025 09:29 UTC, No people affected in 100km.
+2025-08-10 08:09:35,707 [INFO] Filtered GDACS green alert in feedparser stage: Green alert for tropical cyclone IVO-25. Population affected by Category 1 (120 km/h) wind speeds or higher is 0  (0 in Tropical Storm).
+2025-08-10 08:09:35,707 [INFO] Filtered GDACS green alert in feedparser stage: Green alert for tropical cyclone HENRIETTE-25. Population affected by Category 1 (120 km/h) wind speeds or higher is 0  (0 in Tropical Storm).
+2025-08-10 08:09:35,707 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.2M, Depth:10km) in Russia 10/08/2025 06:59 UTC, No people affected in 100km.
+2025-08-10 08:09:35,707 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:10km) in Guatemala 10/08/2025 06:14 UTC, 3 thousand in 100km.
+2025-08-10 08:09:35,707 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.8M, Depth:20.846km) in Taiwan 10/08/2025 06:03 UTC, 1.5 million in 100km.
+2025-08-10 08:09:35,707 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.4M, Depth:10km) in Guam 10/08/2025 05:57 UTC, 170 thousand in 100km.
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:10km) in [unknown] 10/08/2025 05:12 UTC, No people affected in 100km.
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.9M, Depth:16km) in Guam 10/08/2025 04:56 UTC, 90 thousand in 100km.
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.7M, Depth:10km) in Russia 10/08/2025 04:04 UTC, No people affected in 100km.
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in [unknown] 10/08/2025 03:28 UTC, No people affected in 100km.
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.9M, Depth:58.763km) in Indonesia 10/08/2025 03:27 UTC, 1.2 million in 100km.
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in [unknown] 10/08/2025 03:11 UTC, No people affected in 100km.
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.8M, Depth:22.033km) in Russia 10/08/2025 02:44 UTC, No people affected in 100km.
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.9M, Depth:10km) in Russia 10/08/2025 02:39 UTC, No people affected in 100km.
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in Vanuatu 10/08/2025 01:24 UTC, 120 thousand in 100km.
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in Indonesia 10/08/2025 00:39 UTC, 4.2 million in 100km.
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Canada
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Albania
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Canada
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Canada
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Bolivia
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in United States
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.7M, Depth:10km) in Russia 09/08/2025 23:11 UTC, No people affected in 100km.
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in [unknown] 09/08/2025 22:51 UTC, No people affected in 100km.
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.9M, Depth:9km) in Guatemala 09/08/2025 20:40 UTC, No people affected in 100km.
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.8M, Depth:35km) in Russia 09/08/2025 19:21 UTC, Few people affected in 100km.
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:10km) in [unknown] 09/08/2025 18:30 UTC, No people affected in 100km.
+2025-08-10 08:09:35,708 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:23.423km) in [unknown] 09/08/2025 16:17 UTC, No people affected in 100km.
+2025-08-10 08:09:35,708 [INFO] Fetching feed: https://reliefweb.int/disasters/rss.xml
+2025-08-10 08:09:36,239 [INFO] Successfully fetched 20 entries from ReliefWeb - Disasters
+2025-08-10 08:09:36,239 [INFO] Fetching feed: https://inciweb.wildfire.gov/incidents/rss.xml
+2025-08-10 08:09:36,509 [INFO] Successfully fetched 50 entries from InciWeb
+2025-08-10 08:09:36,509 [INFO] Fetching feed: http://www.spc.noaa.gov/products/spcrss.xml
+2025-08-10 08:09:37,043 [INFO] Pre-filtered SPC report in XML parsing: SPC - No MDs are in effect as of Sun Aug 10 13:27:01 UTC 2025
+2025-08-10 08:09:37,044 [INFO] Pre-filtered SPC report in XML parsing: SPC Aug 10, 2025 1300 UTC Day 1 Convective Outlook
+2025-08-10 08:09:37,044 [INFO] Pre-filtered 2 of 3 SPC reports in XML parsing
+2025-08-10 08:09:37,047 [INFO] Successfully fetched 1 entries from SPC Forecast Products
+2025-08-10 08:09:37,047 [INFO] Fetching feed: https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.atom
+2025-08-10 08:09:37,312 [INFO] Successfully fetched 26 entries from USGS Magnitude 4.5+ Earthquakes, Past Day
+2025-08-10 08:09:37,312 [INFO] Fetching feed: https://www.nhc.noaa.gov/gtwo.xml
+2025-08-10 08:09:37,447 [INFO] Successfully fetched 3 entries from National Hurricane Center Graphical Tropical Weather Outlooks
+2025-08-10 08:09:37,447 [INFO] Total disaster reports fetched: 100
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.3 - 80 km ese of ozernovskiy, russia (M5.3)
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.9 - 167 km ese of petropavlovsk-kamchatsky, russia (M4.9)
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.7 - 161 km se of petropavlovsk-kamchatsky, russia (M4.7)
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.0 - 158 km se of petropavlovsk-kamchatsky, russia (M5.0)
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.2 - 180 km sse of vilyuchinsk, russia (M5.2)
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 100 km ssw of champerico, guatemala (M4.5)
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.8 - 25 km s of hualien city, taiwan (M4.8)
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.4 - 84 km se of yigo village, guam (M5.4)
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 254 km ese of severo-kuril’sk, russia (M4.5)
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.7 - 172 km sse of vilyuchinsk, russia (M4.7)
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - western indian-antarctic ridge (M4.6)
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.9 - 60 km s of bengkulu, indonesia (M4.9)
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 257 km ese of severo-kuril’sk, russia (M4.6)
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.8 - 160 km sse of vilyuchinsk, russia (M4.8)
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.9 - 175 km sse of vilyuchinsk, russia (M4.9)
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 62 km w of port-vila, vanuatu (M4.6)
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 29 km nne of labuan lombok, indonesia (M4.6)
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.7 - 212 km ese of ozernovskiy, russia (M4.7)
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - central mid-atlantic ridge (M4.6)
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.8 - 131 km se of petropavlovsk-kamchatsky, russia (M4.8)
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 155 km se of severo-kuril’sk, russia (M4.5)
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 185 km sse of severo-kuril’sk, russia (M4.5)
+2025-08-10 08:09:37,448 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 205 km ssw of severo-kuril’sk, russia (M4.6)
+2025-08-10 08:09:37,449 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 282 km ese of severo-kuril’sk, russia (M4.6)
+2025-08-10 08:09:37,449 [INFO] Processing 76 entries after initial filtering
+2025-08-10 08:09:37,458 [INFO] Processing batch 1 with 10 entries
+2025-08-10 08:09:37,568 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_tokens'
+2025-08-10 08:09:39,568 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_tokens'
+2025-08-10 08:09:39,576 [INFO] Processing batch 2 with 10 entries
+2025-08-10 08:09:39,576 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_tokens'
+2025-08-10 08:09:41,576 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_tokens'
+2025-08-10 08:09:41,579 [INFO] Processing batch 3 with 10 entries
+2025-08-10 08:09:41,579 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_tokens'
+2025-08-10 08:09:43,579 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_tokens'
+2025-08-10 08:09:43,582 [INFO] Processing batch 4 with 10 entries
+2025-08-10 08:09:43,582 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_tokens'
+2025-08-10 08:09:45,583 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_tokens'
+2025-08-10 08:09:45,585 [INFO] Processing batch 5 with 10 entries
+2025-08-10 08:09:45,586 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_tokens'
+2025-08-10 08:09:47,586 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_tokens'
+2025-08-10 08:09:47,588 [INFO] Processing batch 6 with 10 entries
+2025-08-10 08:09:47,589 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_tokens'
+2025-08-10 08:09:49,589 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_tokens'
+2025-08-10 08:09:49,591 [INFO] Processing batch 7 with 10 entries
+2025-08-10 08:09:49,591 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_tokens'
+2025-08-10 08:09:51,592 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_tokens'
+2025-08-10 08:09:51,595 [INFO] Processing batch 8 with 6 entries
+2025-08-10 08:09:51,595 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_tokens'
+2025-08-10 08:09:53,595 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_tokens'
+2025-08-10 08:11:05,563 [INFO] HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-08-10 08:11:05,639 [INFO] Successfully obtained summary from OpenAI.
+2025-08-10 08:12:56,989 [INFO] Using User-Agent: DisasterMonitor/1.1.0 (team@ai4altruism.org; https://ai4altruism.org/) Python/3.12.3 Platform/Linux
+2025-08-10 08:12:56,989 [INFO] Fetching feed: https://gdacs.org/xml/rss_24h.xml
+2025-08-10 08:12:57,451 [INFO] Successfully fetched 47 entries from GDACS RSS information
+2025-08-10 08:12:57,451 [INFO] Filtered GDACS green alert in feedparser stage: Green alert for tropical cyclone PODUL-25. Population affected by Category 1 (120 km/h) wind speeds or higher is 0  (0 in Tropical Storm).
+2025-08-10 08:12:57,451 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.3M, Depth:70.918km) in Russian Federation 10/08/2025 11:19 UTC, 2 thousand in 100km.
+2025-08-10 08:12:57,451 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.9M, Depth:10km) in Russia 10/08/2025 10:47 UTC, Few people affected in 100km.
+2025-08-10 08:12:57,451 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.7M, Depth:10km) in [unknown] 10/08/2025 09:58 UTC, No people affected in 100km.
+2025-08-10 08:12:57,451 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5M, Depth:10km) in [unknown] 10/08/2025 09:29 UTC, No people affected in 100km.
+2025-08-10 08:12:57,451 [INFO] Filtered GDACS green alert in feedparser stage: Green alert for tropical cyclone IVO-25. Population affected by Category 1 (120 km/h) wind speeds or higher is 0  (0 in Tropical Storm).
+2025-08-10 08:12:57,451 [INFO] Filtered GDACS green alert in feedparser stage: Green alert for tropical cyclone HENRIETTE-25. Population affected by Category 1 (120 km/h) wind speeds or higher is 0  (0 in Tropical Storm).
+2025-08-10 08:12:57,451 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.2M, Depth:10km) in Russia 10/08/2025 06:59 UTC, No people affected in 100km.
+2025-08-10 08:12:57,451 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:10km) in Guatemala 10/08/2025 06:14 UTC, 3 thousand in 100km.
+2025-08-10 08:12:57,451 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.8M, Depth:20.846km) in Taiwan 10/08/2025 06:03 UTC, 1.5 million in 100km.
+2025-08-10 08:12:57,451 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.4M, Depth:10km) in Guam 10/08/2025 05:57 UTC, 170 thousand in 100km.
+2025-08-10 08:12:57,451 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:10km) in [unknown] 10/08/2025 05:12 UTC, No people affected in 100km.
+2025-08-10 08:12:57,451 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.9M, Depth:16km) in Guam 10/08/2025 04:56 UTC, 90 thousand in 100km.
+2025-08-10 08:12:57,451 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.7M, Depth:10km) in Russia 10/08/2025 04:04 UTC, No people affected in 100km.
+2025-08-10 08:12:57,451 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in [unknown] 10/08/2025 03:28 UTC, No people affected in 100km.
+2025-08-10 08:12:57,451 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.9M, Depth:58.763km) in Indonesia 10/08/2025 03:27 UTC, 1.2 million in 100km.
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in [unknown] 10/08/2025 03:11 UTC, No people affected in 100km.
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.8M, Depth:22.033km) in Russia 10/08/2025 02:44 UTC, No people affected in 100km.
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.9M, Depth:10km) in Russia 10/08/2025 02:39 UTC, No people affected in 100km.
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in Vanuatu 10/08/2025 01:24 UTC, 120 thousand in 100km.
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in Indonesia 10/08/2025 00:39 UTC, 4.2 million in 100km.
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Canada
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Albania
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Canada
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Canada
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Bolivia
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in United States
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.7M, Depth:10km) in Russia 09/08/2025 23:11 UTC, No people affected in 100km.
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in [unknown] 09/08/2025 22:51 UTC, No people affected in 100km.
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.9M, Depth:9km) in Guatemala 09/08/2025 20:40 UTC, No people affected in 100km.
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.8M, Depth:35km) in Russia 09/08/2025 19:21 UTC, Few people affected in 100km.
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:10km) in [unknown] 09/08/2025 18:30 UTC, No people affected in 100km.
+2025-08-10 08:12:57,452 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:23.423km) in [unknown] 09/08/2025 16:17 UTC, No people affected in 100km.
+2025-08-10 08:12:57,452 [INFO] Fetching feed: https://reliefweb.int/disasters/rss.xml
+2025-08-10 08:12:57,818 [INFO] Successfully fetched 20 entries from ReliefWeb - Disasters
+2025-08-10 08:12:57,819 [INFO] Fetching feed: https://inciweb.wildfire.gov/incidents/rss.xml
+2025-08-10 08:12:58,025 [INFO] Successfully fetched 50 entries from InciWeb
+2025-08-10 08:12:58,025 [INFO] Fetching feed: http://www.spc.noaa.gov/products/spcrss.xml
+2025-08-10 08:12:58,202 [INFO] Pre-filtered SPC report in XML parsing: SPC - No MDs are in effect as of Sun Aug 10 13:27:01 UTC 2025
+2025-08-10 08:12:58,202 [INFO] Pre-filtered SPC report in XML parsing: SPC Aug 10, 2025 1300 UTC Day 1 Convective Outlook
+2025-08-10 08:12:58,202 [INFO] Pre-filtered 2 of 3 SPC reports in XML parsing
+2025-08-10 08:12:58,205 [INFO] Successfully fetched 1 entries from SPC Forecast Products
+2025-08-10 08:12:58,205 [INFO] Fetching feed: https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.atom
+2025-08-10 08:12:58,325 [INFO] Successfully fetched 26 entries from USGS Magnitude 4.5+ Earthquakes, Past Day
+2025-08-10 08:12:58,325 [INFO] Fetching feed: https://www.nhc.noaa.gov/gtwo.xml
+2025-08-10 08:12:58,569 [INFO] Successfully fetched 3 entries from National Hurricane Center Graphical Tropical Weather Outlooks
+2025-08-10 08:12:58,569 [INFO] Total disaster reports fetched: 100
+2025-08-10 08:12:58,570 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.3 - 80 km ese of ozernovskiy, russia (M5.3)
+2025-08-10 08:12:58,570 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.9 - 167 km ese of petropavlovsk-kamchatsky, russia (M4.9)
+2025-08-10 08:12:58,570 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.7 - 161 km se of petropavlovsk-kamchatsky, russia (M4.7)
+2025-08-10 08:12:58,570 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.0 - 158 km se of petropavlovsk-kamchatsky, russia (M5.0)
+2025-08-10 08:12:58,570 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.2 - 180 km sse of vilyuchinsk, russia (M5.2)
+2025-08-10 08:12:58,570 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 100 km ssw of champerico, guatemala (M4.5)
+2025-08-10 08:12:58,570 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.8 - 25 km s of hualien city, taiwan (M4.8)
+2025-08-10 08:12:58,570 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.2 - 83 km se of yigo village, guam (M5.2)
+2025-08-10 08:12:58,570 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 254 km ese of severo-kuril’sk, russia (M4.5)
+2025-08-10 08:12:58,570 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.7 - 172 km sse of vilyuchinsk, russia (M4.7)
+2025-08-10 08:12:58,570 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - western indian-antarctic ridge (M4.6)
+2025-08-10 08:12:58,570 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.9 - 60 km s of bengkulu, indonesia (M4.9)
+2025-08-10 08:12:58,570 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 257 km ese of severo-kuril’sk, russia (M4.6)
+2025-08-10 08:12:58,570 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.8 - 160 km sse of vilyuchinsk, russia (M4.8)
+2025-08-10 08:12:58,570 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.9 - 175 km sse of vilyuchinsk, russia (M4.9)
+2025-08-10 08:12:58,570 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 62 km w of port-vila, vanuatu (M4.6)
+2025-08-10 08:12:58,570 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 29 km nne of labuan lombok, indonesia (M4.6)
+2025-08-10 08:12:58,570 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.7 - 212 km ese of ozernovskiy, russia (M4.7)
+2025-08-10 08:12:58,570 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - central mid-atlantic ridge (M4.6)
+2025-08-10 08:12:58,571 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.8 - 131 km se of petropavlovsk-kamchatsky, russia (M4.8)
+2025-08-10 08:12:58,571 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 155 km se of severo-kuril’sk, russia (M4.5)
+2025-08-10 08:12:58,571 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 185 km sse of severo-kuril’sk, russia (M4.5)
+2025-08-10 08:12:58,571 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 205 km ssw of severo-kuril’sk, russia (M4.6)
+2025-08-10 08:12:58,571 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 282 km ese of severo-kuril’sk, russia (M4.6)
+2025-08-10 08:12:58,571 [INFO] Processing 76 entries after initial filtering
+2025-08-10 08:12:58,577 [INFO] Processing batch 1 with 10 entries
+2025-08-10 08:12:58,686 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_completion_tokens'
+2025-08-10 08:13:00,687 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_completion_tokens'
+2025-08-10 08:13:00,695 [INFO] Processing batch 2 with 10 entries
+2025-08-10 08:13:00,695 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_completion_tokens'
+2025-08-10 08:13:02,695 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_completion_tokens'
+2025-08-10 08:13:02,698 [INFO] Processing batch 3 with 10 entries
+2025-08-10 08:13:02,698 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_completion_tokens'
+2025-08-10 08:13:04,698 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_completion_tokens'
+2025-08-10 08:13:04,701 [INFO] Processing batch 4 with 10 entries
+2025-08-10 08:13:04,701 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_completion_tokens'
+2025-08-10 08:13:06,701 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_completion_tokens'
+2025-08-10 08:13:06,704 [INFO] Processing batch 5 with 10 entries
+2025-08-10 08:13:06,704 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_completion_tokens'
+2025-08-10 08:13:08,704 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_completion_tokens'
+2025-08-10 08:13:08,706 [INFO] Processing batch 6 with 10 entries
+2025-08-10 08:13:08,706 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_completion_tokens'
+2025-08-10 08:13:10,707 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_completion_tokens'
+2025-08-10 08:13:10,709 [INFO] Processing batch 7 with 10 entries
+2025-08-10 08:13:10,709 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_completion_tokens'
+2025-08-10 08:13:12,710 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_completion_tokens'
+2025-08-10 08:13:12,712 [INFO] Processing batch 8 with 6 entries
+2025-08-10 08:13:12,712 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_completion_tokens'
+2025-08-10 08:13:14,713 [ERROR] Unexpected error extracting details: Responses.create() got an unexpected keyword argument 'max_completion_tokens'
+2025-08-10 08:14:09,416 [INFO] HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-08-10 08:14:09,502 [INFO] Successfully obtained summary from OpenAI.
+2025-08-10 08:15:38,633 [INFO] Using User-Agent: DisasterMonitor/1.1.0 (team@ai4altruism.org; https://ai4altruism.org/) Python/3.12.3 Platform/Linux
+2025-08-10 08:15:38,633 [INFO] Fetching feed: https://gdacs.org/xml/rss_24h.xml
+2025-08-10 08:15:39,096 [INFO] Successfully fetched 47 entries from GDACS RSS information
+2025-08-10 08:15:39,096 [INFO] Filtered GDACS green alert in feedparser stage: Green alert for tropical cyclone PODUL-25. Population affected by Category 1 (120 km/h) wind speeds or higher is 0  (0 in Tropical Storm).
+2025-08-10 08:15:39,096 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.3M, Depth:70.918km) in Russian Federation 10/08/2025 11:19 UTC, 2 thousand in 100km.
+2025-08-10 08:15:39,096 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.9M, Depth:10km) in Russia 10/08/2025 10:47 UTC, Few people affected in 100km.
+2025-08-10 08:15:39,096 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.7M, Depth:10km) in [unknown] 10/08/2025 09:58 UTC, No people affected in 100km.
+2025-08-10 08:15:39,096 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5M, Depth:10km) in [unknown] 10/08/2025 09:29 UTC, No people affected in 100km.
+2025-08-10 08:15:39,096 [INFO] Filtered GDACS green alert in feedparser stage: Green alert for tropical cyclone IVO-25. Population affected by Category 1 (120 km/h) wind speeds or higher is 0  (0 in Tropical Storm).
+2025-08-10 08:15:39,096 [INFO] Filtered GDACS green alert in feedparser stage: Green alert for tropical cyclone HENRIETTE-25. Population affected by Category 1 (120 km/h) wind speeds or higher is 0  (0 in Tropical Storm).
+2025-08-10 08:15:39,096 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.2M, Depth:10km) in Russia 10/08/2025 06:59 UTC, No people affected in 100km.
+2025-08-10 08:15:39,096 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:10km) in Guatemala 10/08/2025 06:14 UTC, 3 thousand in 100km.
+2025-08-10 08:15:39,096 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.8M, Depth:20.846km) in Taiwan 10/08/2025 06:03 UTC, 1.5 million in 100km.
+2025-08-10 08:15:39,096 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.4M, Depth:10km) in Guam 10/08/2025 05:57 UTC, 170 thousand in 100km.
+2025-08-10 08:15:39,096 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:10km) in [unknown] 10/08/2025 05:12 UTC, No people affected in 100km.
+2025-08-10 08:15:39,096 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.9M, Depth:16km) in Guam 10/08/2025 04:56 UTC, 90 thousand in 100km.
+2025-08-10 08:15:39,096 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.7M, Depth:10km) in Russia 10/08/2025 04:04 UTC, No people affected in 100km.
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in [unknown] 10/08/2025 03:28 UTC, No people affected in 100km.
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.9M, Depth:58.763km) in Indonesia 10/08/2025 03:27 UTC, 1.2 million in 100km.
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in [unknown] 10/08/2025 03:11 UTC, No people affected in 100km.
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.8M, Depth:22.033km) in Russia 10/08/2025 02:44 UTC, No people affected in 100km.
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.9M, Depth:10km) in Russia 10/08/2025 02:39 UTC, No people affected in 100km.
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in Vanuatu 10/08/2025 01:24 UTC, 120 thousand in 100km.
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in Indonesia 10/08/2025 00:39 UTC, 4.2 million in 100km.
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Canada
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Albania
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Canada
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Canada
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Bolivia
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in United States
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.7M, Depth:10km) in Russia 09/08/2025 23:11 UTC, No people affected in 100km.
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in [unknown] 09/08/2025 22:51 UTC, No people affected in 100km.
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.9M, Depth:9km) in Guatemala 09/08/2025 20:40 UTC, No people affected in 100km.
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.8M, Depth:35km) in Russia 09/08/2025 19:21 UTC, Few people affected in 100km.
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:10km) in [unknown] 09/08/2025 18:30 UTC, No people affected in 100km.
+2025-08-10 08:15:39,097 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:23.423km) in [unknown] 09/08/2025 16:17 UTC, No people affected in 100km.
+2025-08-10 08:15:39,097 [INFO] Fetching feed: https://reliefweb.int/disasters/rss.xml
+2025-08-10 08:15:39,484 [INFO] Successfully fetched 20 entries from ReliefWeb - Disasters
+2025-08-10 08:15:39,484 [INFO] Fetching feed: https://inciweb.wildfire.gov/incidents/rss.xml
+2025-08-10 08:15:39,679 [INFO] Successfully fetched 50 entries from InciWeb
+2025-08-10 08:15:39,680 [INFO] Fetching feed: http://www.spc.noaa.gov/products/spcrss.xml
+2025-08-10 08:15:40,224 [INFO] Pre-filtered SPC report in XML parsing: SPC - No MDs are in effect as of Sun Aug 10 13:27:01 UTC 2025
+2025-08-10 08:15:40,224 [INFO] Pre-filtered SPC report in XML parsing: SPC Aug 10, 2025 1300 UTC Day 1 Convective Outlook
+2025-08-10 08:15:40,225 [INFO] Pre-filtered 2 of 3 SPC reports in XML parsing
+2025-08-10 08:15:40,234 [INFO] Successfully fetched 1 entries from SPC Forecast Products
+2025-08-10 08:15:40,234 [INFO] Fetching feed: https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.atom
+2025-08-10 08:15:40,411 [INFO] Successfully fetched 26 entries from USGS Magnitude 4.5+ Earthquakes, Past Day
+2025-08-10 08:15:40,411 [INFO] Fetching feed: https://www.nhc.noaa.gov/gtwo.xml
+2025-08-10 08:15:40,553 [INFO] Successfully fetched 3 entries from National Hurricane Center Graphical Tropical Weather Outlooks
+2025-08-10 08:15:40,554 [INFO] Total disaster reports fetched: 100
+2025-08-10 08:15:40,555 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.3 - 80 km ese of ozernovskiy, russia (M5.3)
+2025-08-10 08:15:40,555 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.9 - 167 km ese of petropavlovsk-kamchatsky, russia (M4.9)
+2025-08-10 08:15:40,555 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.7 - 161 km se of petropavlovsk-kamchatsky, russia (M4.7)
+2025-08-10 08:15:40,556 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.0 - 158 km se of petropavlovsk-kamchatsky, russia (M5.0)
+2025-08-10 08:15:40,556 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.2 - 180 km sse of vilyuchinsk, russia (M5.2)
+2025-08-10 08:15:40,556 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 100 km ssw of champerico, guatemala (M4.5)
+2025-08-10 08:15:40,556 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.8 - 25 km s of hualien city, taiwan (M4.8)
+2025-08-10 08:15:40,556 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.2 - 83 km se of yigo village, guam (M5.2)
+2025-08-10 08:15:40,556 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 254 km ese of severo-kuril’sk, russia (M4.5)
+2025-08-10 08:15:40,556 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.7 - 172 km sse of vilyuchinsk, russia (M4.7)
+2025-08-10 08:15:40,556 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - western indian-antarctic ridge (M4.6)
+2025-08-10 08:15:40,556 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.9 - 60 km s of bengkulu, indonesia (M4.9)
+2025-08-10 08:15:40,556 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 257 km ese of severo-kuril’sk, russia (M4.6)
+2025-08-10 08:15:40,556 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.8 - 160 km sse of vilyuchinsk, russia (M4.8)
+2025-08-10 08:15:40,556 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.9 - 175 km sse of vilyuchinsk, russia (M4.9)
+2025-08-10 08:15:40,556 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 62 km w of port-vila, vanuatu (M4.6)
+2025-08-10 08:15:40,556 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 29 km nne of labuan lombok, indonesia (M4.6)
+2025-08-10 08:15:40,556 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.7 - 212 km ese of ozernovskiy, russia (M4.7)
+2025-08-10 08:15:40,556 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - central mid-atlantic ridge (M4.6)
+2025-08-10 08:15:40,556 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.8 - 131 km se of petropavlovsk-kamchatsky, russia (M4.8)
+2025-08-10 08:15:40,556 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 155 km se of severo-kuril’sk, russia (M4.5)
+2025-08-10 08:15:40,556 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 185 km sse of severo-kuril’sk, russia (M4.5)
+2025-08-10 08:15:40,557 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 205 km ssw of severo-kuril’sk, russia (M4.6)
+2025-08-10 08:15:40,557 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 282 km ese of severo-kuril’sk, russia (M4.6)
+2025-08-10 08:15:40,557 [INFO] Processing 76 entries after initial filtering
+2025-08-10 08:15:40,567 [INFO] Processing batch 1 with 10 entries
+2025-08-10 08:16:03,872 [INFO] HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-08-10 08:16:03,917 [INFO] Successfully extracted details for 10 entries in batch
+2025-08-10 08:16:03,918 [INFO] Processing batch 2 with 10 entries
+2025-08-10 08:16:19,283 [INFO] HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-08-10 08:16:19,286 [INFO] Successfully extracted details for 10 entries in batch
+2025-08-10 08:16:19,287 [INFO] Processing batch 3 with 10 entries
+2025-08-10 08:16:30,501 [INFO] HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-08-10 08:16:30,505 [INFO] Successfully extracted details for 10 entries in batch
+2025-08-10 08:16:30,505 [INFO] Processing batch 4 with 10 entries
+2025-08-10 08:16:44,560 [INFO] HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-08-10 08:16:44,563 [INFO] Successfully extracted details for 10 entries in batch
+2025-08-10 08:16:44,564 [INFO] Processing batch 5 with 10 entries
+2025-08-10 08:17:00,763 [INFO] HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-08-10 08:17:00,766 [INFO] Successfully extracted details for 10 entries in batch
+2025-08-10 08:17:00,766 [INFO] Processing batch 6 with 10 entries
+2025-08-10 08:17:14,214 [INFO] HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-08-10 08:17:14,219 [INFO] Successfully extracted details for 10 entries in batch
+2025-08-10 08:17:14,220 [INFO] Processing batch 7 with 10 entries
+2025-08-10 08:18:37,192 [INFO] HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-08-10 08:18:37,197 [INFO] Successfully extracted details for 10 entries in batch
+2025-08-10 08:18:37,197 [INFO] Processing batch 8 with 6 entries
+2025-08-10 08:18:47,246 [INFO] HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-08-10 08:18:47,249 [INFO] Successfully extracted details for 6 entries in batch
+2025-08-10 08:19:51,630 [INFO] HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-08-10 08:19:51,685 [INFO] Successfully obtained summary from OpenAI.
+2025-08-10 08:24:05,181 [INFO] Database initialized successfully.
+2025-08-10 08:24:05,181 [INFO] Starting disaster report processing...
+2025-08-10 08:24:05,185 [INFO] Cleaned up 151 old entries from the database.
+2025-08-10 08:24:05,185 [INFO] Loaded 0 sent entries from the database.
+2025-08-10 08:24:05,185 [INFO] Using User-Agent: DisasterMonitor/1.1.0 (team@ai4altruism.org; https://ai4altruism.org/) Python/3.12.3 Platform/Linux
+2025-08-10 08:24:05,185 [INFO] Fetching feed: https://gdacs.org/xml/rss_24h.xml
+2025-08-10 08:24:05,768 [INFO] Successfully fetched 47 entries from GDACS RSS information
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green alert for tropical cyclone PODUL-25. Population affected by Category 1 (120 km/h) wind speeds or higher is 0  (0 in Tropical Storm).
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.3M, Depth:70.918km) in Russian Federation 10/08/2025 11:19 UTC, 2 thousand in 100km.
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.9M, Depth:10km) in Russia 10/08/2025 10:47 UTC, Few people affected in 100km.
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.7M, Depth:10km) in [unknown] 10/08/2025 09:58 UTC, No people affected in 100km.
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5M, Depth:10km) in [unknown] 10/08/2025 09:29 UTC, No people affected in 100km.
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green alert for tropical cyclone IVO-25. Population affected by Category 1 (120 km/h) wind speeds or higher is 0  (0 in Tropical Storm).
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green alert for tropical cyclone HENRIETTE-25. Population affected by Category 1 (120 km/h) wind speeds or higher is 0  (0 in Tropical Storm).
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.2M, Depth:10km) in Russia 10/08/2025 06:59 UTC, No people affected in 100km.
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:10km) in Guatemala 10/08/2025 06:14 UTC, 3 thousand in 100km.
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.8M, Depth:20.846km) in Taiwan 10/08/2025 06:03 UTC, 1.5 million in 100km.
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.2M, Depth:10km) in Guam 10/08/2025 05:57 UTC, 170 thousand in 100km.
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:10km) in [unknown] 10/08/2025 05:12 UTC, No people affected in 100km.
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.9M, Depth:16km) in Guam 10/08/2025 04:56 UTC, 90 thousand in 100km.
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.7M, Depth:10km) in Russia 10/08/2025 04:04 UTC, No people affected in 100km.
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in [unknown] 10/08/2025 03:28 UTC, No people affected in 100km.
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.9M, Depth:58.763km) in Indonesia 10/08/2025 03:27 UTC, 1.2 million in 100km.
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in [unknown] 10/08/2025 03:11 UTC, No people affected in 100km.
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.8M, Depth:22.033km) in Russia 10/08/2025 02:44 UTC, No people affected in 100km.
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.9M, Depth:10km) in Russia 10/08/2025 02:39 UTC, No people affected in 100km.
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in Vanuatu 10/08/2025 01:24 UTC, 120 thousand in 100km.
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in Indonesia 10/08/2025 00:39 UTC, 4.2 million in 100km.
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Canada
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Albania
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:24:05,768 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:24:05,769 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Brazil
+2025-08-10 08:24:05,769 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Canada
+2025-08-10 08:24:05,769 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:24:05,769 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:24:05,769 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Canada
+2025-08-10 08:24:05,769 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Bolivia
+2025-08-10 08:24:05,769 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:24:05,769 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:24:05,769 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:24:05,769 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in United States
+2025-08-10 08:24:05,769 [INFO] Filtered GDACS green alert in feedparser stage: Green forest fire alert in Australia
+2025-08-10 08:24:05,769 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.7M, Depth:10km) in Russia 09/08/2025 23:11 UTC, No people affected in 100km.
+2025-08-10 08:24:05,769 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.6M, Depth:10km) in [unknown] 09/08/2025 22:51 UTC, No people affected in 100km.
+2025-08-10 08:24:05,769 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 5.9M, Depth:9km) in Guatemala 09/08/2025 20:40 UTC, No people affected in 100km.
+2025-08-10 08:24:05,769 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.8M, Depth:35km) in Russia 09/08/2025 19:21 UTC, Few people affected in 100km.
+2025-08-10 08:24:05,769 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:10km) in [unknown] 09/08/2025 18:30 UTC, No people affected in 100km.
+2025-08-10 08:24:05,769 [INFO] Filtered GDACS green alert in feedparser stage: Green earthquake alert (Magnitude 4.5M, Depth:23.423km) in [unknown] 09/08/2025 16:17 UTC, No people affected in 100km.
+2025-08-10 08:24:05,769 [INFO] Fetching feed: https://reliefweb.int/disasters/rss.xml
+2025-08-10 08:24:06,136 [INFO] Successfully fetched 20 entries from ReliefWeb - Disasters
+2025-08-10 08:24:06,136 [INFO] Fetching feed: https://inciweb.wildfire.gov/incidents/rss.xml
+2025-08-10 08:24:06,353 [INFO] Successfully fetched 50 entries from InciWeb
+2025-08-10 08:24:06,354 [INFO] Fetching feed: http://www.spc.noaa.gov/products/spcrss.xml
+2025-08-10 08:24:06,662 [INFO] Pre-filtered SPC report in XML parsing: SPC - No MDs are in effect as of Sun Aug 10 13:27:01 UTC 2025
+2025-08-10 08:24:06,663 [INFO] Pre-filtered SPC report in XML parsing: SPC Aug 10, 2025 1300 UTC Day 1 Convective Outlook
+2025-08-10 08:24:06,663 [INFO] Pre-filtered 2 of 3 SPC reports in XML parsing
+2025-08-10 08:24:06,665 [INFO] Successfully fetched 1 entries from SPC Forecast Products
+2025-08-10 08:24:06,666 [INFO] Fetching feed: https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.atom
+2025-08-10 08:24:06,759 [INFO] Successfully fetched 26 entries from USGS Magnitude 4.5+ Earthquakes, Past Day
+2025-08-10 08:24:06,759 [INFO] Fetching feed: https://www.nhc.noaa.gov/gtwo.xml
+2025-08-10 08:24:06,895 [INFO] Successfully fetched 3 entries from National Hurricane Center Graphical Tropical Weather Outlooks
+2025-08-10 08:24:06,895 [INFO] Total disaster reports fetched: 100
+2025-08-10 08:24:06,895 [INFO] Fetched 100 disaster reports from RSS feeds.
+2025-08-10 08:24:06,895 [INFO] Processing 100 new disaster reports.
+2025-08-10 08:24:06,897 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.3 - 80 km ese of ozernovskiy, russia (M5.3)
+2025-08-10 08:24:06,897 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.9 - 167 km ese of petropavlovsk-kamchatsky, russia (M4.9)
+2025-08-10 08:24:06,897 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.7 - 161 km se of petropavlovsk-kamchatsky, russia (M4.7)
+2025-08-10 08:24:06,897 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.0 - 158 km se of petropavlovsk-kamchatsky, russia (M5.0)
+2025-08-10 08:24:06,897 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.2 - 180 km sse of vilyuchinsk, russia (M5.2)
+2025-08-10 08:24:06,897 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 100 km ssw of champerico, guatemala (M4.5)
+2025-08-10 08:24:06,897 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.8 - 25 km s of hualien city, taiwan (M4.8)
+2025-08-10 08:24:06,897 [INFO] Filtering out low magnitude USGS earthquake from title: m 5.2 - 83 km se of yigo village, guam (M5.2)
+2025-08-10 08:24:06,897 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 254 km ese of severo-kuril’sk, russia (M4.5)
+2025-08-10 08:24:06,897 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.7 - 172 km sse of vilyuchinsk, russia (M4.7)
+2025-08-10 08:24:06,897 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - western indian-antarctic ridge (M4.6)
+2025-08-10 08:24:06,897 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.9 - 60 km s of bengkulu, indonesia (M4.9)
+2025-08-10 08:24:06,897 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 257 km ese of severo-kuril’sk, russia (M4.6)
+2025-08-10 08:24:06,897 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.8 - 160 km sse of vilyuchinsk, russia (M4.8)
+2025-08-10 08:24:06,898 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.9 - 175 km sse of vilyuchinsk, russia (M4.9)
+2025-08-10 08:24:06,898 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 62 km w of port-vila, vanuatu (M4.6)
+2025-08-10 08:24:06,898 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 29 km nne of labuan lombok, indonesia (M4.6)
+2025-08-10 08:24:06,898 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.7 - 212 km ese of ozernovskiy, russia (M4.7)
+2025-08-10 08:24:06,898 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - central mid-atlantic ridge (M4.6)
+2025-08-10 08:24:06,898 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.8 - 131 km se of petropavlovsk-kamchatsky, russia (M4.8)
+2025-08-10 08:24:06,898 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 155 km se of severo-kuril’sk, russia (M4.5)
+2025-08-10 08:24:06,898 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.5 - 185 km sse of severo-kuril’sk, russia (M4.5)
+2025-08-10 08:24:06,898 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 205 km ssw of severo-kuril’sk, russia (M4.6)
+2025-08-10 08:24:06,898 [INFO] Filtering out low magnitude USGS earthquake from title: m 4.6 - 282 km ese of severo-kuril’sk, russia (M4.6)
+2025-08-10 08:24:06,898 [INFO] Processing 76 entries after initial filtering
+2025-08-10 08:24:06,909 [INFO] Processing batch 1 with 10 entries
+2025-08-10 08:24:25,485 [INFO] HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-08-10 08:24:25,527 [INFO] Successfully extracted details for 10 entries in batch
+2025-08-10 08:24:25,527 [INFO] Processing batch 2 with 10 entries
+2025-08-10 08:24:40,954 [INFO] HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-08-10 08:24:40,958 [INFO] Successfully extracted details for 10 entries in batch
+2025-08-10 08:24:40,958 [INFO] Processing batch 3 with 10 entries
+2025-08-10 08:24:52,988 [INFO] HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-08-10 08:24:52,991 [INFO] Successfully extracted details for 10 entries in batch
+2025-08-10 08:24:52,992 [INFO] Processing batch 4 with 10 entries
+2025-08-10 08:25:08,506 [INFO] HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-08-10 08:25:08,509 [INFO] Successfully extracted details for 10 entries in batch
+2025-08-10 08:25:08,509 [INFO] Processing batch 5 with 10 entries
+2025-08-10 08:25:18,627 [INFO] HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-08-10 08:25:18,630 [INFO] Successfully extracted details for 10 entries in batch
+2025-08-10 08:25:18,630 [INFO] Processing batch 6 with 10 entries
+2025-08-10 08:25:33,293 [INFO] HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-08-10 08:25:33,297 [INFO] Successfully extracted details for 10 entries in batch
+2025-08-10 08:25:33,298 [INFO] Processing batch 7 with 10 entries
+2025-08-10 08:25:45,629 [INFO] HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-08-10 08:25:45,633 [INFO] Successfully extracted details for 10 entries in batch
+2025-08-10 08:25:45,634 [INFO] Processing batch 8 with 6 entries
+2025-08-10 08:25:55,226 [INFO] HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-08-10 08:25:55,229 [INFO] Successfully extracted details for 6 entries in batch
+2025-08-10 08:26:53,885 [INFO] HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-08-10 08:26:53,941 [INFO] Successfully obtained summary from OpenAI.
+2025-08-10 08:26:54,263 [INFO] Message sent successfully to #disaster-alerts (timestamp: 1754836014.189599)
+2025-08-10 08:26:54,295 [INFO] Saved 100 new sent entries to the database.
+2025-08-10 08:26:54,295 [INFO] Disaster alert sent to Slack successfully.
+2025-08-10 08:26:54,295 [INFO] Disaster Alert Bot is running... Scheduled to run every 60 minutes.
