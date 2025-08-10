@@ -24,7 +24,6 @@ BATCH_SIZE = int(os.getenv("BATCH_SIZE", "10"))  # Number of entries to process 
 # GPT-5 specific settings
 REASONING_EFFORT_EXTRACTION = os.getenv("REASONING_EFFORT_EXTRACTION", "low")
 REASONING_EFFORT_SUMMARY = os.getenv("REASONING_EFFORT_SUMMARY", "medium")
-VERBOSITY_LEVEL = os.getenv("VERBOSITY_LEVEL", "medium")
 
 # Configure logging with both file and console handlers
 logging.basicConfig(
@@ -322,12 +321,8 @@ def extract_details_in_batch(entries, max_retries=2, backoff_factor=2):
             response = client.responses.create(
                 model=EXTRACTION_MODEL,
                 reasoning={"effort": REASONING_EFFORT_EXTRACTION},
-                verbosity=VERBOSITY_LEVEL,
-                instructions="Extract detailed disaster information from alerts and return as structured JSON. Focus on accuracy and consistency in field extraction.",
+                instructions="Extract detailed disaster information from alerts and return as structured JSON. Focus on accuracy and consistency in field extraction. IMPORTANT: Return valid JSON only.",
                 input=batch_prompt,
-                response_format={"type": "json_object"},
-                temperature=0,
-                max_tokens=4000  # Increased for batch processing
             )
             
             result_text = response.output_text
@@ -599,7 +594,6 @@ def process_disasters(disasters, max_retries=3, backoff_factor=2):
             response = client.responses.create(
                 model=MODEL_NAME,
                 reasoning={"effort": REASONING_EFFORT_SUMMARY},
-                verbosity=VERBOSITY_LEVEL,
                 instructions="You process disaster alert data and format it for concise, informative Slack messages. Focus on providing clear what/where/when information.",
                 input=prompt,
             )
