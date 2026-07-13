@@ -12,11 +12,6 @@ def format_alert_block(summary):
     3. Handling of SPC MD messages and other special cases
     """
 
-    # Truncate if needed (Slack has limits on text length per block)
-    max_len = 2500
-    if len(summary) > max_len:
-        summary = summary[:max_len] + "..."
-
     # Add emoji based on disaster type in heading
     def heading_replacer(match):
         heading_text = match.group(1).strip()
@@ -73,13 +68,14 @@ def format_alert_block(summary):
     )
     
     # 4. Fix Slack link formatting - ensure proper format <url|text>
-    # First, fix any instances of <|More Info> that should be proper links
+    # A link with a missing URL (<|More Info>) is invalid Block Kit and would
+    # be rejected by Slack; degrade it to plain text instead.
     summary = re.sub(
         r'<\|(More Info)>',
-        r'<URL|\1>',  # Temporary placeholder that will be replaced with actual URLs
+        r'\1',
         summary
     )
-    
+
     # Also fix any markdown links [text](url)
     summary = re.sub(
         r'\[([^\]]+)\]\(([^)]+)\)',
@@ -87,8 +83,13 @@ def format_alert_block(summary):
         summary
     )
 
-    # Create blocks with dividers between sections
-    sections = summary.split('---')
+    # Create blocks with dividers between sections. Slack limits: 3000 chars
+    # of text per section block, 50 blocks per message. Truncate per section
+    # (not globally) so a busy day drops detail, not whole disaster groups.
+    max_section_len = 2900
+    max_blocks = 48  # leave room for the header and footer blocks
+
+    sections = [s.strip() for s in summary.split('---') if s.strip()]
     blocks = [
         {
             "type": "header",
@@ -99,30 +100,40 @@ def format_alert_block(summary):
             }
         }
     ]
-    
-    for section in sections:
-        if section.strip():
-            blocks.append({
-                "type": "section",
-                "text": {
-                    "type": "mrkdwn",
-                    "text": section.strip()
-                }
-            })
-            
-            # Add a divider after each section except the last one
-            if section != sections[-1]:
-                blocks.append({"type": "divider"})
-    
+
+    truncated_groups = 0
+    for i, section in enumerate(sections):
+        if len(blocks) >= max_blocks:
+            truncated_groups = len(sections) - i
+            break
+
+        if len(section) > max_section_len:
+            section = section[:max_section_len] + "..."
+
+        blocks.append({
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": section
+            }
+        })
+
+        # Add a divider after each section except the last one
+        if i < len(sections) - 1 and len(blocks) < max_blocks:
+            blocks.append({"type": "divider"})
+
     # Add footer
+    footer_text = "Disaster Alert Monitor"
+    if truncated_groups:
+        footer_text += f" — {truncated_groups} additional group(s) omitted (message limit)"
     blocks.append({
         "type": "context",
         "elements": [
             {
                 "type": "mrkdwn",
-                "text": "Disaster Alert Monitor"
+                "text": footer_text
             }
         ]
     })
-    
+
     return blocks

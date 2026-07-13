@@ -2,4 +2,8 @@
 *.pyo
 __pycache__
 *.log
+*.db
+*.pkl
 .env
+.git
+.venv

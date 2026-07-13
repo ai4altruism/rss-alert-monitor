@@ -124,8 +124,15 @@ docker build -t disaster-monitor-bot .
 
 #### 2. Run Docker Container
 ```bash
-docker run --env-file .env -d --name disaster-monitor-bot disaster-monitor-bot
+docker run --env-file .env -d --name disaster-monitor-bot \
+  -e DB_PATH=/data/disaster_alert_bot.db \
+  -v disaster-monitor-data:/data \
+  disaster-monitor-bot
 ```
+
+> **Note:** The `-v`/`-e DB_PATH` pair persists the sent-entries database across
+> container recreations. Without it, every redeploy loses dedup history and
+> previously posted alerts are re-sent to Slack.
 
 #### 3. Verify Logs
 View container logs to confirm the application is running:

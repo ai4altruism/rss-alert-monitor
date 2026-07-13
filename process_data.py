@@ -40,6 +40,19 @@ client = OpenAI(
     api_key=os.getenv("OPENAI_API_KEY")
 )
 
+def strip_json_fences(text):
+    """
+    Strip markdown code fences (```json ... ```) that LLMs sometimes wrap
+    around JSON output, so json.loads gets clean input.
+    """
+    if not text:
+        return text
+    text = text.strip()
+    text = re.sub(r'^```(?:json)?\s*', '', text)
+    text = re.sub(r'\s*```$', '', text)
+    return text
+
+
 def normalize_date(date_str):
     """
     Normalize various date formats to ISO 8601 (YYYY-MM-DD).
@@ -325,8 +338,8 @@ def extract_details_in_batch(entries, max_retries=2, backoff_factor=2):
                 input=batch_prompt,
             )
             
-            result_text = response.output_text
-            
+            result_text = strip_json_fences(response.output_text)
+
             try:
                 # Parse the JSON response
                 parsed_results = json.loads(result_text)
@@ -524,13 +537,19 @@ def process_disasters(disasters, max_retries=3, backoff_factor=2):
     """
     Process disasters by grouping and preparing summaries.
     Implements retries with exponential backoff for OpenAI API calls.
+
+    Returns:
+        tuple: (summary, status) where status is one of:
+            "ok"    - summary generated successfully
+            "empty" - nothing left after filtering (entries can be marked as sent)
+            "error" - LLM summarization failed (entries should be retried next run)
     """
     grouped = group_disasters(disasters)
 
-    # If no disasters after filtering, return None
+    # If no disasters after filtering, there is nothing to send
     if not grouped:
         logging.info("No disasters to process after filtering")
-        return None
+        return None, "empty"
 
     # Prepare the prompt for the LLM
     prompt = """
@@ -601,83 +620,47 @@ def process_disasters(disasters, max_retries=3, backoff_factor=2):
             summary = response.output_text.strip()
 
             logging.info("Successfully obtained summary from OpenAI.")
-            
+
             # Log the summary for debugging
             logging.debug(f"Raw LLM summary:\n{summary}")
-            
-            return summary
+
+            return summary, "ok"
         except RateLimitError as e:
+            last_error = "OpenAI API request exceeded rate limit. Please check your quota."
             logging.error(f"Attempt {attempt}: OpenAI API request exceeded rate limit: {e}")
-            # Notify via Slack
-            send_disaster_alert_block([
-                {
-                    "type": "section",
-                    "text": {
-                        "type": "mrkdwn",
-                        "text": "⚠️ *Alert:* OpenAI API request exceeded rate limit. Please check your quota."
-                    }
-                }
-            ])
         except APIConnectionError as e:
+            last_error = "Failed to connect to OpenAI API. Please check your network connection."
             logging.error(f"Attempt {attempt}: Failed to connect to OpenAI API: {e}")
-            # Notify via Slack
-            send_disaster_alert_block([
-                {
-                    "type": "section",
-                    "text": {
-                        "type": "mrkdwn",
-                        "text": "⚠️ *Alert:* Failed to connect to OpenAI API. Please check your network connection."
-                    }
-                }
-            ])
         except APIError as e:
+            last_error = f"OpenAI API returned an error: {e}"
             logging.error(f"Attempt {attempt}: OpenAI API returned an API Error: {e}")
-            # Notify via Slack
-            send_disaster_alert_block([
-                {
-                    "type": "section",
-                    "text": {
-                        "type": "mrkdwn",
-                        "text": f"⚠️ *Alert:* OpenAI API returned an error: {e}"
-                        }
-                    }
-                ])
         except Exception as e:
+            last_error = "An unexpected error occurred while processing disaster reports."
             logging.error(f"Attempt {attempt}: Unexpected error: {e}")
-            # Notify via Slack
-            send_disaster_alert_block([
-                {
-                    "type": "section",
-                    "text": {
-                        "type": "mrkdwn",
-                        "text": "⚠️ *Alert:* An unexpected error occurred while processing disaster reports."
-                    }
-                }
-            ])
 
         if attempt < max_retries:
             sleep_time = backoff_factor ** attempt
             logging.info(f"Retrying in {sleep_time} seconds...")
             time.sleep(sleep_time)
-        else:
-            logging.error("Max retries reached. Failed to obtain summary from OpenAI.")
-            # Notify via Slack
-            send_disaster_alert_block([
-                {
-                    "type": "section",
-                    "text": {
-                        "type": "mrkdwn",
-                        "text": "⚠️ *Alert:* Failed to obtain summary from OpenAI after multiple attempts."
-                    }
-                }
-            ])
-            return None
+
+    # All retries exhausted — notify Slack once rather than on every attempt
+    logging.error("Max retries reached. Failed to obtain summary from OpenAI.")
+    send_disaster_alert_block([
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": f"⚠️ *Alert:* Failed to obtain summary from OpenAI after {max_retries} attempts. Last error: {last_error}"
+            }
+        }
+    ])
+    return None, "error"
 
 if __name__ == "__main__":
     from fetch_feeds import RSS_FEEDS
     disasters = fetch_rss_feeds(RSS_FEEDS)
-    summary = process_disasters(disasters)
+    summary, status = process_disasters(disasters)
     if summary:
         print(summary)
     else:
-        print("No summary generated.")
+        print(f"No summary generated (status: {status}).")

@@ -25,8 +25,10 @@ logging.basicConfig(
     ]
 )
 
-# Database path
-DB_PATH = 'disaster_alert_bot.db'
+# Database path (override with DB_PATH, e.g. /data/disaster_alert_bot.db when
+# running in Docker with a persistent volume — otherwise sent-entry history is
+# lost on container recreation and previously posted alerts repeat)
+DB_PATH = os.getenv('DB_PATH', 'disaster_alert_bot.db')
 
 def initialize_db():
     """
@@ -143,24 +145,32 @@ def main():
     logging.info(f"Processing {len(new_disasters)} new disaster reports.")
     
     # Process and summarize the disasters
-    summary = process_disasters(new_disasters)
-    
-    if summary:
+    summary, status = process_disasters(new_disasters)
+    new_links = [d['link'] for d in new_disasters]
+
+    if status == "ok" and summary:
         # Format and send the alert to Slack
         formatted_blocks = format_alert_block(summary)
         logging.debug("Formatted blocks to be sent to Slack:")
         logging.debug(json.dumps(formatted_blocks, indent=2))
-        
-        # Send the alert to Slack
-        send_disaster_alert_block(formatted_blocks)
-        
-        # Update sent entries in the database
-        new_links = [d['link'] for d in new_disasters]
+
+        # Send the alert to Slack; only record entries as sent if delivery
+        # succeeded, so a failed post is retried next run instead of lost.
+        if send_disaster_alert_block(formatted_blocks):
+            save_sent_entries(new_links)
+            logging.info("Disaster alert sent to Slack successfully.")
+        else:
+            logging.error(
+                "Failed to send alert to Slack. Entries NOT marked as sent; will retry next run."
+            )
+    elif status == "empty":
+        # Everything was filtered out (green alerts, low magnitude, etc.).
+        # Record the entries so they are not re-processed on every run.
         save_sent_entries(new_links)
-        
-        logging.info("Disaster alert sent to Slack successfully.")
+        logging.info("All new entries filtered out - recorded as processed, no alert sent.")
     else:
-        logging.warning("No summary generated - no alert sent.")
+        # LLM summarization failed - leave entries unrecorded so they retry.
+        logging.warning("No summary generated - no alert sent; entries will be retried next run.")
 
 def job():
     """
