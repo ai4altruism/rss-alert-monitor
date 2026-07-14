@@ -533,16 +533,60 @@ def group_disasters(disasters):
     
     return grouped
 
+def _items_for_group(reports):
+    """Build display items (title/link/published/source) straight from source data."""
+    return [
+        {
+            "title": r.get("title", "No Title"),
+            "link": r.get("link", "") or "",
+            "published": r.get("published", ""),
+            "source": r.get("source", "Unknown Source"),
+        }
+        for r in reports
+    ]
+
+
+def _fallback_group(key, reports):
+    """Deterministic group rendering used when the LLM is unavailable or omits a group."""
+    details = reports[0].get("details", {}) if reports else {}
+    parts = []
+    dtype = details.get("disaster_type")
+    location = details.get("location")
+    date = details.get("date")
+    severity = details.get("severity")
+    if dtype and dtype != "Unknown Type":
+        parts.append(f"{dtype}")
+    if location and location != "Unknown Location":
+        parts.append(f"in {location}")
+    if date and date != "Unknown Date":
+        parts.append(f"on {date}")
+    sentence = " ".join(parts).capitalize() + "." if parts else ""
+    if severity:
+        sentence += f" Severity: {severity}."
+    return {
+        "heading": key,
+        "summary": sentence or f"{len(reports)} report(s).",
+        "items": _items_for_group(reports),
+    }
+
+
 def process_disasters(disasters, max_retries=3, backoff_factor=2):
     """
-    Process disasters by grouping and preparing summaries.
-    Implements retries with exponential backoff for OpenAI API calls.
+    Process disasters by grouping and preparing structured alert groups.
+
+    The LLM is used ONLY to merge related groups and write narrative
+    summaries — it never sees or emits URLs. Item lines (title, link,
+    published, source) are attached in code from the source data, so links
+    cannot be hallucinated or mangled in the LLM round-trip.
 
     Returns:
-        tuple: (summary, status) where status is one of:
-            "ok"    - summary generated successfully
+        tuple: (groups, status) where groups is a list of
+            {"heading": str, "summary": str, "items": [
+                {"title", "link", "published", "source"}, ...]}
+        and status is one of:
+            "ok"    - groups ready to send (possibly deterministic fallback)
             "empty" - nothing left after filtering (entries can be marked as sent)
-            "error" - LLM summarization failed (entries should be retried next run)
+            "error" - grouping produced nothing sendable
     """
     grouped = group_disasters(disasters)
 
@@ -551,80 +595,63 @@ def process_disasters(disasters, max_retries=3, backoff_factor=2):
         logging.info("No disasters to process after filtering")
         return None, "empty"
 
-    # Prepare the prompt for the LLM
-    prompt = """
-    You are an assistant that processes disaster reports and formats them for a Slack workspace. 
-    De-duplicate and aggregate by disaster type. For each disaster, provide a summary including key details and links.
-    
-    IMPORTANT FORMAT REQUIREMENTS:
-    1. For each disaster group, print a line starting with '### ' followed by the group name.
-    2. Then provide a brief 1-2 sentence summary that includes:
-       - What happened (disaster type)
-       - Where it happened (specific location)
-       - When it happened (date)
-       - How severe it was (magnitude, category, etc. if available)
-       - For GDACS alerts, include the alert level (Orange or Red)
-    3. Then, for each item in that group, print bullet lines that start with '- **Title:**' followed by the item title. Then new lines for:
-       - **Published:**
-       - **Source:**
-       - **Link:**
-    4. Separate each group with a line that only contains three dashes: '---'.
-    5. Do NOT add extra headings or emojis outside of each group. End after listing all groups.
-    
-    <Here is the grouped data...>
-    """
+    # Compact, URL-free description of the groups for the LLM
+    payload = []
+    for key, reports in grouped.items():
+        details = reports[0].get("details", {}) if reports else {}
+        payload.append({
+            "key": key,
+            "details": {k: v for k, v in details.items() if v},
+            "titles": [r.get("title", "") for r in reports],
+        })
 
-    for group, reports in grouped.items():
-        prompt += f"\n### {group}\n"
-        
-        # Include extracted details in the prompt
-        if reports and "details" in reports[0]:
-            details = reports[0]["details"]
-            prompt += "Extracted details:\n"
-            for key, value in details.items():
-                if value:  # Only include non-empty values
-                    prompt += f"- {key}: {value}\n"
-            prompt += "\n"
-        
-        for report in reports:
-            # Format with Slack-style links using <URL|Link Text>
-            link_text = "More Info"
-            # Ensure the link is properly formatted with no pipe character in URL
-            url = report.get('link', '#')
-            # Double check the URL is valid (not empty and does not already contain a pipe)
-            if not url or url == '#':
-                url = 'https://example.com/no-link-available'
-            url = url.replace('%7C', '%7c').replace('|', '%7c')  # Replace any pipe chars with encoded version
-            
-            formatted_link = f"<{url}|{link_text}>"
-            prompt += (f"- **Title:** {report.get('title', 'No Title')}\n"
-                      f"  - **Published:** {report.get('published', 'No Published Date')}\n"
-                      f"  - **Source:** {report.get('source', 'Unknown Source')}\n"
-                      f"  - **Link:** {formatted_link}\n")
-        prompt += "---\n"
-    prompt += "\nAggregated Summary:"
+    prompt = f"""
+You are aggregating disaster reports for a Slack alert.
 
-    # Log the prompt for debugging
+Below is a JSON list of disaster report groups. Merge groups that describe the
+same event or belong naturally together (e.g. several reports of one
+earthquake, or many wildfires in one region), and write a concise 1-2 sentence
+summary for each merged group covering: what happened, where, when, and how
+severe (magnitude, acreage, category; include GDACS alert level Orange/Red
+when present).
+
+Return ONLY valid JSON in this exact structure:
+{{"groups": [{{"heading": "Short heading", "summary": "1-2 sentences.", "member_keys": ["<key>", "<key>"]}}]}}
+
+Rules:
+- member_keys must echo input "key" values EXACTLY, character for character.
+- Every input key must appear in exactly one group's member_keys.
+- Do NOT include URLs or links anywhere.
+- Headings are short and specific, e.g. "Wildfires — Western US" or
+  "Earthquake (M6.4) — Papua New Guinea".
+
+Input groups:
+{json.dumps(payload, indent=1)}
+"""
+
     logging.debug(f"Prompt sent to OpenAI:\n{prompt}")
 
-    # Call OpenAI's API with retries using the new Responses API
+    llm_groups = None
+    last_error = "unknown"
     for attempt in range(1, max_retries + 1):
         try:
             response = client.responses.create(
                 model=MODEL_NAME,
                 reasoning={"effort": REASONING_EFFORT_SUMMARY},
-                instructions="You process disaster alert data and format it for concise, informative Slack messages. Focus on providing clear what/where/when information.",
+                instructions="You aggregate disaster alert data into concise group summaries. Return ONLY valid JSON matching the requested structure. Never include URLs.",
                 input=prompt,
             )
-            # Access the response using the new format
-            summary = response.output_text.strip()
-
-            logging.info("Successfully obtained summary from OpenAI.")
-
-            # Log the summary for debugging
-            logging.debug(f"Raw LLM summary:\n{summary}")
-
-            return summary, "ok"
+            parsed = json.loads(strip_json_fences(response.output_text))
+            candidate = parsed.get("groups")
+            if isinstance(candidate, list) and candidate:
+                llm_groups = candidate
+                logging.info("Successfully obtained group summaries from OpenAI.")
+                break
+            last_error = "LLM returned JSON without a usable 'groups' list."
+            logging.error(f"Attempt {attempt}: {last_error}")
+        except json.JSONDecodeError as e:
+            last_error = f"LLM returned unparseable JSON: {e}"
+            logging.error(f"Attempt {attempt}: {last_error}")
         except RateLimitError as e:
             last_error = "OpenAI API request exceeded rate limit. Please check your quota."
             logging.error(f"Attempt {attempt}: OpenAI API request exceeded rate limit: {e}")
@@ -643,18 +670,62 @@ def process_disasters(disasters, max_retries=3, backoff_factor=2):
             logging.info(f"Retrying in {sleep_time} seconds...")
             time.sleep(sleep_time)
 
-    # All retries exhausted — notify once, via the error channel (or log only)
-    logging.error("Max retries reached. Failed to obtain summary from OpenAI.")
-    send_error_notice(
-        f"⚠️ *Alert:* Failed to obtain summary from OpenAI after {max_retries} attempts. Last error: {last_error}"
-    )
-    return None, "error"
+    result = []
+    used_keys = set()
+
+    if llm_groups:
+        for g in llm_groups:
+            if not isinstance(g, dict):
+                continue
+            keys = [
+                k for k in (g.get("member_keys") or [])
+                if k in grouped and k not in used_keys
+            ]
+            if not keys:
+                continue
+            used_keys.update(keys)
+            items = []
+            for k in keys:
+                items.extend(_items_for_group(grouped[k]))
+            result.append({
+                "heading": (g.get("heading") or keys[0]).strip(),
+                "summary": (g.get("summary") or "").strip(),
+                "items": items,
+            })
+
+    # Any groups the LLM omitted or mangled the keys of — and, when the LLM
+    # failed entirely, every group — are rendered deterministically. An alert
+    # system should degrade to plainer messages, not to silence.
+    leftover = [k for k in grouped if k not in used_keys]
+    if leftover:
+        if llm_groups:
+            logging.warning(
+                f"LLM response omitted {len(leftover)} group(s); rendering them deterministically."
+            )
+        else:
+            logging.error(
+                f"LLM summarization failed after {max_retries} attempts ({last_error}); "
+                f"sending deterministic fallback for all {len(leftover)} group(s)."
+            )
+            send_error_notice(
+                f"⚠️ *Alert:* Group summarization failed after {max_retries} attempts "
+                f"(last error: {last_error}). Alerts were sent in deterministic fallback format."
+            )
+        for k in leftover:
+            result.append(_fallback_group(k, grouped[k]))
+
+    if not result:
+        return None, "error"
+    return result, "ok"
 
 if __name__ == "__main__":
     from fetch_feeds import RSS_FEEDS
     disasters = fetch_rss_feeds(RSS_FEEDS)
-    summary, status = process_disasters(disasters)
-    if summary:
-        print(summary)
+    groups, status = process_disasters(disasters)
+    if groups:
+        for g in groups:
+            print(f"== {g['heading']}\n{g['summary']}")
+            for item in g["items"]:
+                print(f"  - {item['title']} | {item['link']}")
     else:
-        print(f"No summary generated (status: {status}).")
+        print(f"No groups generated (status: {status}).")
