@@ -534,11 +534,12 @@ def group_disasters(disasters):
     return grouped
 
 def _items_for_group(reports):
-    """Build display items (title/link/published/source) straight from source data."""
+    """Build display items (title/link/note/published/source) straight from source data."""
     return [
         {
             "title": r.get("title", "No Title"),
             "link": r.get("link", "") or "",
+            "note": r.get("note", ""),
             "published": r.get("published", ""),
             "source": r.get("source", "Unknown Source"),
         }

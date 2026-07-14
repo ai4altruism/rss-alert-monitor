@@ -50,10 +50,13 @@ def _item_line(item):
     """
     title = _escape_mrkdwn(item.get("title", "No Title"))
     url = _sanitize_url(item.get("link", ""))
+    note = _escape_mrkdwn(item.get("note", ""))
     source = _escape_mrkdwn(item.get("source", ""))
     published = _escape_mrkdwn(item.get("published", ""))
 
     line = f"• <{url}|{title}>" if url else f"• {title}"
+    if note:
+        line += f" — {note}"
     meta = " — ".join(p for p in (published, source) if p)
     if meta:
         line += f"  ({meta})"
