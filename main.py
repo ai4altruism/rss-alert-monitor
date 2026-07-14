@@ -3,7 +3,7 @@
 from fetch_feeds import fetch_rss_feeds, RSS_FEEDS
 from process_data import process_disasters
 from format_message import format_alert_block
-from send_to_slack import send_disaster_alert_block
+from send_to_slack import send_disaster_alert_block, send_error_notice
 import os
 from dotenv import load_dotenv
 import schedule
@@ -181,23 +181,16 @@ def job():
     except Exception as e:
         error_msg = f"An unexpected error occurred in the scheduled job: {str(e)}"
         logging.error(error_msg, exc_info=True)
-        
-        # Try to send error notification to Slack
+
+        # Notify via the error channel (or log only when none is configured) —
+        # tracebacks never go to the public alerts channel.
         try:
-            # Create a formatted error message with traceback
             import traceback
             tb_str = traceback.format_exc()
-            slack_error_message = f"⚠️ *System Alert:* The disaster monitoring system encountered an error:\n```\n{error_msg}\n\nTraceback:\n{tb_str[:800]}...\n```"
-            
-            send_disaster_alert_block([
-                {
-                    "type": "section",
-                    "text": {
-                        "type": "mrkdwn",
-                        "text": slack_error_message
-                    }
-                }
-            ])
+            send_error_notice(
+                f"⚠️ *System Alert:* The disaster monitoring system encountered an error:\n"
+                f"```\n{error_msg}\n\nTraceback:\n{tb_str[:800]}...\n```"
+            )
         except Exception as slack_error:
             logging.error(f"Failed to send error notification to Slack: {slack_error}")
 

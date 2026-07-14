@@ -10,7 +10,7 @@ from collections import defaultdict
 import datetime
 import logging
 import time
-from send_to_slack import send_disaster_alert_block
+from send_to_slack import send_error_notice
 from bs4 import BeautifulSoup
 
 # Load environment variables from .env file
@@ -643,17 +643,11 @@ def process_disasters(disasters, max_retries=3, backoff_factor=2):
             logging.info(f"Retrying in {sleep_time} seconds...")
             time.sleep(sleep_time)
 
-    # All retries exhausted — notify Slack once rather than on every attempt
+    # All retries exhausted — notify once, via the error channel (or log only)
     logging.error("Max retries reached. Failed to obtain summary from OpenAI.")
-    send_disaster_alert_block([
-        {
-            "type": "section",
-            "text": {
-                "type": "mrkdwn",
-                "text": f"⚠️ *Alert:* Failed to obtain summary from OpenAI after {max_retries} attempts. Last error: {last_error}"
-            }
-        }
-    ])
+    send_error_notice(
+        f"⚠️ *Alert:* Failed to obtain summary from OpenAI after {max_retries} attempts. Last error: {last_error}"
+    )
     return None, "error"
 
 if __name__ == "__main__":
