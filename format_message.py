@@ -2,94 +2,81 @@
 
 import re
 
-def format_alert_block(summary):
+# Slack limits: 3000 chars of text per section block, 50 blocks per message.
+MAX_SECTION_LEN = 2900
+MAX_BLOCKS = 48  # leave room for the header and footer blocks
+
+
+def _pick_emoji(heading_text):
+    """Choose an emoji for a group heading based on disaster type keywords."""
+    checks = [
+        (r'earthquake', "🌍"),
+        (r'flood', "🌊"),
+        (r'fire|wildfire', "🔥"),
+        (r'hurricane|cyclone|typhoon', "🌀"),
+        (r'tornado', "🌪️"),
+        (r'storm|thunder|lightning', "⛈️"),
+        (r'volcano|eruption', "🌋"),
+        (r'snow|blizzard|winter', "❄️"),
+        (r'drought|heat', "☀️"),
+        (r'MD \d+|Discussion', "🌪️"),
+        (r'warning|advisory|watch', "⚠️"),
+    ]
+    for pattern, emoji in checks:
+        if re.search(pattern, heading_text, re.IGNORECASE):
+            return emoji
+    return "🌐"
+
+
+def _escape_mrkdwn(text):
+    """Escape Slack mrkdwn control characters in display text."""
+    return (
+        (text or "")
+        .replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+    )
+
+
+def _sanitize_url(url):
+    """Encode characters that would break Slack's <url|text> link syntax."""
+    return (url or "").replace("|", "%7C").replace(">", "%3E").replace(" ", "%20")
+
+
+def _item_line(item):
     """
-    Format the summary for Slack Block Kit with enhanced disaster-specific formatting.
-    
-    Includes:
-    1. Special emoji icons for different disaster types
-    2. Proper formatting for Slack's markdown
-    3. Handling of SPC MD messages and other special cases
+    Render one report as a single mrkdwn line. The link comes straight from
+    the source data — never from LLM output.
     """
+    title = _escape_mrkdwn(item.get("title", "No Title"))
+    url = _sanitize_url(item.get("link", ""))
+    source = _escape_mrkdwn(item.get("source", ""))
+    published = _escape_mrkdwn(item.get("published", ""))
 
-    # Add emoji based on disaster type in heading
-    def heading_replacer(match):
-        heading_text = match.group(1).strip()
-        
-        # Determine appropriate emoji based on disaster type
-        emoji = "🌐"  # Default emoji
-        
-        if re.search(r'earthquake', heading_text, re.IGNORECASE):
-            emoji = "🌍"  # Changed from 🌋 to 🌍 for earthquake
-        elif re.search(r'flood', heading_text, re.IGNORECASE):
-            emoji = "🌊"
-        elif re.search(r'fire|wildfire', heading_text, re.IGNORECASE):
-            emoji = "🔥"
-        elif re.search(r'hurricane|cyclone|typhoon', heading_text, re.IGNORECASE):
-            emoji = "🌀"
-        elif re.search(r'tornado', heading_text, re.IGNORECASE):
-            emoji = "🌪️"
-        elif re.search(r'storm|thunder|lightning', heading_text, re.IGNORECASE):
-            emoji = "⛈️"
-        elif re.search(r'volcano|eruption', heading_text, re.IGNORECASE):
-            emoji = "🌋"
-        elif re.search(r'snow|blizzard|winter', heading_text, re.IGNORECASE):
-            emoji = "❄️"
-        elif re.search(r'drought|heat', heading_text, re.IGNORECASE):
-            emoji = "☀️"
-        elif re.search(r'MD \d+|Discussion', heading_text, re.IGNORECASE):
-            emoji = "🌪️"  # SPC Mesoscale Discussions often relate to severe weather
-        elif re.search(r'warning|advisory|watch', heading_text, re.IGNORECASE):
-            emoji = "⚠️"
-            
-        return f"*{emoji} {heading_text}*"
+    line = f"• <{url}|{title}>" if url else f"• {title}"
+    meta = " — ".join(p for p in (published, source) if p)
+    if meta:
+        line += f"  ({meta})"
+    return line
 
-    # Special handling for SPC MD messages - add emoji for weather alerts
-    summary = re.sub(
-        r"^\s*###\s+(SPC MD \d+)", 
-        r"### 🌪️ \1", 
-        summary,
-        flags=re.MULTILINE
-    )
 
-    # 2. Turn lines starting with '### ' into bold lines with emoji
-    summary = re.sub(
-        r'^\s*###\s+(.*)',
-        heading_replacer,
-        summary,
-        flags=re.MULTILINE
-    )
+def _section(text):
+    return {"type": "section", "text": {"type": "mrkdwn", "text": text}}
 
-    # 3. Convert '**some text**' into '*some text*' for Slack bold
-    summary = re.sub(
-        r'\*\*(.+?)\*\*',
-        r'*\1*',
-        summary
-    )
-    
-    # 4. Fix Slack link formatting - ensure proper format <url|text>
-    # A link with a missing URL (<|More Info>) is invalid Block Kit and would
-    # be rejected by Slack; degrade it to plain text instead.
-    summary = re.sub(
-        r'<\|(More Info)>',
-        r'\1',
-        summary
-    )
 
-    # Also fix any markdown links [text](url)
-    summary = re.sub(
-        r'\[([^\]]+)\]\(([^)]+)\)',
-        r'<\2|\1>',
-        summary
-    )
+def format_alert_block(groups):
+    """
+    Format structured alert groups into Slack Block Kit blocks.
 
-    # Create blocks with dividers between sections. Slack limits: 3000 chars
-    # of text per section block, 50 blocks per message. Truncate per section
-    # (not globally) so a busy day drops detail, not whole disaster groups.
-    max_section_len = 2900
-    max_blocks = 48  # leave room for the header and footer blocks
+    Args:
+        groups: list of {"heading": str, "summary": str, "items": [
+                    {"title", "link", "published", "source"}, ...]}
+                as produced by process_disasters().
 
-    sections = [s.strip() for s in summary.split('---') if s.strip()]
+    Text is packed into section blocks at line granularity — a line (and
+    therefore a link) is never split mid-way. Groups that do not fit within
+    Slack's 50-block limit are omitted and counted in the footer.
+    """
     blocks = [
         {
             "type": "header",
@@ -102,27 +89,39 @@ def format_alert_block(summary):
     ]
 
     truncated_groups = 0
-    for i, section in enumerate(sections):
-        if len(blocks) >= max_blocks:
-            truncated_groups = len(sections) - i
+    for gi, group in enumerate(groups):
+        if len(blocks) >= MAX_BLOCKS:
+            truncated_groups = len(groups) - gi
             break
 
-        if len(section) > max_section_len:
-            section = section[:max_section_len] + "..."
+        heading = group.get("heading") or "Alerts"
+        emoji = _pick_emoji(heading)
+        lines = [f"*{emoji} {_escape_mrkdwn(heading)}*"]
+        summary = (group.get("summary") or "").strip()
+        if summary:
+            lines.append(_escape_mrkdwn(summary))
+        lines.extend(_item_line(item) for item in group.get("items", []))
 
-        blocks.append({
-            "type": "section",
-            "text": {
-                "type": "mrkdwn",
-                "text": section
-            }
-        })
+        # Pack whole lines into section blocks (an over-long single line is
+        # truncated on its own, which can shorten displayed text but never
+        # produces a dangling half-link followed by other content).
+        current = ""
+        for line in lines:
+            if len(line) > MAX_SECTION_LEN:
+                line = line[:MAX_SECTION_LEN] + "…"
+            if current and len(current) + 1 + len(line) > MAX_SECTION_LEN:
+                if len(blocks) >= MAX_BLOCKS:
+                    break
+                blocks.append(_section(current))
+                current = line
+            else:
+                current = f"{current}\n{line}" if current else line
+        if current and len(blocks) < MAX_BLOCKS:
+            blocks.append(_section(current))
 
-        # Add a divider after each section except the last one
-        if i < len(sections) - 1 and len(blocks) < max_blocks:
+        if gi < len(groups) - 1 and len(blocks) < MAX_BLOCKS:
             blocks.append({"type": "divider"})
 
-    # Add footer
     footer_text = "Disaster Alert Monitor"
     if truncated_groups:
         footer_text += f" — {truncated_groups} additional group(s) omitted (message limit)"

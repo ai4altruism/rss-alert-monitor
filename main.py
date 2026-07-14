@@ -144,13 +144,13 @@ def main():
     
     logging.info(f"Processing {len(new_disasters)} new disaster reports.")
     
-    # Process and summarize the disasters
-    summary, status = process_disasters(new_disasters)
+    # Process and summarize the disasters into structured groups
+    groups, status = process_disasters(new_disasters)
     new_links = [d['link'] for d in new_disasters]
 
-    if status == "ok" and summary:
+    if status == "ok" and groups:
         # Format and send the alert to Slack
-        formatted_blocks = format_alert_block(summary)
+        formatted_blocks = format_alert_block(groups)
         logging.debug("Formatted blocks to be sent to Slack:")
         logging.debug(json.dumps(formatted_blocks, indent=2))
 
