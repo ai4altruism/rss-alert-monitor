@@ -2,9 +2,11 @@
 
 import feedparser
 import os
+import re
 import logging
 import requests
 import platform
+from datetime import datetime, timezone
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 import warnings
@@ -49,10 +51,158 @@ def get_user_agent():
     
     return f"DisasterMonitor/{version} ({contact}; {website}) Python/{python_version} Platform/{system_platform}"
 
+def fetch_reliefweb_api(feed_url, headers):
+    """
+    Fetch disasters from the ReliefWeb API (v2) and map them to the standard
+    entry format.
+
+    ReliefWeb's RSS endpoint is WAF-blocked for datacenter IPs and its API v1
+    was decommissioned; v2 requires a registered appname (embed it in the URL:
+    https://apidoc.reliefweb.int/parameters#appname).
+
+    Args:
+        feed_url: Full API query URL, including appname and any field params.
+        headers:  HTTP headers (User-Agent etc.).
+
+    Returns:
+        list of entry dicts (title/summary/link/published/source/source_type).
+    """
+    reports = []
+    response = requests.get(feed_url, headers=headers, timeout=15)
+    response.raise_for_status()
+    payload = response.json()
+
+    for item in payload.get("data", []):
+        fields = item.get("fields", {}) or {}
+        title = fields.get("name") or "Unnamed disaster"
+        link = fields.get("url") or item.get("href") or ""
+
+        countries = ", ".join(
+            c.get("name", "") for c in fields.get("country", []) if c.get("name")
+        )
+        dtypes = ", ".join(
+            t.get("name", "") for t in fields.get("type", []) if t.get("name")
+        )
+        status = fields.get("status", "")
+        overview = (fields.get("profile", {}) or {}).get("overview", "") or ""
+
+        summary_parts = []
+        if dtypes:
+            summary_parts.append(f"Disaster type: {dtypes}.")
+        if countries:
+            summary_parts.append(f"Affected country/countries: {countries}.")
+        if status:
+            summary_parts.append(f"Status: {status}.")
+        if overview:
+            summary_parts.append(overview[:800])
+        summary = " ".join(summary_parts) or title
+
+        published = (fields.get("date", {}) or {}).get("created", "")
+
+        reports.append({
+            "title": title,
+            "summary": summary,
+            "link": link,
+            "published": published,
+            "source": "ReliefWeb - Disasters",
+            "source_type": "reliefweb",
+            "raw_entry": item,
+        })
+
+    logging.info(f"Successfully fetched {len(reports)} entries from ReliefWeb API")
+    return reports
+
+
+def _wfigs_inciweb_link(unique_fire_id, incident_name):
+    """
+    Construct the InciWeb incident page URL from WFIGS identifiers.
+
+    InciWeb slugs are '{unit-code}-{name-slug}' (e.g. nveld-parsnip-peak) and
+    UniqueFireIdentifier is 'YYYY-UNITCODE-NNNNNN'. Verified 15/15 against live
+    incidents 2026-07-14. Falls back to the InciWeb homepage when the unit
+    code cannot be parsed.
+    """
+    m = re.match(r"\d{4}-([A-Za-z0-9]+)-", unique_fire_id or "")
+    name_slug = re.sub(r"[^a-z0-9]+", "-", (incident_name or "").lower()).strip("-")
+    if not (m and name_slug):
+        return "https://inciweb.wildfire.gov/"
+    return f"https://inciweb.wildfire.gov/incident-information/{m.group(1).lower()}-{name_slug}"
+
+
+def fetch_wfigs_incidents(feed_url, headers):
+    """
+    Fetch active wildfires from NIFC's WFIGS ArcGIS feature service and map
+    them to the standard entry format.
+
+    InciWeb's RSS is WAF-blocked for datacenter IPs; WFIGS is the authoritative
+    interagency dataset behind it and its ArcGIS endpoint is open. The full
+    query URL lives in the env var, so the significance threshold (e.g.
+    poly_GISAcres >= 1000) is tunable without a code change.
+
+    Args:
+        feed_url: Full ArcGIS query URL (f=json).
+        headers:  HTTP headers (User-Agent etc.).
+
+    Returns:
+        list of entry dicts (title/summary/link/published/source/source_type).
+    """
+    reports = []
+    response = requests.get(feed_url, headers=headers, timeout=20)
+    response.raise_for_status()
+    payload = response.json()
+
+    if "error" in payload:
+        raise RuntimeError(f"WFIGS query error: {payload['error']}")
+
+    for feature in payload.get("features", []):
+        a = feature.get("attributes", {}) or {}
+        name = a.get("attr_IncidentName") or a.get("IncidentName") or "Unnamed incident"
+        state = a.get("attr_POOState") or a.get("POOState") or ""
+        county = a.get("attr_POOCounty") or a.get("POOCounty") or ""
+        acres = a.get("poly_GISAcres") or a.get("DailyAcres")
+        contained = a.get("attr_PercentContained") or a.get("PercentContained")
+        ufi = a.get("attr_UniqueFireIdentifier") or a.get("UniqueFireIdentifier") or ""
+
+        title = f"{name} Fire" if not name.lower().endswith(("fire", "complex")) else name
+        if state:
+            title += f" ({state})"
+
+        summary_parts = ["Active wildfire."]
+        if acres:
+            summary_parts.append(f"Approximately {round(acres):,} acres.")
+        if contained is not None:
+            summary_parts.append(f"{round(contained)}% contained.")
+        loc = ", ".join(p for p in (county and f"{county} County", state) if p)
+        if loc:
+            summary_parts.append(f"Location: {loc}.")
+
+        # WFIGS timestamps are epoch milliseconds
+        published = ""
+        ts = a.get("attr_ModifiedOnDateTime_dt") or a.get("attr_FireDiscoveryDateTime")
+        if ts:
+            published = datetime.fromtimestamp(ts / 1000, tz=timezone.utc).strftime(
+                "%Y-%m-%d %H:%M:%S UTC"
+            )
+
+        reports.append({
+            "title": title,
+            "summary": " ".join(summary_parts),
+            "link": _wfigs_inciweb_link(ufi, name),
+            "published": published,
+            "source": "InciWeb (via NIFC WFIGS)",
+            "source_type": "inciweb",
+            "raw_entry": a,
+        })
+
+    logging.info(f"Successfully fetched {len(reports)} entries from NIFC WFIGS")
+    return reports
+
+
 def fetch_rss_feeds(feeds):
     """
     Fetches RSS feeds and extracts relevant disaster reports.
     Also performs initial filtering directly on XML data.
+    JSON API sources (ReliefWeb API, NIFC WFIGS) are dispatched by URL.
     """
     disaster_reports = []
     
@@ -68,7 +218,22 @@ def fetch_rss_feeds(feeds):
             continue
 
         logging.info(f"Fetching feed: {feed_url}")
-        
+
+        # JSON API sources — not RSS, handled by dedicated fetchers
+        if "api.reliefweb.int" in feed_url.lower():
+            try:
+                disaster_reports.extend(fetch_reliefweb_api(feed_url, headers))
+            except Exception as e:
+                logging.error(f"Error fetching ReliefWeb API {feed_url}: {e}")
+            continue
+
+        if "arcgis.com" in feed_url.lower():
+            try:
+                disaster_reports.extend(fetch_wfigs_incidents(feed_url, headers))
+            except Exception as e:
+                logging.error(f"Error fetching WFIGS {feed_url}: {e}")
+            continue
+
         try:
             # Fetch the feed content manually to avoid parsing errors
             response = requests.get(feed_url, headers=headers, timeout=15)
