@@ -113,20 +113,20 @@ def fetch_reliefweb_api(feed_url, headers):
     return reports
 
 
-def _wfigs_inciweb_link(unique_fire_id, incident_name):
+def _wfigs_map_link(lat, lon):
     """
-    Construct the InciWeb incident page URL from WFIGS identifiers.
+    Link a WFIGS incident to a map pin at its discovery coordinates.
 
-    InciWeb slugs are '{unit-code}-{name-slug}' (e.g. nveld-parsnip-peak) and
-    UniqueFireIdentifier is 'YYYY-UNITCODE-NNNNNN'. Verified 15/15 against live
-    incidents 2026-07-14. Falls back to the InciWeb homepage when the unit
-    code cannot be parsed.
+    Constructed InciWeb URLs are NOT viable: WFIGS tracks every incident but
+    InciWeb only publishes pages for team-managed ones (the rest render as
+    empty stubs), and even published incidents may live at unpredictable slug
+    variants (e.g. 'orwwf-anthony-fire' for incident 'Anthony'). A coordinate
+    pin always resolves. Coordinates are rounded to 4 decimals so the link is
+    deterministic run-to-run (it is also the dedup key).
     """
-    m = re.match(r"\d{4}-([A-Za-z0-9]+)-", unique_fire_id or "")
-    name_slug = re.sub(r"[^a-z0-9]+", "-", (incident_name or "").lower()).strip("-")
-    if not (m and name_slug):
+    if lat is None or lon is None:
         return "https://inciweb.wildfire.gov/"
-    return f"https://inciweb.wildfire.gov/incident-information/{m.group(1).lower()}-{name_slug}"
+    return f"https://www.google.com/maps/search/?api=1&query={lat:.4f},{lon:.4f}"
 
 
 def fetch_wfigs_incidents(feed_url, headers):
@@ -159,22 +159,34 @@ def fetch_wfigs_incidents(feed_url, headers):
         name = a.get("attr_IncidentName") or a.get("IncidentName") or "Unnamed incident"
         state = a.get("attr_POOState") or a.get("POOState") or ""
         county = a.get("attr_POOCounty") or a.get("POOCounty") or ""
-        acres = a.get("poly_GISAcres") or a.get("DailyAcres")
-        contained = a.get("attr_PercentContained") or a.get("PercentContained")
-        ufi = a.get("attr_UniqueFireIdentifier") or a.get("UniqueFireIdentifier") or ""
+        def attr(*names):
+            for n in names:
+                if a.get(n) is not None:
+                    return a[n]
+            return None
+
+        acres = attr("poly_GISAcres", "DailyAcres")
+        contained = attr("attr_PercentContained", "PercentContained")
+        lat = attr("attr_InitialLatitude", "InitialLatitude")
+        lon = attr("attr_InitialLongitude", "InitialLongitude")
 
         title = f"{name} Fire" if not name.lower().endswith(("fire", "complex")) else name
         if state:
             title += f" ({state})"
 
-        summary_parts = ["Active wildfire."]
+        # Compact stats shown on the item line itself — the link is only a
+        # map pin, so the substance must be in the message.
+        note_parts = []
         if acres:
-            summary_parts.append(f"Approximately {round(acres):,} acres.")
+            note_parts.append(f"~{round(acres):,} acres")
         if contained is not None:
-            summary_parts.append(f"{round(contained)}% contained.")
+            note_parts.append(f"{round(contained)}% contained")
         loc = ", ".join(p for p in (county and f"{county} County", state) if p)
         if loc:
-            summary_parts.append(f"Location: {loc}.")
+            note_parts.append(loc)
+        note = ", ".join(note_parts)
+
+        summary = "Active wildfire." + (f" {note}." if note else "")
 
         # WFIGS timestamps are epoch milliseconds
         published = ""
@@ -186,10 +198,11 @@ def fetch_wfigs_incidents(feed_url, headers):
 
         reports.append({
             "title": title,
-            "summary": " ".join(summary_parts),
-            "link": _wfigs_inciweb_link(ufi, name),
+            "summary": summary,
+            "note": note,
+            "link": _wfigs_map_link(lat, lon),
             "published": published,
-            "source": "InciWeb (via NIFC WFIGS)",
+            "source": "NIFC WFIGS",
             "source_type": "inciweb",
             "raw_entry": a,
         })
