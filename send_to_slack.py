@@ -14,31 +14,38 @@ load_dotenv()
 # Slack configuration
 SLACK_BOT_TOKEN = os.getenv('SLACK_BOT_TOKEN')
 CHANNEL_NAME = os.getenv('CHANNEL_NAME')
+# Optional separate channel for operational/error notices. When unset, error
+# notices are logged only — internal errors and tracebacks never go to the
+# public alerts channel.
+ERROR_CHANNEL_NAME = os.getenv('ERROR_CHANNEL_NAME')
 
 # Initialize Slack client
 client = WebClient(token=SLACK_BOT_TOKEN)
 
-def send_disaster_alert_block(blocks, max_retries=3, backoff_factor=2):
+def send_disaster_alert_block(blocks, max_retries=3, backoff_factor=2, channel=None):
     """
     Sends a Block Kit formatted message to Slack with retry logic.
-    
+
     Args:
         blocks (list): List of Slack Block Kit blocks
         max_retries (int): Maximum number of retry attempts
         backoff_factor (int): Factor for exponential backoff
-        
+        channel (str): Channel to post to (defaults to CHANNEL_NAME)
+
     Returns:
         bool: True if message was sent successfully, False otherwise
     """
+    channel = channel or CHANNEL_NAME
+
     # Validate required environment variables
     if not SLACK_BOT_TOKEN:
         logging.error("SLACK_BOT_TOKEN is not set in .env file")
         return False
-        
-    if not CHANNEL_NAME:
+
+    if not channel:
         logging.error("CHANNEL_NAME is not set in .env file")
         return False
-        
+
     # Generate a fallback text from the blocks for notifications
     fallback_text = "Disaster Alerts Summary"
     for block in blocks:
@@ -57,12 +64,12 @@ def send_disaster_alert_block(blocks, max_retries=3, backoff_factor=2):
             logging.debug(f"Sending blocks to Slack: {json.dumps(blocks, indent=2)}")
             
             response = client.chat_postMessage(
-                channel=CHANNEL_NAME,
+                channel=channel,
                 blocks=blocks,
                 text=fallback_text
             )
             
-            logging.info(f"Message sent successfully to {CHANNEL_NAME} (timestamp: {response['ts']})")
+            logging.info(f"Message sent successfully to {channel} (timestamp: {response['ts']})")
             return True
             
         except SlackApiError as e:
@@ -79,7 +86,7 @@ def send_disaster_alert_block(blocks, max_retries=3, backoff_factor=2):
                 try:
                     simplified_message = "⚠️ *Disaster Alert System*: New alerts detected, but there was an error formatting the message."
                     client.chat_postMessage(
-                        channel=CHANNEL_NAME,
+                        channel=channel,
                         text=simplified_message
                     )
                     logging.info("Sent simplified message after block formatting error")
@@ -91,11 +98,11 @@ def send_disaster_alert_block(blocks, max_retries=3, backoff_factor=2):
                 break
                 
             elif error_code == 'channel_not_found':
-                logging.error(f"Channel not found: {CHANNEL_NAME}")
+                logging.error(f"Channel not found: {channel}")
                 break  # Don't retry for non-existent channel
                 
             elif error_code == 'not_in_channel':
-                logging.error(f"Bot is not in channel: {CHANNEL_NAME}")
+                logging.error(f"Bot is not in channel: {channel}")
                 break  # Don't retry if bot isn't in the channel
                 
             elif error_code == 'rate_limited':
@@ -126,6 +133,35 @@ def send_disaster_alert_block(blocks, max_retries=3, backoff_factor=2):
                 logging.error("Max retries reached. Failed to send message to Slack.")
     
     return False
+
+def send_error_notice(text):
+    """
+    Send an operational/error notice.
+
+    Posts to ERROR_CHANNEL_NAME when configured; otherwise logs only. This
+    keeps internal errors and tracebacks out of the public alerts channel.
+
+    Args:
+        text (str): mrkdwn-formatted notice text
+
+    Returns:
+        bool: True if posted to Slack, False if logged only or send failed
+    """
+    if not ERROR_CHANNEL_NAME:
+        logging.error(f"System notice (ERROR_CHANNEL_NAME not set; not posted to Slack): {text}")
+        return False
+
+    blocks = [
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": text
+            }
+        }
+    ]
+    return send_disaster_alert_block(blocks, channel=ERROR_CHANNEL_NAME)
+
 
 # Simple test function for direct testing
 if __name__ == "__main__":
