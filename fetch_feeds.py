@@ -1,12 +1,14 @@
 ### fetch_feeds.py
 
+import calendar
+import email.utils
 import feedparser
 import os
 import re
 import logging
 import requests
 import platform
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 import warnings
@@ -51,6 +53,90 @@ def get_user_agent():
     
     return f"DisasterMonitor/{version} ({contact}; {website}) Python/{python_version} Platform/{system_platform}"
 
+def _parse_report_datetime(report):
+    """
+    Best-effort parse of a report's publication time to an aware UTC
+    datetime. Handles every format our sources emit: feedparser's
+    *_parsed struct_time (RSS/Atom), ISO 8601 (ReliefWeb date.created),
+    RFC 2822 (raw RSS pubDate), and WFIGS's '%Y-%m-%d %H:%M:%S UTC'.
+
+    Returns None when no date is parseable — callers must treat undated
+    reports as fresh (never drop a report just because its feed omits
+    dates).
+    """
+    raw = report.get("raw_entry")
+    if raw is not None:
+        for key in ("published_parsed", "updated_parsed"):
+            try:
+                parsed = raw.get(key) if hasattr(raw, "get") else None
+            except Exception:
+                parsed = None
+            if parsed:
+                try:
+                    return datetime.fromtimestamp(calendar.timegm(parsed), tz=timezone.utc)
+                except (TypeError, ValueError, OverflowError):
+                    pass
+
+    published = (report.get("published") or "").strip()
+    if not published:
+        return None
+
+    try:
+        dt = datetime.fromisoformat(published.replace("Z", "+00:00"))
+        return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
+    except ValueError:
+        pass
+
+    try:
+        dt = email.utils.parsedate_to_datetime(published)
+        if dt is not None:
+            return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
+    except (TypeError, ValueError):
+        pass
+
+    try:
+        return datetime.strptime(published, "%Y-%m-%d %H:%M:%S UTC").replace(
+            tzinfo=timezone.utc
+        )
+    except ValueError:
+        return None
+
+
+def filter_stale_reports(reports, max_age_days=None):
+    """
+    Drop reports published more than max_age_days ago (default from
+    MAX_ALERT_AGE_DAYS env var, or 3; 0 disables). Guards against a
+    newly added source delivering its backlog (e.g. ReliefWeb's top-20
+    disasters by creation date span weeks) — old events must never
+    reach Slack as fresh alerts. Reports without a parseable date are
+    kept.
+    """
+    if max_age_days is None:
+        max_age_days = int(os.getenv("MAX_ALERT_AGE_DAYS", "3"))
+    if not max_age_days or max_age_days <= 0:
+        return reports
+
+    cutoff = datetime.now(timezone.utc) - timedelta(days=max_age_days)
+    fresh = []
+    stale_count = 0
+    for report in reports:
+        published = _parse_report_datetime(report)
+        if published is not None and published < cutoff:
+            stale_count += 1
+            logging.info(
+                f"Age guard: skipped stale report ({published:%Y-%m-%d}): "
+                f"{report.get('title', 'Untitled')}"
+            )
+            continue
+        fresh.append(report)
+
+    if stale_count:
+        logging.info(
+            f"Age guard: skipped {stale_count} reports older than {max_age_days} days"
+        )
+    return fresh
+
+
 def fetch_reliefweb_api(feed_url, headers):
     """
     Fetch disasters from the ReliefWeb API (v2) and map them to the standard
@@ -68,14 +154,27 @@ def fetch_reliefweb_api(feed_url, headers):
         list of entry dicts (title/summary/link/published/source/source_type).
     """
     reports = []
-    response = requests.get(feed_url, headers=headers, timeout=15)
+    # The API returns ONLY requested fields (default: just `name`), so
+    # explicitly request every field this parser reads. Without this,
+    # `url` and `date.created` are absent: items then link to the raw
+    # API href (HTTP 400 for users — no appname) and carry no date for
+    # the age guard.
+    field_params = {
+        "fields[include][]": [
+            "name", "url", "status", "date.created",
+            "country.name", "type.name", "profile.overview",
+        ]
+    }
+    response = requests.get(feed_url, headers=headers, params=field_params, timeout=15)
     response.raise_for_status()
     payload = response.json()
 
     for item in payload.get("data", []):
         fields = item.get("fields", {}) or {}
         title = fields.get("name") or "Unnamed disaster"
-        link = fields.get("url") or item.get("href") or ""
+        # Never fall back to item['href']: that is the API JSON endpoint,
+        # which returns 400 without an appname — useless as a Slack link.
+        link = fields.get("url") or "https://reliefweb.int/disasters"
 
         countries = ", ".join(
             c.get("name", "") for c in fields.get("country", []) if c.get("name")
@@ -476,6 +575,8 @@ def fetch_rss_feeds(feeds):
             logging.error(f"Error fetching feed {feed_url}: {e}")
         except Exception as e:
             logging.error(f"Unexpected error processing feed {feed_url}: {e}")
+
+    disaster_reports = filter_stale_reports(disaster_reports)
 
     logging.info(f"Total disaster reports fetched: {len(disaster_reports)}")
     return disaster_reports

@@ -87,6 +87,11 @@ RSS_FEED_6=https://www.nhc.noaa.gov/gtwo.xml
 JOB_INTERVAL_MINUTES=30
 CONTACT_EMAIL=your-contact-email
 WEBSITE_URL=your-website-url
+
+# Skip reports published more than this many days ago (0 disables).
+# Guards against a newly added source delivering its backlog as alerts;
+# reports without a parseable date are kept.
+MAX_ALERT_AGE_DAYS=3
 ```
 
 ### 4. Initialize the Database
