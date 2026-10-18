@@ -109,3 +109,10 @@ def test_parsed_groups_have_no_unknown_placeholders(recorded, fake_llm):
     grouped = process_data.group_disasters(of(recorded, "usgs") + of(recorded, "inciweb") + of(recorded, "reliefweb"))
     assert grouped
     assert not any("None" in k or "Unknown Type" in k for k in grouped)
+
+
+def test_malformed_structured_fields_fall_back_to_the_model(fake_llm):
+    report = disaster("Floods - Oct 2026", "https://rw/1", source_type="reliefweb")
+    report["raw_entry"] = {"fields": {"type": ["not-a-dict"], "country": None}}
+    grouped = process_data.group_disasters([report])  # must not raise
+    assert len(fake_llm.calls) >= 1  # the report went to the extraction model
