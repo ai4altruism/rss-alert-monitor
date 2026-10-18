@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>SPC Forecast Products</title>
+    <link>https://www.spc.noaa.gov</link>
+    <description>Storm Prediction Center products</description>
+    <item>
+      <title>SPC MD 1234</title>
+      <link>https://www.spc.noaa.gov/products/md/md1234.html</link>
+      <description>Mesoscale Discussion 1234 concerning severe potential</description>
+      <pubDate>Mon, 12 Oct 2026 10:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Day 1 Convective Outlook</title>
+      <link>https://www.spc.noaa.gov/products/outlook/day1otlk.html</link>
+      <description>Day 1 outlook issued 1200Z</description>
+      <pubDate>Mon, 12 Oct 2026 12:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SPC Tornado Watch 567</title>
+      <link>https://www.spc.noaa.gov/products/watch/ww0567.html</link>
+      <description>Tornado Watch 567 in effect until 0300Z for parts of Oklahoma</description>
+      <pubDate>Mon, 12 Oct 2026 13:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

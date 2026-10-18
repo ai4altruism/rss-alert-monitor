@@ -1,0 +1,28 @@
+{
+  "totalCount": 2,
+  "data": [
+    {
+      "id": "52001",
+      "href": "https://api.reliefweb.int/v2/disasters/52001",
+      "fields": {
+        "name": "Peru: Earthquake - Oct 2026",
+        "url": "https://reliefweb.int/disaster/eq-2026-000200-per",
+        "status": "alert",
+        "date": {"created": "2026-10-12T08:45:00+00:00"},
+        "country": [{"name": "Peru"}],
+        "type": [{"name": "Earthquake"}],
+        "profile": {"overview": "A strong earthquake struck southern Peru."}
+      }
+    },
+    {
+      "id": "52002",
+      "href": "https://api.reliefweb.int/v2/disasters/52002",
+      "fields": {
+        "name": "Chad: Floods - Oct 2026",
+        "status": "ongoing",
+        "country": [{"name": "Chad"}],
+        "type": [{"name": "Flood"}]
+      }
+    }
+  ]
+}
