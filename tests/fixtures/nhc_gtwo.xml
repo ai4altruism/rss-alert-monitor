@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>NHC Atlantic Tropical Weather Outlook</title>
+    <link>https://www.nhc.noaa.gov</link>
+    <description>Graphical Tropical Weather Outlook</description>
+    <item>
+      <title>Atlantic Tropical Weather Outlook: disturbance in the Caribbean</title>
+      <link>https://www.nhc.noaa.gov/gtwo.php?basin=atlc&amp;fdays=7</link>
+      <description>A tropical wave has a 40 percent chance of formation in the next 48 hours.</description>
+      <pubDate>Mon, 12 Oct 2026 14:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

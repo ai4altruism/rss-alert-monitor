@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>USGS Magnitude 4.5+ Earthquakes, Past Day</title>
+  <id>https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.atom</id>
+  <updated>2026-10-12T09:00:00Z</updated>
+  <entry>
+    <id>urn:earthquake-usgs-gov:us7000test1</id>
+    <title>M 6.1 - 45 km SW of Test Town, Peru</title>
+    <updated>2026-10-12T08:30:00.000Z</updated>
+    <link rel="alternate" type="text/html" href="https://earthquake.usgs.gov/earthquakes/eventpage/us7000test1"/>
+    <summary type="html">&lt;dl&gt;&lt;dt&gt;Time&lt;/dt&gt;&lt;dd&gt;2026-10-12 08:30:00 UTC&lt;/dd&gt;&lt;/dl&gt;</summary>
+  </entry>
+  <entry>
+    <id>urn:earthquake-usgs-gov:us7000test2</id>
+    <title>M 4.7 - 10 km N of Sample City, Japan</title>
+    <updated>2026-10-12T07:30:00.000Z</updated>
+    <link rel="alternate" type="text/html" href="https://earthquake.usgs.gov/earthquakes/eventpage/us7000test2"/>
+    <summary type="html">&lt;dl&gt;&lt;dt&gt;Time&lt;/dt&gt;&lt;dd&gt;2026-10-12 07:30:00 UTC&lt;/dd&gt;&lt;/dl&gt;</summary>
+  </entry>
+</feed>

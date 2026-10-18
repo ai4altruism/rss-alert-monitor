@@ -1,0 +1,25 @@
+{
+  "features": [
+    {
+      "attributes": {
+        "attr_IncidentName": "Anthony",
+        "attr_POOState": "US-OR",
+        "attr_POOCounty": "Baker",
+        "poly_GISAcres": 12345.6,
+        "attr_PercentContained": 20,
+        "attr_InitialLatitude": 44.81234,
+        "attr_InitialLongitude": -117.5678,
+        "attr_ModifiedOnDateTime_dt": 1791799200000
+      }
+    },
+    {
+      "attributes": {
+        "attr_IncidentName": "Ridge Complex",
+        "attr_POOState": "US-ID",
+        "poly_GISAcres": 3000,
+        "attr_PercentContained": 0,
+        "attr_ModifiedOnDateTime_dt": 1791799200000
+      }
+    }
+  ]
+}

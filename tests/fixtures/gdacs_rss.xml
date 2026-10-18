@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:gdacs="http://www.gdacs.org" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
+  <channel>
+    <title>GDACS RSS information</title>
+    <link>https://www.gdacs.org</link>
+    <description>Global Disaster Alert and Coordination System</description>
+    <item>
+      <title>Green earthquake alert (Magnitude 5.1M, Depth:10km) in Indonesia 12/10/2026 06:00 UTC</title>
+      <description>On 12/10/2026 06:00:00 UTC, an earthquake of magnitude 5.1M occurred in Indonesia.</description>
+      <link>https://www.gdacs.org/report.aspx?eventtype=EQ&amp;eventid=1500001</link>
+      <pubDate>Mon, 12 Oct 2026 06:00:00 GMT</pubDate>
+      <gdacs:alertlevel>Green</gdacs:alertlevel>
+      <gdacs:eventtype>EQ</gdacs:eventtype>
+    </item>
+    <item>
+      <title>Orange earthquake alert (Magnitude 6.5M, Depth:20km) in Chile 12/10/2026 07:00 UTC</title>
+      <description>On 12/10/2026 07:00:00 UTC, an earthquake of magnitude 6.5M occurred in Chile.</description>
+      <link>https://www.gdacs.org/report.aspx?eventtype=EQ&amp;eventid=1500002</link>
+      <pubDate>Mon, 12 Oct 2026 07:00:00 GMT</pubDate>
+      <gdacs:alertlevel>Orange</gdacs:alertlevel>
+      <gdacs:eventtype>EQ</gdacs:eventtype>
+    </item>
+    <item>
+      <title>Red tropical cyclone alert (Category 4) in Philippines 12/10/2026 08:00 UTC</title>
+      <description>Tropical cyclone MARA is forecast to reach category 4.</description>
+      <link>https://www.gdacs.org/report.aspx?eventtype=TC&amp;eventid=1000003</link>
+      <pubDate>Mon, 12 Oct 2026 08:00:00 GMT</pubDate>
+      <gdacs:alertlevel>Red</gdacs:alertlevel>
+      <gdacs:eventtype>TC</gdacs:eventtype>
+    </item>
+  </channel>
+</rss>
