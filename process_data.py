@@ -480,7 +480,13 @@ def group_disasters(disasters):
     all_details = {}
     needs_model = []
     for entry in initial_filtered:
-        details = parse_details(entry) if isinstance(entry, dict) else None
+        try:
+            details = parse_details(entry) if isinstance(entry, dict) else None
+        except Exception as e:
+            # A malformed field must not fail the run (which would stall every
+            # later run on the same report); the model handles this one.
+            logging.warning(f"Structured parse failed for {entry.get('link', '')!r}: {e}; using the model")
+            details = None
         if details:
             details["date"] = normalize_date(details["date"])
             all_details[entry.get("link", "")] = details
