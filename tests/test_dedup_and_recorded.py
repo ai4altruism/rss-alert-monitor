@@ -12,6 +12,7 @@ import pytest
 import main as main_mod
 from conftest import disaster, saved_links
 from fetch_feeds import _parse_report_datetime, fetch_rss_feeds
+from fetch_feeds import nhc_formation_level
 from main import already_sent, dedup_key
 
 RECORDED = Path(__file__).parent / "fixtures" / "recorded-20261018"
@@ -30,6 +31,9 @@ GDACS = "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1"
               "https://www.spc.noaa.gov/products/watch/", source_type="noaa_spc"),
      "https://www.spc.noaa.gov/products/watch/"),
     (disaster("Stubble Fire (US-OR)", "https://maps/x", source_type="inciweb"), "https://maps/x"),
+    (disaster("Atlantic Tropical Weather Outlook", "https://nhc/gtwo.php?basin=atlc", source_type="nhc",
+              summary="* Formation chance through 7 days...high...80 percent."),
+     "https://nhc/gtwo.php?basin=atlc#high"),
     # unparseable severity falls back to the link
     (disaster("Earthquake somewhere", USGS, source_type="usgs"), USGS),
     (disaster("Notification for event", GDACS, source_type="gdacs"), GDACS),
@@ -45,6 +49,39 @@ def test_legacy_bare_link_row_still_counts_as_sent():
     assert already_sent(report, {USGS})
     assert already_sent(report, {USGS + "#M5.6"})
     assert not already_sent(report, {USGS + "#M5.4"})
+
+
+@pytest.mark.parametrize("text, level", [
+    ("Tropical cyclone formation is not expected during the next 7 days.", 0),
+    ("* Formation chance through 48 hours...high...90 percent.", 0),  # 7-day line only
+    ("* Formation chance through 7 days...low...30 percent.", 1),
+    ("A... * Formation chance through 7 days...low...20 percent. B... * Formation chance through 7 days...medium...50 percent.", 2),
+    ("* Formation chance through 7 days...high...80 percent.", 3),
+    (None, 0),
+])
+def test_nhc_formation_level(text, level):
+    assert nhc_formation_level(text) == level
+
+
+def _nhc(level_word):
+    return disaster("Atlantic Tropical Weather Outlook", "https://nhc/gtwo.php?basin=atlc", source_type="nhc",
+                    summary=f"* Formation chance through 7 days...{level_word}...x percent.")
+
+
+@pytest.mark.parametrize("first, second, realerts", [
+    (_nhc("low"), _nhc("low"), False),
+    (_nhc("low"), _nhc("high"), True),
+    (_nhc("high"), _nhc("low"), False),
+    (disaster("Red notification for cyclone X", GDACS, source_type="gdacs"),
+     disaster("Orange notification for cyclone X", GDACS, source_type="gdacs"), False),
+    (disaster("M 6.1 - Somewhere", USGS, source_type="usgs"),
+     disaster("M 5.9 - Somewhere", USGS, source_type="usgs"), False),
+    (disaster("M 6.1 - Somewhere", USGS, source_type="usgs"),
+     disaster("M 6.4 - Somewhere", USGS, source_type="usgs"), True),
+])
+def test_only_escalations_realert(first, second, realerts):
+    sent = {dedup_key(first)}
+    assert already_sent(second, sent) is (not realerts)
 
 
 def test_same_usgs_magnitude_is_not_reposted(run_main, slack, db, fake_llm):

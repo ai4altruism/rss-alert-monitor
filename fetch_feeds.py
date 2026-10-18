@@ -2,6 +2,7 @@
 
 from urllib.parse import quote
 import calendar
+import html
 import email.utils
 import feedparser
 import os
@@ -39,6 +40,19 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
+
+# NHC outlooks state each system's chance of formation in a fixed phrase:
+# "Formation chance through 7 days...high...80 percent."
+_NHC_CHANCE = re.compile(r"formation chance through 7 days\W*(low|medium|high)\b", re.IGNORECASE)
+NHC_LEVELS = {"low": 1, "medium": 2, "high": 3}
+
+
+def nhc_formation_level(text):
+    """Highest 7-day formation category in an NHC outlook: 0 none, 1 low,
+    2 medium, 3 high. 0 covers "formation is not expected" outlooks."""
+    found = _NHC_CHANCE.findall(html.unescape(text or ""))
+    return max((NHC_LEVELS[w.lower()] for w in found), default=0)
+
 
 def get_user_agent():
     """
@@ -549,6 +563,12 @@ def fetch_rss_feeds(feeds):
                 link = entry.get('link', 'No Link')
                 published = entry.get('published', entry.get('updated', 'No Published Date'))
                 
+                # NHC outlooks with no system expected to form are noise;
+                # active storms are covered by advisories and GDACS.
+                if feed_source_type == "nhc" and nhc_formation_level(summary) == 0:
+                    logging.info(f"Filtered NHC outlook with no formation expected: {title}")
+                    continue
+
                 # Final GDACS green alert filtering
                 if feed_source_type == "gdacs":
                     title_lower = title.lower()

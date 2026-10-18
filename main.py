@@ -120,43 +120,85 @@ def save_sent_entries(new_links):
     except Exception as e:
         logging.error(f"Error saving sent entries: {e}")
 
+from fetch_feeds import NHC_LEVELS, nhc_formation_level
+
 _USGS_MAG = re.compile(r"\s*M\s*([0-9]+(?:\.[0-9]+)?)", re.IGNORECASE)
-_GDACS_LEVELS = ("green", "orange", "red")
+_GDACS_LEVELS = {"green": 0, "orange": 1, "red": 2}
 
 
-def dedup_key(report):
-    """
-    The key a report is recorded under in sent_entries.
-
-    Most sources keep the link alone. USGS and GDACS re-use one link for an
-    event whose severity changes, so their key adds the field that matters:
-    the magnitude for USGS (a revision from M5.6 to M6.1 is evaluated again)
-    and the alert color for GDACS (an escalation from orange to red alerts
-    again). Titles are not used whole, because some sources (SPC) put a
-    timestamp in every title.
-    """
-    link = report.get("link", "") or ""
+def severity(report):
+    """(label, rank) for sources whose single link carries a changing level,
+    else None. USGS: magnitude. GDACS: alert color. NHC: highest 7-day
+    formation chance in the basin's outlook (the link is one per basin)."""
     source_type = (report.get("source_type") or "").lower()
     title = report.get("title") or ""
     if source_type == "usgs":
         m = _USGS_MAG.match(title)
         if m:
-            return f"{link}#M{m.group(1)}"
+            return f"M{m.group(1)}", float(m.group(1))
     elif source_type == "gdacs":
         level = title.split(" ", 1)[0].lower()
         if level in _GDACS_LEVELS:
-            return f"{link}#{level}"
-    return link
+            return level, _GDACS_LEVELS[level]
+    elif source_type == "nhc":
+        rank = nhc_formation_level(report.get("summary"))
+        label = {v: k for k, v in NHC_LEVELS.items()}.get(rank, "none")
+        return label, rank
+    return None
+
+
+def _rank_of(source_type, label):
+    try:
+        if source_type == "usgs":
+            return float(label.lstrip("Mm"))
+        if source_type == "gdacs":
+            return _GDACS_LEVELS[label]
+        if source_type == "nhc":
+            return NHC_LEVELS.get(label, 0)
+    except (KeyError, ValueError):
+        pass
+    return None
+
+
+def dedup_key(report):
+    """
+    The key a report is recorded under in sent_entries: the link, plus the
+    severity label for sources that re-use one link while the level changes
+    (see severity). Titles are not used whole, because some sources (SPC)
+    put a timestamp in every title.
+    """
+    link = report.get("link", "") or ""
+    sev = severity(report)
+    return f"{link}#{sev[0]}" if sev else link
 
 
 def already_sent(report, sent_entries):
-    """True if the report's key, or its bare link, is recorded.
+    """
+    True unless the report is new or an escalation.
 
-    Rows written before dedup_key existed hold the bare link; matching it too
+    For USGS, GDACS and NHC a report under an already-recorded link alerts
+    again only when its level is higher than every level recorded for that
+    link: M5.6 to M6.1, orange to red, low to high formation chance. A
+    downgrade or a same-level update stays quiet.
+
+    Rows written before dedup_key existed hold the bare link; matching it
     keeps a deploy from re-posting everything still in the feeds. Such a row
     expires with the normal 30-day cleanup.
     """
-    return dedup_key(report) in sent_entries or report.get("link") in sent_entries
+    link = report.get("link", "") or ""
+    if dedup_key(report) in sent_entries or link in sent_entries:
+        return True
+    sev = severity(report)
+    if not sev:
+        return False
+    source_type = (report.get("source_type") or "").lower()
+    prefix = link + "#"
+    for entry in sent_entries:
+        if entry.startswith(prefix):
+            rank = _rank_of(source_type, entry[len(prefix):])
+            if rank is not None and rank >= sev[1]:
+                return True
+    return False
 
 
 def main():

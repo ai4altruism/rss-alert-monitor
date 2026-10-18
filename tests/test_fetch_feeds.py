@@ -44,12 +44,21 @@ def test_spc_drops_mesoscale_discussions_and_outlooks_keeps_watch(http):
     assert reports[0]["source_type"] == "noaa_spc"
 
 
-def test_nhc_gtwo_entry_is_kept_with_nhc_type(http):
+def test_nhc_outlook_without_formation_expected_is_filtered(http):
+    # The hand-made outlook has no "Formation chance" line, i.e. nothing forming
     http.route("nhc.noaa.gov", http.fixture("nhc_gtwo.xml"))
+    assert fetch_rss_feeds([NHC]) == []
+
+
+def test_nhc_recorded_outlooks_keep_only_basins_with_a_formation_chance(http):
+    # Recorded 2026-10-18: Atlantic 7-day low, Eastern Pacific 7-day high,
+    # Central Pacific "formation is not expected"
+    from pathlib import Path
+    http.route("nhc.noaa.gov", Path(__file__).parent / "fixtures" / "recorded-20261018" / "nhc_gtwo.xml")
     reports = fetch_rss_feeds([NHC])
-    assert len(reports) == 1
-    assert reports[0]["source_type"] == "nhc"
-    assert "gtwo.php" in reports[0]["link"]
+    assert sorted(r["title"] for r in reports) == [
+        "Atlantic Tropical Weather Outlook", "Eastern Pacific Tropical Weather Outlook"]
+    assert all(r["source_type"] == "nhc" and "gtwo.php" in r["link"] for r in reports)
 
 
 def test_reliefweb_item_with_url_and_date(http):
