@@ -15,11 +15,11 @@ A Python-based disaster alert monitoring application that fetches potential disa
 
 ## 🤖 AI-Powered Processing
 
-This application uses OpenAI's **GPT-5-mini** model with the new Responses API to:
-- Extract structured disaster information from raw RSS feeds
-- Classify disaster types, severity levels, and geographic impact
-- Generate concise, informative summaries for emergency responders
-- Filter and prioritize alerts based on significance
+Structured feeds are read in code, not by a model: USGS (magnitude and place from the title), GDACS (its `gdacs:` alert level, event type, severity and country fields), NIFC WFIGS (acreage, containment, county) and ReliefWeb (type, country, date). The numbers in an alert are therefore the source's own (`structured_details.py`).
+
+The OpenAI model (Responses API, `EXTRACTION_MODEL` / `MODEL_NAME`) is used to:
+- Extract details from the prose products, SPC and NHC
+- Merge related groups and write short summaries, from the parsed facts only
 
 ### GPT-5 Features
 - **Enhanced Reasoning**: GPT-5 models include internal reasoning tokens for improved accuracy
