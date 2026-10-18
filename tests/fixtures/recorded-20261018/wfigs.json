@@ -1,0 +1,383 @@
+{
+ "objectIdFieldName": "OBJECTID",
+ "uniqueIdField": {
+  "name": "OBJECTID",
+  "isSystemMaintained": true
+ },
+ "globalIdFieldName": "GlobalID",
+ "geometryProperties": {
+  "shapeAreaFieldName": "Shape__Area",
+  "shapeLengthFieldName": "Shape__Length",
+  "units": "esriDecimalDegrees"
+ },
+ "fields": [
+  {
+   "name": "attr_IncidentName",
+   "type": "esriFieldTypeString",
+   "alias": "attr_IncidentName",
+   "sqlType": "sqlTypeOther",
+   "length": 50,
+   "domain": null,
+   "defaultValue": null
+  },
+  {
+   "name": "attr_UniqueFireIdentifier",
+   "type": "esriFieldTypeString",
+   "alias": "attr_UniqueFireIdentifier",
+   "sqlType": "sqlTypeOther",
+   "length": 22,
+   "domain": null,
+   "defaultValue": null
+  },
+  {
+   "name": "attr_POOState",
+   "type": "esriFieldTypeString",
+   "alias": "attr_POOState",
+   "sqlType": "sqlTypeOther",
+   "length": 6,
+   "domain": null,
+   "defaultValue": null
+  },
+  {
+   "name": "attr_POOCounty",
+   "type": "esriFieldTypeString",
+   "alias": "attr_POOCounty",
+   "sqlType": "sqlTypeOther",
+   "length": 100,
+   "domain": null,
+   "defaultValue": null
+  },
+  {
+   "name": "poly_GISAcres",
+   "type": "esriFieldTypeDouble",
+   "alias": "poly_GISAcres",
+   "sqlType": "sqlTypeOther",
+   "domain": null,
+   "defaultValue": null
+  },
+  {
+   "name": "attr_PercentContained",
+   "type": "esriFieldTypeDouble",
+   "alias": "attr_PercentContained",
+   "sqlType": "sqlTypeOther",
+   "domain": null,
+   "defaultValue": null
+  },
+  {
+   "name": "attr_FireDiscoveryDateTime",
+   "type": "esriFieldTypeDate",
+   "alias": "attr_FireDiscoveryDateTime",
+   "sqlType": "sqlTypeOther",
+   "length": 8,
+   "domain": null,
+   "defaultValue": null
+  },
+  {
+   "name": "attr_ModifiedOnDateTime_dt",
+   "type": "esriFieldTypeDate",
+   "alias": "attr_ModifiedOnDateTime_dt",
+   "sqlType": "sqlTypeOther",
+   "length": 8,
+   "domain": null,
+   "defaultValue": null
+  },
+  {
+   "name": "attr_InitialLatitude",
+   "type": "esriFieldTypeDouble",
+   "alias": "attr_InitialLatitude",
+   "sqlType": "sqlTypeOther",
+   "domain": null,
+   "defaultValue": null
+  },
+  {
+   "name": "attr_InitialLongitude",
+   "type": "esriFieldTypeDouble",
+   "alias": "attr_InitialLongitude",
+   "sqlType": "sqlTypeOther",
+   "domain": null,
+   "defaultValue": null
+  }
+ ],
+ "features": [
+  {
+   "attributes": {
+    "attr_IncidentName": "Stubble",
+    "attr_UniqueFireIdentifier": "2026-ORMAR-002683",
+    "attr_POOState": "US-OR",
+    "attr_POOCounty": "Harney",
+    "poly_GISAcres": 15673.228557959425,
+    "attr_PercentContained": 93,
+    "attr_FireDiscoveryDateTime": 1784832840000,
+    "attr_ModifiedOnDateTime_dt": 1792335262250,
+    "attr_InitialLatitude": 43.18,
+    "attr_InitialLongitude": -118.92
+   }
+  },
+  {
+   "attributes": {
+    "attr_IncidentName": "Jackass Butte",
+    "attr_UniqueFireIdentifier": "2026-ORBUD-002694",
+    "attr_POOState": "US-OR",
+    "attr_POOCounty": "Harney",
+    "poly_GISAcres": 24723.468582675046,
+    "attr_PercentContained": 92,
+    "attr_FireDiscoveryDateTime": 1784939460000,
+    "attr_ModifiedOnDateTime_dt": 1792335174110,
+    "attr_InitialLatitude": 43.045,
+    "attr_InitialLongitude": -118.955667
+   }
+  },
+  {
+   "attributes": {
+    "attr_IncidentName": "McCully",
+    "attr_UniqueFireIdentifier": "2026-ORWWF-000531",
+    "attr_POOState": "US-OR",
+    "attr_POOCounty": "Baker",
+    "poly_GISAcres": 13604.184621187862,
+    "attr_PercentContained": 91,
+    "attr_FireDiscoveryDateTime": 1787434080000,
+    "attr_ModifiedOnDateTime_dt": 1792285183837,
+    "attr_InitialLatitude": 44.827902,
+    "attr_InitialLongitude": -118.280776
+   }
+  },
+  {
+   "attributes": {
+    "attr_IncidentName": "Paradise",
+    "attr_UniqueFireIdentifier": "2026-ORUMF-000302",
+    "attr_POOState": "US-OR",
+    "attr_POOCounty": "Wallowa",
+    "poly_GISAcres": 9656.288213838254,
+    "attr_PercentContained": 86,
+    "attr_FireDiscoveryDateTime": 1784230680000,
+    "attr_ModifiedOnDateTime_dt": 1792284912550,
+    "attr_InitialLatitude": 45.975728,
+    "attr_InitialLongitude": -118.007951
+   }
+  },
+  {
+   "attributes": {
+    "attr_IncidentName": "SISI",
+    "attr_UniqueFireIdentifier": "2026-WAOWF-260664",
+    "attr_POOState": "US-WA",
+    "attr_POOCounty": "Chelan",
+    "poly_GISAcres": 4614.66466074191,
+    "attr_PercentContained": 34,
+    "attr_FireDiscoveryDateTime": 1786730603000,
+    "attr_ModifiedOnDateTime_dt": 1792283100993,
+    "attr_InitialLatitude": 48.345596,
+    "attr_InitialLongitude": -120.832062
+   }
+  },
+  {
+   "attributes": {
+    "attr_IncidentName": "PK",
+    "attr_UniqueFireIdentifier": "2026-WYSHX-000391",
+    "attr_POOState": "US-WY",
+    "attr_POOCounty": "Sheridan",
+    "poly_GISAcres": 1645.213638191574,
+    "attr_PercentContained": 90,
+    "attr_FireDiscoveryDateTime": 1791582955000,
+    "attr_ModifiedOnDateTime_dt": 1792273343337,
+    "attr_InitialLatitude": 44.766051,
+    "attr_InitialLongitude": -107.246223
+   }
+  },
+  {
+   "attributes": {
+    "attr_IncidentName": "Slough Canyon",
+    "attr_UniqueFireIdentifier": "2026-UTUOA-100254",
+    "attr_POOState": "US-UT",
+    "attr_POOCounty": "Grand",
+    "poly_GISAcres": 4742.049184372984,
+    "attr_PercentContained": 80,
+    "attr_FireDiscoveryDateTime": 1786813200000,
+    "attr_ModifiedOnDateTime_dt": 1792188087500,
+    "attr_InitialLatitude": 39.3697,
+    "attr_InitialLongitude": -109.9232
+   }
+  },
+  {
+   "attributes": {
+    "attr_IncidentName": "Willow",
+    "attr_UniqueFireIdentifier": "2026-COPSF-001153",
+    "attr_POOState": "US-CO",
+    "attr_POOCounty": "Lake",
+    "poly_GISAcres": 7258.591764402346,
+    "attr_PercentContained": 92,
+    "attr_FireDiscoveryDateTime": 1782682020000,
+    "attr_ModifiedOnDateTime_dt": 1792082174017,
+    "attr_InitialLatitude": 39.187212,
+    "attr_InitialLongitude": -106.475306
+   }
+  },
+  {
+   "attributes": {
+    "attr_IncidentName": "Bench",
+    "attr_UniqueFireIdentifier": "2026-ORWSA-000100",
+    "attr_POOState": "US-OR",
+    "attr_POOCounty": "Jefferson",
+    "poly_GISAcres": 67071,
+    "attr_PercentContained": 90,
+    "attr_FireDiscoveryDateTime": 1784844360000,
+    "attr_ModifiedOnDateTime_dt": 1792008536207,
+    "attr_InitialLatitude": 44.631778,
+    "attr_InitialLongitude": -121.350222
+   }
+  },
+  {
+   "attributes": {
+    "attr_IncidentName": "Frijoles",
+    "attr_UniqueFireIdentifier": "2026-NMSNF-000444",
+    "attr_POOState": "US-NM",
+    "attr_POOCounty": "Santa Fe",
+    "poly_GISAcres": 15948.872792475988,
+    "attr_PercentContained": 90,
+    "attr_FireDiscoveryDateTime": 1785891420000,
+    "attr_ModifiedOnDateTime_dt": 1792004434593,
+    "attr_InitialLatitude": 35.909815,
+    "attr_InitialLongitude": -105.857387
+   }
+  },
+  {
+   "attributes": {
+    "attr_IncidentName": "Aspen Acres",
+    "attr_UniqueFireIdentifier": "2026-COCUX-001160",
+    "attr_POOState": "US-CO",
+    "attr_POOCounty": "Custer",
+    "poly_GISAcres": 102003.46033741273,
+    "attr_PercentContained": 90,
+    "attr_FireDiscoveryDateTime": 1782734686000,
+    "attr_ModifiedOnDateTime_dt": 1791926686797,
+    "attr_InitialLatitude": 38.15004,
+    "attr_InitialLongitude": -105.185509
+   }
+  },
+  {
+   "attributes": {
+    "attr_IncidentName": "Gold Mountain",
+    "attr_UniqueFireIdentifier": "2026-COGMF-000099",
+    "attr_POOState": "US-CO",
+    "attr_POOCounty": "Ouray",
+    "poly_GISAcres": 39747.44823751265,
+    "attr_PercentContained": 92,
+    "attr_FireDiscoveryDateTime": 1782603180000,
+    "attr_ModifiedOnDateTime_dt": 1791905738773,
+    "attr_InitialLatitude": 38.032853,
+    "attr_InitialLongitude": -107.66402
+   }
+  },
+  {
+   "attributes": {
+    "attr_IncidentName": "THREE QUEENS",
+    "attr_UniqueFireIdentifier": "2026-WAOWF-260420",
+    "attr_POOState": "US-WA",
+    "attr_POOCounty": "Kittitas",
+    "poly_GISAcres": 9584,
+    "attr_PercentContained": 33,
+    "attr_FireDiscoveryDateTime": 1784176080000,
+    "attr_ModifiedOnDateTime_dt": 1791821257803,
+    "attr_InitialLatitude": 47.44183,
+    "attr_InitialLongitude": -121.25023
+   }
+  },
+  {
+   "attributes": {
+    "attr_IncidentName": "Border 2",
+    "attr_UniqueFireIdentifier": "2026-WANCP-000266",
+    "attr_POOState": "US-WA",
+    "attr_POOCounty": "Whatcom",
+    "poly_GISAcres": 23856.63,
+    "attr_PercentContained": 74,
+    "attr_FireDiscoveryDateTime": 1784250840000,
+    "attr_ModifiedOnDateTime_dt": 1791761630717,
+    "attr_InitialLatitude": 48.998173,
+    "attr_InitialLongitude": -121.027664
+   }
+  },
+  {
+   "attributes": {
+    "attr_IncidentName": "Luna",
+    "attr_UniqueFireIdentifier": "2026-WANCP-000179",
+    "attr_POOState": "US-WA",
+    "attr_POOCounty": "Whatcom",
+    "poly_GISAcres": 8553.113572988259,
+    "attr_PercentContained": 42,
+    "attr_FireDiscoveryDateTime": 1783019160000,
+    "attr_ModifiedOnDateTime_dt": 1791761173673,
+    "attr_InitialLatitude": 48.821137,
+    "attr_InitialLongitude": -121.209693
+   }
+  },
+  {
+   "attributes": {
+    "attr_IncidentName": "Parker Lake",
+    "attr_UniqueFireIdentifier": "2026-IDIPF-000702",
+    "attr_POOState": "US-ID",
+    "attr_POOCounty": "Boundary",
+    "poly_GISAcres": 1531.09893201067,
+    "attr_PercentContained": 1,
+    "attr_FireDiscoveryDateTime": 1787510760000,
+    "attr_ModifiedOnDateTime_dt": 1791497929053,
+    "attr_InitialLatitude": 48.632096,
+    "attr_InitialLongitude": -116.679268
+   }
+  },
+  {
+   "attributes": {
+    "attr_IncidentName": "Silver",
+    "attr_UniqueFireIdentifier": "2026-IDIPF-000697",
+    "attr_POOState": "US-ID",
+    "attr_POOCounty": "Boundary",
+    "poly_GISAcres": 2593.516698743161,
+    "attr_PercentContained": 30,
+    "attr_FireDiscoveryDateTime": 1787502360000,
+    "attr_ModifiedOnDateTime_dt": 1791497768383,
+    "attr_InitialLatitude": 48.627783,
+    "attr_InitialLongitude": -116.667033
+   }
+  },
+  {
+   "attributes": {
+    "attr_IncidentName": "Upper Smith",
+    "attr_UniqueFireIdentifier": "2026-IDIPF-000347",
+    "attr_POOState": "US-ID",
+    "attr_POOCounty": "Boundary",
+    "poly_GISAcres": 4848.046213986781,
+    "attr_PercentContained": 41,
+    "attr_FireDiscoveryDateTime": 1783524540000,
+    "attr_ModifiedOnDateTime_dt": 1791497616700,
+    "attr_InitialLatitude": 48.9265,
+    "attr_InitialLongitude": -116.602167
+   }
+  },
+  {
+   "attributes": {
+    "attr_IncidentName": "PTARMIGAN",
+    "attr_UniqueFireIdentifier": "2026-WAOWF-260448",
+    "attr_POOState": "US-WA",
+    "attr_POOCounty": "Okanogan",
+    "poly_GISAcres": 26059.14,
+    "attr_PercentContained": 90,
+    "attr_FireDiscoveryDateTime": 1784301660000,
+    "attr_ModifiedOnDateTime_dt": 1791473815407,
+    "attr_InitialLatitude": 48.942,
+    "attr_InitialLongitude": -120.6095
+   }
+  },
+  {
+   "attributes": {
+    "attr_IncidentName": "Moose Mountain",
+    "attr_UniqueFireIdentifier": "2026-IDNCF-000349",
+    "attr_POOState": "US-ID",
+    "attr_POOCounty": "Clearwater",
+    "poly_GISAcres": 5831.690188235985,
+    "attr_PercentContained": 90,
+    "attr_FireDiscoveryDateTime": 1785369720000,
+    "attr_ModifiedOnDateTime_dt": 1791408420453,
+    "attr_InitialLatitude": 46.78769,
+    "attr_InitialLongitude": -115.21843
+   }
+  }
+ ]
+}

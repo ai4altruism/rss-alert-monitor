@@ -178,7 +178,6 @@ def test_group_key_includes_gdacs_alert_level(fake_llm):
     assert any("(Orange Alert)" in k for k in groups)
 
 
-@pytest.mark.xfail(strict=True, reason="BUG: JSON null disaster_type/location/date become the literal string 'None' in group keys and headings")
 def test_null_extraction_fields_never_produce_None_in_group_keys(fake_llm):
     fake_llm([json.dumps({"results": [result(L1, disaster_type=None, location=None, date=None)]})])
     groups = group_disasters([disaster("Floods", L1, source_type="reliefweb")])

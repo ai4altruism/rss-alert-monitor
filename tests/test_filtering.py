@@ -74,13 +74,11 @@ def test_unknown_source_type_is_kept():
     assert should_filter_entry({"source_type": "nhc", "title": "x", "link": "l"}) is False
 
 
-@pytest.mark.xfail(strict=True, reason="BUG: JSON null alert_level makes should_filter_entry raise AttributeError (.lower on None) instead of being handled")
 def test_gdacs_null_alert_level_does_not_raise():
     should_filter_entry(gdacs("Orange flood alert in X"),
                         {"disaster_type": "Flood", "alert_level": None})
 
 
-@pytest.mark.xfail(strict=True, reason="BUG: JSON null disaster_type makes should_filter_entry raise AttributeError for USGS entries")
 def test_usgs_null_disaster_type_does_not_raise():
     should_filter_entry(usgs("M 6.2 - X"), {"disaster_type": None, "severity": None})
 
@@ -109,6 +107,5 @@ def test_normalize_date_gdacs_day_first_slash_date():
     assert normalize_date("05/10/2026") == "2026-10-05"
 
 
-@pytest.mark.xfail(strict=True, reason="BUG: RFC 2822 date with numeric '+0000' offset (common RSS pubDate) normalizes to 'Unknown Date'")
 def test_normalize_date_rfc2822_numeric_offset():
     assert normalize_date("Mon, 05 Oct 2026 12:00:00 +0000") == "2026-10-05"

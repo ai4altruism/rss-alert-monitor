@@ -75,14 +75,19 @@ def test_error_notice_posts_to_error_channel(slack, monkeypatch):
     assert slack.posts[0]["channel"] == "C_OPS"
 
 
-def test_invalid_blocks_returns_false(slack):
+def test_invalid_blocks_falls_back_to_plain_text(slack):
     slack.fail_when = lambda kw: slack_error("invalid_blocks") if kw.get("blocks") else None
+    assert send_disaster_alert_block(BLOCKS) is True
+    assert slack.posts[-1]["text"] == "*Heading line*\nbody"
+
+
+def test_invalid_blocks_returns_false_when_plain_text_also_fails(slack):
+    slack.fail_when = lambda kw: slack_error("invalid_blocks")
     assert send_disaster_alert_block(BLOCKS) is False
 
 
-@pytest.mark.xfail(strict=True, reason="BUG: on invalid_blocks a generic 'error formatting the message' text is posted to the public alerts channel (and again every run)")
 def test_invalid_blocks_does_not_post_generic_text_to_public_channel(slack):
     slack.fail_when = lambda kw: slack_error("invalid_blocks") if kw.get("blocks") else None
     send_disaster_alert_block(BLOCKS)
-    generic = [p for p in slack.posts if not p.get("blocks")]
-    assert generic == []
+    texts = [p["text"] for p in slack.posts if not p.get("blocks")]
+    assert texts and not any("error formatting" in t for t in texts)

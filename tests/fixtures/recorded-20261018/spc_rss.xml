@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"> 
+  <channel>
+    <title>SPC Forecast Products</title>
+    <link>https://www.spc.noaa.gov/</link>
+    <description>Storm Prediction Center</description>
+    <language>en-us</language>
+    <copyright>None</copyright>
+    <managingEditor>spc.feedback@noaa.gov (spc.feedback@noaa.gov)</managingEditor>
+    <webMaster>spc.feedback@noaa.gov (spc.feedback@noaa.gov)</webMaster>
+    <pubDate>Sun, 18 Oct 2026 17:01:02 +0000</pubDate>
+    <lastBuildDate>Sun, 18 Oct 2026 17:01:02 +0000</lastBuildDate>
+    <rating>general</rating>
+    <docs>http://validator.w3.org/feed/rss2.html</docs>
+    <ttl>1</ttl>
+    <atom:link href="https://www.spc.noaa.gov/products/spcrss.xml" rel="self" type="application/rss+xml" />
+
+    <image>
+      <url>http://weather.gov/images/xml_logo.gif</url>
+      <title>SPC Forecast Products</title>
+      <link>https://www.spc.noaa.gov/</link>
+    </image> 
+
+    <item>
+      <link>https://www.spc.noaa.gov/products/watch/</link>
+      <title>SPC - No watches are valid as of Sun Oct 18 17:01:02 UTC 2026</title>
+      <description>No watches are valid as of Sun Oct 18 17:01:02 UTC 2026.</description>
+      <pubDate>Sun, 18 Oct 2026 17:00:06 +0000</pubDate>
+      <guid isPermaLink="false">https://www.spc.noaa.gov/products/watch/20261018</guid>
+    </item>
+      <item>
+        <link>https://www.spc.noaa.gov/products/md/</link>
+        <title>SPC - No MDs are in effect as of Sun Oct 18 17:01:02 UTC 2026</title>
+        <description>No Mesoscale Discussions are in effect as of Sun Oct 18 17:01:02 UTC 2026.</description>
+        <pubDate>Sun, 18 Oct 2026 17:00:05 +0000</pubDate>
+        <guid isPermaLink="false">https://www.spc.noaa.gov/products/md/20261018</guid>
+      </item>
+    <item>
+      <link>https://www.spc.noaa.gov/products/outlook/day1otlk_1300.html</link>
+      <title>SPC Oct 18, 2026 1300 UTC Day 1 Convective Outlook</title>
+      <description>SPC 1300Z Day 1 Outlook
+      <![CDATA[<br /><a href="https://www.spc.noaa.gov/products/outlook/day1otlk.html"><img src="https://www.spc.noaa.gov/products/outlook/day1otlk.png" border="1" alt="Day 1 Outlook Image" hspace="1" vspace="1" width="815" height="555" align="center" /></a><pre>
+Day 1 Convective Outlook  
+NWS Storm Prediction Center Norman OK
+0730 AM CDT Sun Oct 18 2026
+
+Valid 181300Z - 191200Z
+
+...NO SEVERE THUNDERSTORM AREAS FORECAST...
+
+...SUMMARY...
+Severe thunderstorms are not forecast through tonight.
+
+...Synopsis and Discussion...
+Even with east-northeasterly low-level flow persisting to the north
+of a remnant cold front, diurnal heating of a moist airmass will
+support sufficient instability for isolated to scattered
+thunderstorms across parts of south FL and the Keys today.
+Occasional lightning flashes may also occur with convection across
+parts of the Southwest ahead of a low-amplitude mid-level shortwave
+trough. Weak shear across south FL and limited moisture/instability
+over AZ/NM will hinder the potential for severe thunderstorms across
+both regions. Dry and/or stable conditions will preclude
+thunderstorms for the remainder of the CONUS through the period.
+
+..Gleason/Kerr.. 10/18/2026
+
+</pre>
+<a href="https://www.spc.noaa.gov/products/outlook/day1otlk.html">Read more</a>
+]]>
+      </description>
+      <pubDate>Sun, 18 Oct 2026 12:33:12 +0000</pubDate>
+      <guid isPermaLink="false">https://www.spc.noaa.gov/products/outlook/day1otlk_1300.html/202610181701</guid>
+    </item>
+    <item>
+      <link>https://www.spc.noaa.gov/products/outlook/day1otlk_1630.html</link>
+      <title>SPC Oct 18, 2026 1630 UTC Day 1 Convective Outlook</title>
+      <description>SPC 1630Z Day 1 Outlook
+      <![CDATA[<br /><a href="https://www.spc.noaa.gov/products/outlook/day1otlk.html"><img src="https://www.spc.noaa.gov/products/outlook/day1otlk.png" border="1" alt="Day 1 Outlook Image" hspace="1" vspace="1" width="815" height="555" align="center" /></a><pre>
+Day 1 Convective Outlook  
+NWS Storm Prediction Center Norman OK
+1114 AM CDT Sun Oct 18 2026
+
+Valid 181630Z - 191200Z
+
+...NO SEVERE THUNDERSTORM AREAS FORECAST...
+
+...SUMMARY...
+Severe thunderstorms are not forecast through tonight.
+
+...Synopsis...
+Tranquil conditions will exist across much of the contiguous United
+States through tonight.  Extensive surface high pressure influencing
+much of the central and eastern U.S. will favor offshore flow into
+the northern Gulf of America and feature a seasonably dry/stable
+airmass.  A few weak thunderstorms are possible over south FL and
+the Keys to the north of a surface front undergoing frontolysis
+across the southern Gulf and FL Straits.  Farther west, an upper
+trough migrating northeast across the Four Corners will be
+associated with isolated showers/thunderstorms across parts of the
+Southwest.
+
+..Smith/Supinie.. 10/18/2026
+
+</pre>
+<a href="https://www.spc.noaa.gov/products/outlook/day1otlk.html">Read more</a>
+]]>
+      </description>
+      <pubDate>Sun, 18 Oct 2026 16:17:15 +0000</pubDate>
+      <guid isPermaLink="false">https://www.spc.noaa.gov/products/outlook/day1otlk_1630.html/202610181701</guid>
+    </item>
+    <item>
+      <link>https://www.spc.noaa.gov/products/outlook/day2otlk_1730.html</link>
+      <title>SPC Oct 18, 2026 1730 UTC Day 2 Convective Outlook</title>
+      <description>SPC 1730Z Day 2 Outlook
+      <![CDATA[<br /><a href="https://www.spc.noaa.gov/products/outlook/day2otlk.html"><img src="https://www.spc.noaa.gov/products/outlook/day2otlk.png" border="1" alt="Day 2 Outlook Image" hspace="1" vspace="1" width="815" height="555" align="center" /></a><pre>
+Day 2 Convective Outlook  
+NWS Storm Prediction Center Norman OK
+1158 AM CDT Sun Oct 18 2026
+
+Valid 191200Z - 201200Z
+
+...NO SEVERE THUNDERSTORM AREAS FORECAST...
+
+...SUMMARY...
+Severe thunderstorms are not expected on Monday.
+
+...Synopsis...
+An upper low will linger off the East Coast while an upper trough
+amplifies just off the West Coast. Meanwhile, a leading wave will
+affect the area from Baja CA into the Four Corners states.
+
+Instability will be minimal over most of the CONUS due to an area of
+high pressure, with the surface ridge extending from the Great
+Lakes/Upper Midwest to the Gulf Coast. The exceptions will be near
+the FL Keys where moist easterly winds will persist, supporting
+scattered showers and a few thunderstorms, and over AZ and NM, where
+midlevel moisture will support weak instability. In either case,
+severe weather is not anticipated due to weak instability.
+
+..Jewell.. 10/18/2026
+
+</pre>
+<a href="https://www.spc.noaa.gov/products/outlook/day2otlk.html">Read more</a>
+]]>
+      </description>
+      <pubDate>Sun, 18 Oct 2026 17:00:08 +0000</pubDate>
+      <guid isPermaLink="false">https://www.spc.noaa.gov/products/outlook/day2otlk_1730.html/202610181701</guid>
+    </item>
+        <item>
+          <link>https://www.spc.noaa.gov/products/fire_wx/fwdy1.html</link>
+          <title>SPC Day 1 Fire Weather Outlook</title>
+          <description>SPC Day 1 Fire Weather Outlook
+          <![CDATA[<br /><a href="https://www.spc.noaa.gov/products/fire_wx/fwdy1.html"><img src="https://www.spc.noaa.gov/products/fire_wx/day1fireotlk.gif" border="1" alt="Day 1 Fire Weather Outlook Image" hspace="1" vspace="1" width="815" height="555" align="center" /></a><pre>
+Day 1 Fire Weather Outlook  
+NWS Storm Prediction Center Norman OK
+1139 AM CDT Sun Oct 18 2026
+
+Valid 181700Z - 191200Z
+
+...NO CRITICAL AREAS...
+
+The ongoing fire weather forecast remains on track with no
+highlighted areas across the CONUS; please see the previous
+discussion for additional information.
+
+..Elizalde-Garcia.. 10/18/2026
+
+.PREV DISCUSSION... /ISSUED 0106 AM CDT Sun Oct 18 2026/
+
+...Synopsis...
+A closed mid/upper low will remain positioned off of the East Coast
+today, with upper-level ridging stretching from the southern Plains
+into the Ohio Valley. Weak upper troughing will persist across
+southern California and portions of the Southwest, and a robust
+mid-level shortwave trough will begin to approach the Pacific
+Northwest coastline towards the end of the period. At the surface,
+high pressure will be maintained across the Mid-Atlantic, with a
+second area of surface high pressure building into the northern
+Plains behind a progressive cold front. Recent widespread
+precipitation across much of the Intermountain West, Plains, and
+East will largely temper fire weather concerns across these regions
+today.
+
+Some guidance suggests that sustained southwesterly winds may
+increase to around 15 mph amid minimum RH values in the 15-25% range
+across portions of northeastern CA, southern/southeastern OR, and
+northwestern NV, where ERCs are noted to be around the 80-90th
+percentiles. Confidence in a sustained period of overlap of elevated
+wind/RH criteria remains too low to warrant elevated highlights, but
+brief periods of locally elevated fire weather conditions may
+materialize should areas of stronger winds overlap RH below 20%.
+
+Dry and breezy conditions are also forecast today across portions of
+the southern/central High Plains preceding a lee surface trough and
+separately across portions of the Southeast, including parts of GA,
+SC, and AL, along the southern periphery of surface high pressure to
+the north. Poor to marginal fuels, recent rainfall across parts of
+these areas, and borderline wind/RH conditions (10-15 mph winds
+across the Southeast and 20-25% minimum daytime RH across the
+Plains) are expected to temper the overall fire weather threat
+across these regions, however.
+
+...Please see www.spc.noaa.gov/fire for graphic product...
+
+</pre>
+<a href="https://www.spc.noaa.gov/products/fire_wx/fwdy1.html">Read more</a>
+]]>
+          </description>
+          <pubDate>Sun, 18 Oct 2026 16:40:32 +0000</pubDate>
+          <guid isPermaLink="false">https://www.spc.noaa.gov/products/fire_wx/fwdy1.html/202610181701</guid>
+        </item>
+  </channel>
+</rss>

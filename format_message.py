@@ -67,7 +67,7 @@ def _section(text):
     return {"type": "section", "text": {"type": "mrkdwn", "text": text}}
 
 
-def format_alert_block(groups):
+def format_alert_block(groups, rendered_links=None):
     """
     Format structured alert groups into Slack Block Kit blocks.
 
@@ -75,6 +75,9 @@ def format_alert_block(groups):
         groups: list of {"heading": str, "summary": str, "items": [
                     {"title", "link", "published", "source"}, ...]}
                 as produced by process_disasters().
+        rendered_links: optional set; receives the link of every item whose
+                line made it into the blocks. Items cut by the block cap are
+                absent, so the caller can leave them unrecorded and retry them.
 
     Text is packed into section blocks at line granularity — a line (and
     therefore a link) is never split mid-way. Groups that do not fit within
@@ -99,28 +102,38 @@ def format_alert_block(groups):
 
         heading = group.get("heading") or "Alerts"
         emoji = _pick_emoji(heading)
-        lines = [f"*{emoji} {_escape_mrkdwn(heading)}*"]
+        # Each line carries the link of the item it renders (None for the
+        # heading and summary), so rendered links can be reported.
+        lines = [(f"*{emoji} {_escape_mrkdwn(heading)}*", None)]
         summary = (group.get("summary") or "").strip()
         if summary:
-            lines.append(_escape_mrkdwn(summary))
-        lines.extend(_item_line(item) for item in group.get("items", []))
+            lines.append((_escape_mrkdwn(summary), None))
+        lines.extend((_item_line(item), item.get("link")) for item in group.get("items", []))
 
         # Pack whole lines into section blocks (an over-long single line is
         # truncated on its own, which can shorten displayed text but never
         # produces a dangling half-link followed by other content).
         current = ""
-        for line in lines:
+        current_links = []
+
+        def flush():
+            blocks.append(_section(current))
+            if rendered_links is not None:
+                rendered_links.update(l for l in current_links if l)
+
+        for line, link in lines:
             if len(line) > MAX_SECTION_LEN:
                 line = line[:MAX_SECTION_LEN] + "…"
             if current and len(current) + 1 + len(line) > MAX_SECTION_LEN:
                 if len(blocks) >= MAX_BLOCKS:
                     break
-                blocks.append(_section(current))
-                current = line
+                flush()
+                current, current_links = line, [link]
             else:
                 current = f"{current}\n{line}" if current else line
+                current_links.append(link)
         if current and len(blocks) < MAX_BLOCKS:
-            blocks.append(_section(current))
+            flush()
 
         if gi < len(groups) - 1 and len(blocks) < MAX_BLOCKS:
             blocks.append({"type": "divider"})

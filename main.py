@@ -11,6 +11,7 @@ import time
 import sqlite3
 import logging
 import json
+import re
 
 # Load environment variables
 load_dotenv()
@@ -119,6 +120,45 @@ def save_sent_entries(new_links):
     except Exception as e:
         logging.error(f"Error saving sent entries: {e}")
 
+_USGS_MAG = re.compile(r"\s*M\s*([0-9]+(?:\.[0-9]+)?)", re.IGNORECASE)
+_GDACS_LEVELS = ("green", "orange", "red")
+
+
+def dedup_key(report):
+    """
+    The key a report is recorded under in sent_entries.
+
+    Most sources keep the link alone. USGS and GDACS re-use one link for an
+    event whose severity changes, so their key adds the field that matters:
+    the magnitude for USGS (a revision from M5.6 to M6.1 is evaluated again)
+    and the alert color for GDACS (an escalation from orange to red alerts
+    again). Titles are not used whole, because some sources (SPC) put a
+    timestamp in every title.
+    """
+    link = report.get("link", "") or ""
+    source_type = (report.get("source_type") or "").lower()
+    title = report.get("title") or ""
+    if source_type == "usgs":
+        m = _USGS_MAG.match(title)
+        if m:
+            return f"{link}#M{m.group(1)}"
+    elif source_type == "gdacs":
+        level = title.split(" ", 1)[0].lower()
+        if level in _GDACS_LEVELS:
+            return f"{link}#{level}"
+    return link
+
+
+def already_sent(report, sent_entries):
+    """True if the report's key, or its bare link, is recorded.
+
+    Rows written before dedup_key existed hold the bare link; matching it too
+    keeps a deploy from re-posting everything still in the feeds. Such a row
+    expires with the normal 30-day cleanup.
+    """
+    return dedup_key(report) in sent_entries or report.get("link") in sent_entries
+
+
 def main():
     """
     Main function to fetch, process, and send disaster alerts.
@@ -136,7 +176,7 @@ def main():
     logging.info(f"Fetched {len(disasters)} disaster reports from RSS feeds.")
     
     # Filter out already sent entries
-    new_disasters = [d for d in disasters if d['link'] not in sent_entries]
+    new_disasters = [d for d in disasters if not already_sent(d, sent_entries)]
     
     if not new_disasters:
         logging.info("No new disaster reports to process.")
@@ -146,18 +186,28 @@ def main():
     
     # Process and summarize the disasters into structured groups
     groups, status = process_disasters(new_disasters)
-    new_links = [d['link'] for d in new_disasters]
+    new_keys = [dedup_key(d) for d in new_disasters]
 
     if status == "ok" and groups:
         # Format and send the alert to Slack
-        formatted_blocks = format_alert_block(groups)
+        rendered = set()
+        formatted_blocks = format_alert_block(groups, rendered_links=rendered)
         logging.debug("Formatted blocks to be sent to Slack:")
         logging.debug(json.dumps(formatted_blocks, indent=2))
+
+        # Items that reached a group but were cut by the block cap stay
+        # unrecorded so the next run delivers them. Entries that never
+        # reached a group were filtered out and are recorded as processed.
+        grouped = {item.get("link") for g in groups for item in g.get("items", [])}
+        omitted = grouped - rendered
+        keys_to_save = [dedup_key(d) for d in new_disasters if d.get("link") not in omitted]
+        if omitted:
+            logging.warning(f"{len(omitted)} alert(s) cut by the Slack block limit; left for the next run.")
 
         # Send the alert to Slack; only record entries as sent if delivery
         # succeeded, so a failed post is retried next run instead of lost.
         if send_disaster_alert_block(formatted_blocks):
-            save_sent_entries(new_links)
+            save_sent_entries(keys_to_save)
             logging.info("Disaster alert sent to Slack successfully.")
         else:
             logging.error(
@@ -166,7 +216,7 @@ def main():
     elif status == "empty":
         # Everything was filtered out (green alerts, low magnitude, etc.).
         # Record the entries so they are not re-processed on every run.
-        save_sent_entries(new_links)
+        save_sent_entries(new_keys)
         logging.info("All new entries filtered out - recorded as processed, no alert sent.")
     else:
         # LLM summarization failed - leave entries unrecorded so they retry.

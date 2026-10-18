@@ -78,7 +78,7 @@ def test_llm_total_failure_still_delivers_fallback_alert(run_main, slack, db, fa
 def test_all_filtered_records_links_without_posting(run_main, slack, db):
     run_main([disaster("M 5.0 - Quiet place", USGS_LINK, source_type="usgs")])
     assert slack.posts == []
-    assert saved_links(db) == {USGS_LINK}
+    assert saved_links(db) == {USGS_LINK + "#M5.0"}
 
 
 def test_job_swallows_exceptions(monkeypatch):
@@ -89,7 +89,6 @@ def test_job_swallows_exceptions(monkeypatch):
 
 
 # ---- dedup-key bugs ----------------------------------------------------------
-@pytest.mark.xfail(strict=True, reason="BUG: entries dropped by should_filter_entry are saved as sent, so a USGS event revised from M5.6 to M6.1 under the same link never alerts")
 def test_usgs_event_filtered_then_revised_upward_alerts(run_main, slack):
     run_main([disaster("M 5.6 - 40 km W of Somewhere", USGS_LINK, source_type="usgs")])
     assert slack.posts == []
@@ -97,7 +96,6 @@ def test_usgs_event_filtered_then_revised_upward_alerts(run_main, slack):
     assert len(slack.block_posts) == 1
 
 
-@pytest.mark.xfail(strict=True, reason="BUG: dedup key is the link only, so a GDACS escalation orange->red under a stable link never re-alerts")
 def test_gdacs_escalation_under_stable_link_realerts(run_main, slack):
     run_main([disaster("Orange earthquake alert (Magnitude 6.5M) in Chile", GDACS_LINK, source_type="gdacs")])
     run_main([disaster("Red earthquake alert (Magnitude 7.1M) in Chile", GDACS_LINK, source_type="gdacs")])
@@ -133,7 +131,6 @@ def test_every_link_that_was_posted_is_recorded(run_main, slack, db, many_groups
     assert shown and shown <= saved_links(db)
 
 
-@pytest.mark.xfail(strict=True, reason="BUG: groups omitted by the 50-block cap are still saved as sent, so they are never delivered")
 def test_links_of_groups_omitted_by_block_cap_are_not_recorded(run_main, slack, db, many_groups):
     run_main(many_groups)
     shown = {d["link"] for d in many_groups if f"<{d['link']}|" in posted_text(slack)}
@@ -146,13 +143,14 @@ def _invalid_blocks(slack):
     slack.fail_when = lambda kw: slack_error("invalid_blocks") if kw.get("blocks") else None
 
 
-def test_invalid_blocks_records_nothing_current_behavior(run_main, slack, db):
+def test_invalid_blocks_delivers_plain_text_and_records(run_main, slack, db):
     _invalid_blocks(slack)
     run_main([disaster("Floods", "https://r/1", source_type="reliefweb")])
-    assert saved_links(db) == set()
+    text_posts = [p for p in slack.posts if not p.get("blocks")]
+    assert len(text_posts) == 1 and "https://r/1" in text_posts[0]["text"]
+    assert saved_links(db) == {"https://r/1"}
 
 
-@pytest.mark.xfail(strict=True, reason="BUG: invalid_blocks is never recorded, so the same rejected alert is re-attempted (and a generic public error text re-posted) on every run")
 def test_invalid_blocks_alert_is_not_repeated_forever(run_main, slack):
     _invalid_blocks(slack)
     ds = [disaster("Floods", "https://r/1", source_type="reliefweb")]

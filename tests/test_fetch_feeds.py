@@ -65,7 +65,8 @@ def test_reliefweb_item_with_url_and_date(http):
 def test_reliefweb_item_without_url_or_date_falls_back(http):
     http.route("api.reliefweb.int", http.fixture("reliefweb_v2.json"))
     second = fetch_rss_feeds([RELIEFWEB])[1]
-    assert second["link"] == "https://reliefweb.int/disasters"
+    # The fallback keeps the disasters page but stays unique per item
+    assert second["link"].startswith("https://reliefweb.int/disasters#")
     assert second["published"] == ""
 
 
@@ -86,10 +87,10 @@ def test_wfigs_with_coordinates_links_to_map_pin(http):
     assert first["note"] == "~12,346 acres, 20% contained, Baker County, US-OR"
 
 
-def test_wfigs_without_coordinates_uses_generic_inciweb_link(http):
+def test_wfigs_without_coordinates_uses_inciweb_link_unique_per_fire(http):
     http.route("arcgis.com", http.fixture("wfigs.json"))
     second = fetch_rss_feeds([WFIGS])[1]
-    assert second["link"] == "https://inciweb.wildfire.gov/"
+    assert second["link"].startswith("https://inciweb.wildfire.gov/#")
     assert second["title"] == "Ridge Complex (US-ID)"
 
 
@@ -113,14 +114,12 @@ def _wfigs_payload(*names):
     return {"features": [{"attributes": {"attr_IncidentName": n, "attr_POOState": "US-CA"}} for n in names]}
 
 
-@pytest.mark.xfail(strict=True, reason="BUG: WFIGS fires without coordinates all share link https://inciweb.wildfire.gov/, so dedup treats them as one")
 def test_wfigs_fires_without_coordinates_get_distinct_dedup_keys(http):
     http.route("arcgis.com", _wfigs_payload("Alpha", "Bravo"))
     links = [r["link"] for r in fetch_rss_feeds([WFIGS])]
     assert len(links) == 2 and len(set(links)) == 2
 
 
-@pytest.mark.xfail(strict=True, reason="BUG: ReliefWeb disasters without url all share link https://reliefweb.int/disasters, so dedup treats them as one")
 def test_reliefweb_disasters_without_url_get_distinct_dedup_keys(http):
     http.route("api.reliefweb.int", {"data": [
         {"fields": {"name": "Flood A"}}, {"fields": {"name": "Flood B"}}]})

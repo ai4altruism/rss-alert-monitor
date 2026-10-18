@@ -8,6 +8,7 @@ from fetch_feeds import fetch_rss_feeds
 from dotenv import load_dotenv
 from collections import defaultdict
 import datetime
+import email.utils
 import logging
 import time
 from send_to_slack import send_error_notice
@@ -79,6 +80,13 @@ def normalize_date(date_str):
         except (ValueError, TypeError):
             continue
             
+    # RFC 2822 with a numeric offset ("Mon, 05 Oct 2026 12:00:00 +0000"),
+    # the usual RSS pubDate; strptime's %Z accepts only zone names.
+    try:
+        return email.utils.parsedate_to_datetime(date_str).strftime('%Y-%m-%d')
+    except (TypeError, ValueError, IndexError):
+        pass
+
     # Check for special patterns like "Updated: 2023-12-25"
     date_match = re.search(r'(\d{4}[-/]\d{1,2}[-/]\d{1,2})', date_str)
     if date_match:
@@ -148,7 +156,7 @@ def should_filter_entry(entry, entry_details=None):
                 
         # 5. Use LLM-extracted details as final check
         if entry_details and isinstance(entry_details, dict):
-            alert_level = entry_details.get("alert_level", "").lower()
+            alert_level = (entry_details.get("alert_level") or "").lower()
             if alert_level == "green":
                 logging.info(f"Filtering out GDACS green alert from LLM extraction: {title} (Level: {alert_level})")
                 return True
@@ -167,7 +175,7 @@ def should_filter_entry(entry, entry_details=None):
             
         # 8. For GDACS earthquakes, also apply magnitude threshold
         if entry_details and isinstance(entry_details, dict):
-            disaster_type = entry_details.get("disaster_type", "").lower()
+            disaster_type = (entry_details.get("disaster_type") or "").lower()
             if disaster_type == "earthquake":
                 magnitude = entry_details.get("severity", "")
                 if isinstance(magnitude, str) and magnitude.replace('.', '').isdigit():
@@ -206,7 +214,7 @@ def should_filter_entry(entry, entry_details=None):
         
         # Use LLM-extracted info for USGS as a backup
         if entry_details and isinstance(entry_details, dict):
-            disaster_type = entry_details.get("disaster_type", "").lower()
+            disaster_type = (entry_details.get("disaster_type") or "").lower()
             if disaster_type == "earthquake":
                 magnitude = entry_details.get("severity", "")
                 if isinstance(magnitude, str) and magnitude.replace('.', '').isdigit():
@@ -378,13 +386,16 @@ def extract_details_in_batch(entries, max_retries=2, backoff_factor=2):
                             result["date"] = normalize_date(result["date"])
                         
                         # Store the details
+                        # `or`, not a .get default: the prompt asks for null on
+                        # unknown fields, and a present null would otherwise
+                        # print as "None" in headings and crash .lower().
                         details_map[entry_id] = {
-                            "disaster_type": result.get("disaster_type", "Unknown Type"),
-                            "location": result.get("location", "Unknown Location"),
-                            "date": result.get("date", "Unknown Date"),
+                            "disaster_type": result.get("disaster_type") or "Unknown Type",
+                            "location": result.get("location") or "Unknown Location",
+                            "date": result.get("date") or "Unknown Date",
                             "severity": result.get("severity"),
-                            "alert_level": result.get("alert_level", ""),  # Added alert_level field
-                            "description": result.get("description", "")
+                            "alert_level": result.get("alert_level") or "",
+                            "description": result.get("description") or ""
                         }
                 
                 # Create fallback entries for any missing IDs
