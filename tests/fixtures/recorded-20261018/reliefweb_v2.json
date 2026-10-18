@@ -1,0 +1,627 @@
+{
+ "time": 24,
+ "took": 8,
+ "totalCount": 3737,
+ "count": 20,
+ "data": [
+  {
+   "id": "52720",
+   "score": 1,
+   "fields": {
+    "name": "Panama: Earthquake - Oct 2026",
+    "status": "alert",
+    "primary_country": {
+     "name": "Panama"
+    },
+    "country": [
+     {
+      "name": "Panama"
+     }
+    ],
+    "type": [
+     {
+      "name": "Earthquake"
+     }
+    ],
+    "url": "https://reliefweb.int/taxonomy/term/52720",
+    "date": {
+     "created": "2026-10-12T01:46:01+00:00"
+    },
+    "profile": {
+     "overview": "On 9 October at 12:56 p.m., a magnitude 7.2 earthquake struck 39 km north-west of Tonos\u00ed, in the south-central province of Los Santos, at a depth of 4 km, according to the University of Panama\u2019s Institute of Geosciences (IGC-UP). Aftershocks are ongoing, with 56 aftershocks recorded up to 8:11 p.m. No deaths or missing people have been reported. [...] The National Civil Protection System (SINAPROC) reported at least 134 damaged homes, 27 people injured and 188 damaged schools nationwide as of 8:00 p.m. Veraguas, Cocl\u00e9, Los Santos and Herrera provinces account for most of the damage. In Veraguas, the townships (corregimientos) of Arena, Cacao and Quebro remain cut off, with power, water and Internet outages. Some 300 people were evacuated from Isla Ca\u00f1as (Los Santos) due to rising sea levels, and eight families are staying in a shelter set up in Penonom\u00e9 (Cocl\u00e9). The Ministry of Health (MINSA) reported non-structural damage to 17 health facilities: 6 hospitals, 8 health centres and 3 MINSA-CAPSI (Innovative Primary Health Care Centres). Hospitals in Los Santos, Chiriqu\u00ed and Herrera provinces and the Panama City metropolitan area were evacuated, and the Hospital del Oriente Chiricano was fully evacuated (209 people). ([OCHA, 10 Oct 2026](https://reliefweb.int/node/4233443))\n\nThe University of Panama\u2019s Institute of Geosciences (IGC-UP) has revised the magnitude of the 9 October earthquake to 7.6. The epicentre was 39 km north-west of Tonos\u00ed, at a depth of 4 km. The institute has since recorded more than 200 earthquakes, five of them magnitude 6.0 or above. As of 6:30 p.m. on 10 October, the National Civil Protection System (SINAPROC) reported more than 820 damaged homes, 27 people with minor injuries and 29 affected health facilities across ten provinces and two Indigenous territories. The Ministry of Education (MEDUCA) reports 419 affected schools. No one has been reported missing. Some 255 people are staying in two shelters in Mariato (Veraguas) and 12 in one in Penonom\u00e9 (Cocl\u00e9), and two more shelters are open in Boca de Quema (Los Santos). Authorities evacuated about 300 people from Isla de Ca\u00f1as. ([OCHA, 11 Oct 2026](https://reliefweb.int/node/4233493))"
+    }
+   },
+   "href": "https://api.reliefweb.int/v2/disasters/52720"
+  },
+  {
+   "id": "52702",
+   "score": 1,
+   "fields": {
+    "name": "Guinea-Bissau: Mpox Outbreak - Jul 2026",
+    "status": "ongoing",
+    "primary_country": {
+     "name": "Guinea-Bissau"
+    },
+    "country": [
+     {
+      "name": "Guinea-Bissau"
+     }
+    ],
+    "type": [
+     {
+      "name": "Epidemic"
+     }
+    ],
+    "url": "https://reliefweb.int/taxonomy/term/52702",
+    "date": {
+     "created": "2026-09-16T13:18:19+00:00"
+    },
+    "profile": {
+     "overview": "The Ministry of Public Health declared Guinea-Bissau\u2019s first mpox outbreak on 4 July 2026. By 20 July, three laboratory-confirmed cases had been reported: two in Bissau, including the first confirmed case in Cuntum, and one in Safim in Biombo Region. Twenty-six contacts were under active follow-up and no deaths had been reported. Delays between symptom onset and isolation, together with the absence of clear epidemiological links between the cases, suggested that undetected transmission was occurring. ([UNICEF, 23 Jul 2026](https://reliefweb.int/node/4222891))\n\nBy 13 August, six laboratory-confirmed cases had been recorded, including two new cases during epidemiological week 32. Five cases were in the Autonomous Sector of Bissau and one was in Biombo Region, with no deaths reported. Of 46 suspected cases, 23 involved children under 15, including 16 children aged zero to four years. UNICEF supported government-led coordination, community engagement, infection prevention and control, and water, sanitation and hygiene interventions in priority health facilities. A multisectoral UNICEF response plan was developed in alignment with the national 42-day response plan. ([UNICEF, 14 Aug 2026](https://reliefweb.int/node/4225831))\n\nAs of 17 August, Guinea-Bissau had reported seven confirmed mpox cases, all among adults. Six were in the Autonomous Sector of Bissau and one was in Biombo Region, while no deaths had been recorded. The confirmed cases did not appear epidemiologically linked, raising concern about unidentified transmission chains amid significant gaps in community surveillance, contact tracing and testing. UNICEF, WHO and other partners continued supporting surveillance, infection prevention and control, water, sanitation and hygiene measures, and public information activities. ([UNICEF, 20 Aug 2026](https://reliefweb.int/node/4226424))\n\nAs of 23 August 2026, Guinea-Bissau had recorded 58 suspected mpox cases, including ten laboratory-confirmed cases and no deaths. Around 90% of confirmed cases were in the Autonomous Sector of Bissau, while Biombo Region had reported one case. Suspected cases had also been recorded in Oio, Gab\u00fa, Tombali, Cacheu and Bijag\u00f3s, although there was no evidence of sustained community transmission outside Bissau. Genomic sequencing identified clade IIb, related to viruses circulating in Sierra Leone, Guinea and Nigeria. Of 214 identified contacts, 127 had completed monitoring and 87 remained under active follow-up. WHO classified the outbreak as a protracted Grade 2 emergency and continued supporting surveillance, testing, sequencing, case management, infection prevention, community engagement and cross-border coordination. ([WHO, 27 Aug 2026](https://reliefweb.int/node/4230128))\n\nAs of 27 September, Guinea-Bissau had reported 23 confirmed mpox cases and 135 suspected cases, with no deaths. Confirmed cases had been recorded in the Autonomous Sector of Bissau, Biombo and Bafata, extending the confirmed geographic spread beyond the areas previously reported. Three confirmed cases involved infants aged 11-12 months. The source of infection was unknown for 74% of confirmed cases, indicating significant gaps in identifying transmission chains. UNICEF continued supporting surveillance, infection prevention and control, water, sanitation and hygiene, and community engagement, while a six-month extension of the response plan was being prepared. ([UNICEF, 7 Oct 2026](https://reliefweb.int/node/4233098))"
+    }
+   },
+   "href": "https://api.reliefweb.int/v2/disasters/52702"
+  },
+  {
+   "id": "52700",
+   "score": 1,
+   "fields": {
+    "name": "Bangladesh: Dengue Outbreak - Sep 2026",
+    "status": "ongoing",
+    "primary_country": {
+     "name": "Bangladesh"
+    },
+    "country": [
+     {
+      "name": "Bangladesh"
+     }
+    ],
+    "type": [
+     {
+      "name": "Epidemic"
+     }
+    ],
+    "url": "https://reliefweb.int/taxonomy/term/52700",
+    "date": {
+     "created": "2026-09-16T01:11:24+00:00"
+    },
+    "profile": {
+     "overview": "More than 51,000 dengue cases and 149 deaths were recorded from the beginning of 2026 to 13 September, according to the Directorate General of Health Services (DGHS). [...] During the first 14 days of September, the country recorded an average of more than 1,200 hospital admissions per day, indicating a continued sharp increase in dengue transmission and the pressure on health facilities. August recorded 20,536 hospital admissions and 43 deaths \u2014 more than double the 9,206 admissions recorded in July 2026. [...] The current surge has affected all eight divisions, with Dhaka Division the hardest hit.  ([Bangladesh Red Crescent Society & IFRC, 14 Sep 2026](https://reliefweb.int/node/4229795/))\n\nBangladesh is experiencing an active and worsening dengue outbreak. By 14 September 2026, 53,570 dengue patients had been hospitalized and 157 deaths recorded, compared with 37,891 admissions and 150 deaths in 2025 [...] The highest burden is currently concentrated in Dhaka, Khulna and Chattogram, while increasing trends have been identified in Pirojpur, Cox\u2019s Bazar and Barguna, with Netrokona also showing an upward trend. The continued increase in cases is placing additional pressure on health facilities, including bed capacity, clinical staff, blood and platelet supplies, and other essential resources. ([IFRC, 23 Sep 2026](https://reliefweb.int/node/4231170/))"
+    }
+   },
+   "href": "https://api.reliefweb.int/v2/disasters/52700"
+  },
+  {
+   "id": "52699",
+   "score": 1,
+   "fields": {
+    "name": "Liberia: Floods - Aug 2026",
+    "status": "ongoing",
+    "primary_country": {
+     "name": "Liberia"
+    },
+    "country": [
+     {
+      "name": "Liberia"
+     }
+    ],
+    "type": [
+     {
+      "name": "Flood"
+     }
+    ],
+    "url": "https://reliefweb.int/taxonomy/term/52699",
+    "date": {
+     "created": "2026-09-15T09:09:55+00:00"
+    },
+    "profile": {
+     "overview": "Between 19 and 26 August 2026, Liberia experienced a prolonged period of heavy rainfall that affected multiple parts of the country. Initial flooding and localized impacts were reported from 19 August onwards in several communities; however, the situation deteriorated significantly on 24 August 2026, when exceptionally intense rainfall caused widespread overflow of rivers, drainage systems, and waterways, resulting in severe flooding across multiple counties simultaneously.\n\nWhile seasonal flooding occurs regularly in Liberia during the rainy season, the situation on 24 August represented a clear escalation beyond normal seasonal impacts. The volume and intensity of rainfall exceeded the capacity of existing drainage infrastructure and flood mitigation measures, causing extensive inundation of residential communities, major transportation routes, public facilities, and essential services. The floods rapidly expanded from localized incidents into a large-scale multi-county emergency affecting Montserrado, Grand Cape Mount, Grand Bassa, Bomi, Nimba, River Gee, Bong, and other areas across the country.\n\nThe significance of 24 August lies in the fact that this was the point at which the scale of humanitarian consequences exceeded the coping capacity of affected communities and local response mechanisms. Assessments conducted immediately after the flooding confirmed widespread destruction of homes, large-scale displacement, contamination of water sources, disruption of livelihoods, damage to public infrastructure, and growing public health risks. These impacts far exceeded those typically associated with routine seasonal flooding and generated humanitarian needs requiring external support. ([IFRC, 12 Sep 2026](https://reliefweb.int/node/4229812))\n\nThe IFRC reported that the floods had affected more than 76,000 people in over 15,200 households and displaced more than 5,000 people. The response targeted 1,225 households, comprising approximately 6,125 people, with assistance including shelter, cash, health, water, sanitation and hygiene support. Of the targeted households, 350 had homes that were destroyed or severely damaged. ([IFRC, 12 Sep 2026](https://reliefweb.int/node/4229812))"
+    }
+   },
+   "href": "https://api.reliefweb.int/v2/disasters/52699"
+  },
+  {
+   "id": "52693",
+   "score": 1,
+   "fields": {
+    "name": "Cameroon: Cholera Outbreak - Jun 2026",
+    "status": "ongoing",
+    "primary_country": {
+     "name": "Cameroon"
+    },
+    "country": [
+     {
+      "name": "Cameroon"
+     }
+    ],
+    "type": [
+     {
+      "name": "Epidemic"
+     }
+    ],
+    "url": "https://reliefweb.int/taxonomy/term/52693",
+    "date": {
+     "created": "2026-09-10T12:04:36+00:00"
+    },
+    "profile": {
+     "overview": "Cameroon's Far North Region is facing a rapidly expanding outbreak. Since late June, more than 1,250 cases and 31 deaths have been reported across nine health districts. The outbreak has already surpassed the scale of recent epidemics recorded in 2019, 2022 and 2024 in Cameroon. Particularly concerning is the situation in Minawao refugee camp, home to over 81,000 refugees, where dozens of cases have been recorded. To bolster the response, $1 million was allocated from CERF to support cholera prevention, treatment, water and sanitation interventions targeting 230,000 people, including children and refugee populations in high-risk border areas. The funding comes as humanitarian partners struggle with severe shortfalls under the country's humanitarian response plan. ([OCHA, 10 Sep 2026](https://reliefweb.int/node/4229293))\n\nAs of September 20, 447 cholera cases and four deaths have been reported in Minawao Refugee Camp, which currently is home to more than 81,000 refugees and operating at about 325% of intended capacity. In Cameroon, there have been 2,753 cases and 77 deaths across 11 health districts. ([IMC, 22 Sep 2026](https://reliefweb.int/node/4230953))\n\nAs of 23 September 2026, Cameroon\u2019s North Region had reported 37 cholera cases and six deaths, with Guider recording the highest number of cases. The high case fatality rate of 16.2% raised concerns about delayed detection and referral or limited access to quality treatment. In the Far North, insecurity-related displacement was increasing pressure on health services, water and sanitation in host communities. UNICEF\u2019s response was 48% funded, leaving a funding gap of US$660,800. ([UNICEF, 7 Oct 2026](https://reliefweb.int/node/4233287))\n\nOn 6 October, International Medical Corps reported that the latest government figures recorded 2,903 confirmed cholera cases and 84 deaths across 13 health districts in Cameroon, giving a case fatality rate of 2.89%. As of 5 October, Minawao refugee camp had recorded 459 cases and four deaths. The camp hosted approximately 81,000 refugees and was operating at 325% of its intended capacity, increasing pressure on water, sanitation and health services. International Medical Corps supported a 65-bed cholera treatment centre and had trained 105 health workers to strengthen the response. ([IMC, 6 Oct 2026](https://reliefweb.int/node/4233070))"
+    }
+   },
+   "href": "https://api.reliefweb.int/v2/disasters/52693"
+  },
+  {
+   "id": "52692",
+   "score": 1,
+   "fields": {
+    "name": "Niger: Floods - Sep 2026",
+    "status": "ongoing",
+    "primary_country": {
+     "name": "Niger"
+    },
+    "country": [
+     {
+      "name": "Niger"
+     }
+    ],
+    "type": [
+     {
+      "name": "Flood"
+     }
+    ],
+    "url": "https://reliefweb.int/taxonomy/term/52692",
+    "date": {
+     "created": "2026-09-08T13:21:54+00:00"
+    },
+    "profile": {
+     "overview": "As of 1 September, floods have affected 34,372 people (5,470 households), causing 44 deaths and 95 injuries. Maradi, Zinder and Dosso are the worst affected, with 4,412 houses collapsed, 43 classrooms damaged, livestock losses and destroyed food stocks. Priorities include household assistance, emergency shelter, protection of displaced people and restoration of essential services. The National Meteorological Directorate forecasts relatively stable conditions, with low likelihood of extreme weather and limited additional flood risk. At the same time last year, floods had affected 92,133 people and caused 50 deaths. ([OCHA, 8 Sep 2026](https://reliefweb.int/node/4228914))\n\nAs of 14 September 2026, floods across Niger had affected 57,356 people in 8,214 households, killed 65 people and injured 118. Maradi, Zinder and Dosso were the worst-affected regions. The floods had caused 7,512 houses to collapse, damaged 253 classrooms and resulted in significant losses of livestock and food stocks. ([OCHA, 22 Sep 2026](https://reliefweb.int/node/4230946))\n\nAs of 30 September 2026, flooding across Niger had affected approximately 74,300 people and damaged or destroyed around 9,700 houses. This represented an increase from the 57,356 affected people reported on 14 September. OCHA noted that the regional flood-impact figures remained preliminary and subject to revision. ([OCHA, 8 Oct 2026](https://reliefweb.int/node/4233219))"
+    }
+   },
+   "href": "https://api.reliefweb.int/v2/disasters/52692"
+  },
+  {
+   "id": "52687",
+   "score": 1,
+   "fields": {
+    "name": "Philippines: Floods - Aug 2026",
+    "status": "ongoing",
+    "primary_country": {
+     "name": "Philippines"
+    },
+    "country": [
+     {
+      "name": "Philippines"
+     }
+    ],
+    "type": [
+     {
+      "name": "Flood"
+     },
+     {
+      "name": "Land Slide"
+     }
+    ],
+    "url": "https://reliefweb.int/taxonomy/term/52687",
+    "date": {
+     "created": "2026-09-01T06:42:22+00:00"
+    },
+    "profile": {
+     "overview": "The Southwest Monsoon (Habagat) has intensified over the Philippines, bringing persistent and at times heavy to intense rainfall over western and northern Luzon, Metro Manila, and parts of MIMAROPA and the Visayas. The enhanced monsoon is being further influenced by an two LPAs east of Extreme Northern Luzon, which may develop into a tropical cyclone and is expected to continue enhancing the Habagat. As of 29 August 2026, PAGASA has issued multiple heavy rainfall warnings, including Red Warning over parts of Metro Manila and Occidental Mindoro, with serious flooding and landslides possible in affected areas. ([IFRC & Philippine Red Cross, 29 Aug 2026](https://reliefweb.int/report/philippines/phl-flood-08-2026-phl-enhanced-southwest-monsoon-habagat-2026-08-29))\n\nThe latest cumulative National Disaster Risk Reduction and Management Council (NDRRMC) Situational Report no. 27 from 30 August reported 7,467,238 people affected, with more than 1,500 areas flooded since the beginning of August. With combined damages to agriculture and infrastructure, the full cost is estimated at over 8 billion pesos (over 100 million CHF). 32 people have died and 17 injured by monsoon-related incidents. [...] According to NDRRMC, a total of 26,197 families (93,636 people) have been displaced, with 43,175 people temporarily taking shelter inside 529 evacuation centres as of 30 August. Almost 66,000 farmers and fisherfolk have been affected, and almost 60,000 hectares of Crops have suffered damages with around 10,000 hectares destroyed. In total the Agricultural sector has suffered estimated damages of over 2 billion pesos. ([IFRC, 2 Sep 2026](https://reliefweb.int/node/4228227))\n\nAccording NDRRMC report as of 14 September, approximately 9.6 million people (2.8 million families) had been affected, with 44 fatalities, 18 injuries, and 5 people reported missing. Around 157,000 people remained displaced, including 76,000 people temporarily sheltering in 748 evacuation centres. ([AHA Centre, 14 Sep 2026](https://reliefweb.int/node/4229724/))"
+    }
+   },
+   "href": "https://api.reliefweb.int/v2/disasters/52687"
+  },
+  {
+   "id": "52684",
+   "score": 1,
+   "fields": {
+    "name": "Nepal: Flash Floods - Aug 2026",
+    "status": "ongoing",
+    "primary_country": {
+     "name": "Nepal"
+    },
+    "country": [
+     {
+      "name": "China"
+     },
+     {
+      "name": "Nepal"
+     }
+    ],
+    "type": [
+     {
+      "name": "Flash Flood"
+     },
+     {
+      "name": "Flood"
+     },
+     {
+      "name": "Land Slide"
+     }
+    ],
+    "url": "https://reliefweb.int/taxonomy/term/52684",
+    "date": {
+     "created": "2026-08-26T13:00:20+00:00"
+    },
+    "profile": {
+     "overview": "A major flash flood struck Rasuwa district after a sudden and intense surge of water entered the Bhote Koshi River from the Tibet (China) side at approximately 9:15 AM [on 26 August 2026]. The flood rapidly impacted the Timure, Rasuwagadhi, and Syabrubesi areas, causing significant damage to settlements, markets, police infrastructure, roads, and hydropower facilities. Authorities have warned that rising water levels could affect downstream communities along the Trishuli River corridor. ([IFRC, 26 Aug 2026](https://reliefweb.int/node/4227103))\n\nAccording to the National Disaster Risk Reduction and Management Authority (NDRRMA), 10,000 households require immediate relief. At least 157 deaths have been confirmed and nearly 245 people remain missing, including security personnel, customs officials, foreign tourists and residents, while search and rescue operations continue. ([WFP, 27 Aug 2026](https://reliefweb.int/node/4227331))\n\nFive days after the flash flood of the Trishuli River swept through Raswuwa, Nuwakot, and Dhading, the Government of Nepal\u2019s response efforts continue at scale, with more than 10,000 people rescued and over 20,000 personnel mobilised for search and rescue operations, while authorities report 903 fatalities and 4,247 people still missing. The Government has officially declared a flood emergency in 15 municipalities and designated two additional municipalities as impacted, underscoring the scale of humanitarian needs across the affected areas. ([OCHA, 31 Aug 2026](https://reliefweb.int/node/4227820))\n\nThe Rasuwa floods have claimed 1,003 lives, with 3,916 people still out of contact and 11,814 rescued (NDRRMA, 1 September, 13:00). 3,458 displaced people are living in 27 displacement sites in Nuwakot and Rasuwa, mostly in schools. Parts of Tarkeshwar (Nuwakot) have received no assistance, all wards of Aamachhodingmo (Rasuwa) remain inaccessible by road, and four rural municipalities in Dhading lack safe drinking water. Access remains the main constraint. While relief supplies are available, damaged infrastructure, including 41 destroyed bridges and blocked highways, is limiting delivery to remote communities. Following a joint Resident Coordination Office, OCHA, and WFP mission to Nuwakot on 31 August, partners are establishing a coordination hub in Bidur to strengthen operational coordination and address response gaps. ([OCHA, 1 Sep 2026](https://reliefweb.int/node/4228040/))\n\nAlongside the Government of Nepal, the Humanitarian Country Team launched a [Flash Appeal](https://reliefweb.int/node/4228417) in support of the Government-led response. The appeal seeks US$49.6 million to provide life-saving assistance to 84,270 people (19,284 households) in 17 municipalities across six districts: Rasuwa, Nuwakot, Dhading, Chitwan, Gorkha and Tanahu. All identified affected people are targeted, of whom nearly 40 per cent are children. ([OCHA, 3 Sep 2026](https://reliefweb.int/node/4228558))\n\nThe National Disaster Risk Reduction and Management Authority reported that, as of 7 September, the floods have claimed 1,356 lives; 4,894 people remain missing and 13,396 people have been rescued. 3,629 displaced people are living in 37 displacement sites in Nuwakot, Rasuwa, Dhading, and Kathmandu. Operations are shifting from search and rescue to relief and recovery, although rescues continue. On 5 September, WFP launched cargo drones to deliver food across difficult last-mile access barriers to flood-isolated communities in Rawuwa. ([OCHA, 8 Sep 2026](https://reliefweb.int/node/4229005))\n\nThe humanitarian impact continues to deepen, with widespread displacement, extensive infrastructure damage and significant recovery needs across affected districts. Reported fatalities have risen to 1,403, with 6,150 people missing and 13,742 rescued. More than 2,000 displaced people are staying in 29 holding centers in Dhading, Nuwakot and Rasuwa. The Government's Rapid Damage and Needs Assessment estimates USD 5.3 billion in recovery and reconstruction, with infrastructure accounting for three-quarters of total requirements. Approximately 1.6 million people are affected, 7,570 homes damaged and 783 MW of energy infrastructure has been impacted. ([WFP, 17 Sep 2026](https://reliefweb.int/node/4230296/))\n\nResponse and recovery efforts continue across flood-affected districts as the Government and humanitarian partners support affected communities while access challenges persist in some areas. Several flood-affected settlements in northern Rasuwa remain inaccessible by road and continue to depend on air-supported humanitarian deliveries. Reported fatalities have risen to 1,453, with 5,644 people still missing and 13,795 rescued, while the floods have caused extensive damage to settlements. Over 1,112 displaced people are staying in 21 holding centers in Dhading, Nuwakot and Rasuwa. ([WFP, 24 Sep 2026](https://reliefweb.int/node/4231270/))\n\nAs of 14 September, 2,418 people were staying in 33 government holding centres, including 1,499 people in Nuwakot, 825 in Rasuwa, and 94 in Dhading. The movement of people from holding centres to alternative places like host families or their own abandoned homes continues. As of 21 September, 1,342 people are taking shelter in holding centers across Rasuwa, Nuwakot, and Dhading districts. ([IFRC, 25 Sep 2026](https://reliefweb.int/node/4231577))\n\nThe floods have claimed 1,453 lives; 5,285 people remain missing and 13,795 have been rescued (NDRRMA, 26 September, 19:00). 1,109 people remain in 21 displacement centres in Rasuwa, Nuwakot, and Dhading. ([OCHA & UN RC Nepal, 29 Sep 2026](https://reliefweb.int/node/4232179/))\n\nAs of 4 October, Government authorities reported 1,455 deaths and 5,285 people missing, while 1,085 people remained in 17 holding centres across three districts. Recent heavy rainfall between 24 and 28 September further disrupted response activities and constrained access to affected areas at least by a week. Health services remain disrupted, particularly in Rasuwa, where four health facilities were destroyed and communities served by two facilities continue to face access constraints. Three facilities in Dhading were partially damaged, while 13 health workers remain missing. The Government\u2019s Rapid Damage and Needs Assessment identified 64 damaged water-supply schemes, with estimated losses of approximately US$2.9 million, and sanitation requirements estimated at US$2.6 million. A government-led assessment of 34 schools found that 11 were destroyed and 12 damaged, affecting 9,430 students and 216 teachers. Six schools and one campus continue to host displaced people. Priority needs include learning materials for 4,000 children in Rasuwa, rehabilitation of schools used as shelters, repairs to damaged school WASH facilities. ([UNICEF, 5 Oct 2026](https://reliefweb.int/node/4232747/))\n\nOnly six weeks after the devastating floods in Rasuwa, flash floods triggered by a landslide dam outburst on the Budhi Gandaki River on 11 October caused significant damage across parts of Gorkha and Dhading districts. According to the National Disaster Risk Reduction and Management Authority (NDRRMA), five people are missing and 302 people have been rescued. NDRRMA reports that the floods swept away two motorable bridges and two suspension bridges, creating significant access challenges, damaged three hydropower projects and affected more than 550 households. Schools, homes and other critical infrastructure also sustained damage across the affected areas. ([WFP, 13 Oct 2026](https://reliefweb.int/node/4233773))"
+    }
+   },
+   "href": "https://api.reliefweb.int/v2/disasters/52684"
+  },
+  {
+   "id": "52682",
+   "score": 1,
+   "fields": {
+    "name": "Lao PDR: Floods - Jul 2026",
+    "status": "ongoing",
+    "primary_country": {
+     "name": "Lao People's Democratic Republic (the)"
+    },
+    "country": [
+     {
+      "name": "Lao People's Democratic Republic (the)"
+     }
+    ],
+    "type": [
+     {
+      "name": "Flash Flood"
+     },
+     {
+      "name": "Flood"
+     },
+     {
+      "name": "Land Slide"
+     },
+     {
+      "name": "Tropical Cyclone"
+     }
+    ],
+    "url": "https://reliefweb.int/taxonomy/term/52682",
+    "date": {
+     "created": "2026-08-26T00:57:12+00:00"
+    },
+    "profile": {
+     "overview": "Since late June 2026, Lao PDR had experienced recurrent flooding, flash floods, waterlogging and landslides associated with the southwest monsoon, Tropical Storm Maysak and subsequent weather systems. While flooding was first reported in late June, the situation progressively worsened through July and August as prolonged and repeated heavy rainfall caused cumulative impacts, with already affected areas experiencing further flooding, waterlogging and landslides, increasing damage and disrupting access.\n\n[...] According to the LRC consolidated assessment dated 17 August 2026, flooding during July and August 2026 affected communities across six provinces: Khammouane, Savannakhet, Bolikhamxay, Luang Namtha, Xiengkhouang and Champasak. The assessment covered 25 districts and 395 villages, affecting 22,390 households (114,037 people), including 54,699 women, 13 persons with disabilities and one death. ([IFRC, 25 Aug 2026](https://reliefweb.int/node/4227079))\n\nAccording to the latest Government data, 403,133 people from 81,484 families had been affected across 16 provinces. At least 7,528 people had been evacuated, with eight deaths, three injuries and one person reported missing. The situation continued to shift geographically, with northern provinces among the hardest hit. In Luang Namtha, severe flash flooding on 29 August affected 2,463 households; floodwaters reached the Boten Special Economic Zone, and six temporary shelters were established after the province was declared a disaster zone. Oudomxay experienced its third and most severe flood wave on 29-30 August, which affected 81 villages across Namor, Xay and La districts, while Luang Prabang recorded flash flooding. Khammouane continues to face significant cumulative impacts, with approximately 151,000 people affected across all 10 districts since July. ([UNFPA, 21 Sep 2026](https://reliefweb.int/node/4230629/))"
+    }
+   },
+   "href": "https://api.reliefweb.int/v2/disasters/52682"
+  },
+  {
+   "id": "52681",
+   "score": 1,
+   "fields": {
+    "name": "Honduras: Drought - May 2026",
+    "status": "ongoing",
+    "primary_country": {
+     "name": "Honduras"
+    },
+    "country": [
+     {
+      "name": "Honduras"
+     }
+    ],
+    "type": [
+     {
+      "name": "Drought"
+     }
+    ],
+    "url": "https://reliefweb.int/taxonomy/term/52681",
+    "date": {
+     "created": "2026-08-25T01:21:10+00:00"
+    },
+    "profile": {
+     "overview": "Since May 2026, Honduras has been facing a progressive deterioration in climatic conditions associated with the delay in the start of the rainy season, the irregular distribution of rainfall, high temperatures, and the influence of the El Ni\u00f1o phenomenon.\n\nAccording to the Center for Atmospheric, Oceanographic and Seismic Studies (CENAOS), during May precipitation deficits of more than 50% were recorded in sectors of the center and south of the country; In June, the impact extended to municipalities in the center and east, with deficits of more than 40%, conditions that persisted during the first half of July. These developments have increased the risk of meteorological drought, potentially affecting water availability, agricultural production and the livelihoods of the most at-risk communities. Faced with this scenario, on August 18, 2026, the Secretary of State in the Offices of Risk Management and National Contingencies (COPECO), through Alert Bulletin No. 028-2026, declared a Red Alert for 75 municipalities due to drought associated with the El Ni\u00f1o phenomenon, located in the departments of Choluteca, Comayagua, El Para\u00edso, Francisco Moraz\u00e1n, La Paz and Valle; likewise, it declared a Yellow Alert for 71 municipalities and a Green Alert for 88 municipalities. The alerts were issued indefinitely. ([IFRC, 24 Aug 2026](https://reliefweb.int/node/4226903))"
+    }
+   },
+   "href": "https://api.reliefweb.int/v2/disasters/52681"
+  },
+  {
+   "id": "52679",
+   "score": 1,
+   "fields": {
+    "name": "Sierra Leone: Flash Floods - Aug 2026",
+    "status": "ongoing",
+    "primary_country": {
+     "name": "Sierra Leone"
+    },
+    "country": [
+     {
+      "name": "Sierra Leone"
+     }
+    ],
+    "type": [
+     {
+      "name": "Flash Flood"
+     }
+    ],
+    "url": "https://reliefweb.int/taxonomy/term/52679",
+    "date": {
+     "created": "2026-08-19T02:00:15+00:00"
+    },
+    "profile": {
+     "overview": "On the night of 3 August 2026, Freetown experienced approximately six consecutive hours of exceptionally heavy rainfall, triggering widespread flash flooding, severe soil erosion, and multiple slope and structural failures across several densely populated urban and peri-urban communities. [...] Unlike the localized flooding commonly experienced during the rainy season, this event affected 1,763 families (8,915 people), damaged or flooded more than 700 houses, including over 300 houses in Portor Community alone, caused four fatalities, displaced thousands of people, contaminated 18 community boreholes, damaged a community school, and disrupted livelihoods and access to essential services. [...] The crisis has been further compounded by continuous rainfall across Freetown and other parts of Sierra Leone from 4 to 7 August 2026, which has caused additional flooding in other communities and continues to increase pressure on drainage systems, waterways, and unstable slopes. ([IFRC, 18 Aug 2026](https://reliefweb.int/node/4226142/))"
+    }
+   },
+   "href": "https://api.reliefweb.int/v2/disasters/52679"
+  },
+  {
+   "id": "52676",
+   "score": 1,
+   "fields": {
+    "name": "Indonesia: Earthquake - Aug 2026",
+    "status": "ongoing",
+    "primary_country": {
+     "name": "Indonesia"
+    },
+    "country": [
+     {
+      "name": "Indonesia"
+     }
+    ],
+    "type": [
+     {
+      "name": "Earthquake"
+     }
+    ],
+    "url": "https://reliefweb.int/taxonomy/term/52676",
+    "date": {
+     "created": "2026-08-17T01:49:47+00:00"
+    },
+    "profile": {
+     "overview": "A magnitude 7.7 earthquake struck offshore Nagekeo Regency, East Nusa Tenggara Province, on 15 August 2026 at 04:58 WIB. The earthquake occurred at a depth of 15 km, approximately 38 km northeast of Mbay. The tsunami warning issued for several coastal areas was officially lifted by BMKG at 07:31 WIB. As of 16 August 2026 at 00:00 WIB, BNPB reported 47 fatalities and 101 injuries. More than 5,000 people remain displaced, including 3,356 people in Sikka, 2,078 in Manggarai, and 500 in Nagekeo. Additional displacement was reported in Bima and the Selayar Islands. Preliminary assessments recorded 914 houses severely damaged, 126 moderately damaged, and 317 slightly damaged. At least 93 educational facilities, 36 health facilities, and 38 government offices were also affected. BMKG recorded 341 aftershocks with magnitudes ranging from 2.5 to 6.2. Continuing aftershocks, damaged roads, electricity outages, and communication disruptions are affecting assessments and humanitarian operations. The Larantuka\u2013Maumere road is accessible, while the Ende\u2013Nagekeo road remains cut off. ([IFRC & PMI, 16 Aug 2026](https://reliefweb.int/node/4225800))\n\nThe number of IDPs increased to 9,290 people, based on the BNPB update at 00.00 WIB. The details include 3,356 Sikka people\u20141,356 in the Samador GOR and 2,000 spread independently in 10 points\u2014Manggarai 2,078 people, and Nagekeo 500 people. [...] The earthquake shock was followed by 341 aftershock activities. The number of fatalities recorded to date is 47 people, with the highest death toll in Manggarai Regency with 23 people and East Manggarai with 17 people. Meanwhile, other fatalities were spread across Sikka Regency with 4 people, West Manggarai with 1 person, Ende with 1 person, and Nagekeo with 1 person. At least 101 residents were reported injured with varying degrees of severity. Damage increased significantly compared to previous reports: BNPB now records 914 houses severely damaged, 126 moderately damaged, and 317 lightly damaged\u2014a total of 1,357 houses. The affected facilities include 93 educational facilities, 36 health facilities, and 38 government offices. ([MPBI, 17 Aug 2026](https://reliefweb.int/node/4225822))\n\nAs of 18 August 2026, 69 people were reported dead and 1,199 injured, including 115 people with serious injuries and 1,084 with minor injuries. A total of 46,252 people remain displaced, including 46,181 people across the seven affected regencies in East Nusa Tenggara and 71 people in Bima Regency, West Nusa Tenggara. [...] Preliminary damage included 5,713 houses severely damaged, 2,098 moderately damaged and 3,402 slightly damaged. A further 283 educational facilities, 211 health facilities, 97 government buildings, 96 places of worship and 106 business premises or offices were affected. ([IFRC & PMI, 18 Aug 2026](https://reliefweb.int/node/4226044))\n\naccording to BNPB, emergency response period for M7.7 Earthquake in East Nusa Tenggara has been extended until 12 September 2026, while response and early recovery operations remain ongoing. Authorities continue to focus on emergency assistance while accelerating rehabilitation and reconstruction planning in affected areas. As of 31 August at 0900H UTC+7, BNPB records 120 fatalities, 1,658 injured persons, and approximately 188,673 displaced persons. ([AHA Centre, 30 Aug 2026](https://reliefweb.int/node/4227777))"
+    }
+   },
+   "href": "https://api.reliefweb.int/v2/disasters/52676"
+  },
+  {
+   "id": "52675",
+   "score": 1,
+   "fields": {
+    "name": "Pakistan: Flash Floods - Jul 2026",
+    "status": "alert",
+    "primary_country": {
+     "name": "Pakistan"
+    },
+    "country": [
+     {
+      "name": "Pakistan"
+     }
+    ],
+    "type": [
+     {
+      "name": "Flash Flood"
+     }
+    ],
+    "url": "https://reliefweb.int/taxonomy/term/52675",
+    "date": {
+     "created": "2026-08-14T04:17:11+00:00"
+    },
+    "profile": {
+     "overview": "The 2026 monsoon season has commenced across Pakistan, with the first spell of seasonal rains affecting several parts of the country and increasing the risk of flash floods, riverine flooding, landslides, and other weather-related hazards, particularly in vulnerable and mountainous areas. [...] Between 28 June and 1 July 2026, monsoon-related incidents were reported in Gilgit-Baltistan and Lower Chitral, Khyber Pakhtunkhwa. In Diamer District, a flash flood damaged 5\u20136 houses, washed away one vehicle, and temporarily disrupted road access for around 400 households, while in Ghizer District, rising water levels in River Ghizer caused localized flooding affecting several households. In Lower Chitral, flash flooding damaged residential houses, standing crops, and orchards. ([IFRC & Pakistan Red Crescent, 1 Jul 2026](https://reliefweb.int/node/4218910))\n\nAmong the significant incidents reported during the period, a cloudburst on 19 July in Lari Mengal, Doga Top, and Katha Peeran (Union Council Salkhala, Tehsil Athmuqam, District Neelum, AJK) triggered a flash flood that damaged educational institutions, residential houses, commercial shops, and vehicles. Rescue teams and relevant government departments immediately initiated response operations, rapid damage assessments, and the relocation of affected families to safer locations. On the same day, heavy rainfall triggered flash flooding in Rupal Valley, Sub-Division Shounter, District Astore, Gilgit-Baltistan, where no casualties or damage to residential houses were reported, although minor damage to agricultural crops occurred. Subsequently, on 21 July, another flash flood in Louse Village, District Astore, inundated several residential houses, damaging household belongings and essential assets. ([IFRC & Pakistan Red Crescent, 21 Jul 2026](https://reliefweb.int/node/4222382))\n\nMonsoon 2026 has caused 158 deaths and 470 injuries across Pakistan. 1350 houses have been damaged, affecting 585 livestock and 27.84 km of roads. 1,114 rescue operations have been conducted, with 8,714 persons recued or evacuated. 81 relief camps have been established, providing assistance to 804 persons. ([OCHA, 17 Aug 2026](https://reliefweb.int/node/4225950))\n\nPer the National Disaster Management Authority's report, by 21 August the cumulative death toll since 26 June had crossed 163, with more than 483 people injured nationwide. Khyber Pakhtunkhwa has recorded the highest number of fatalities, followed by Punjab, Sindh, Azad Jammu and Kashmir and Baluchistan. House and roof collapses account for majority of all deaths, followed by flash floods, drowning and lightning strikes. ([IFRC & Pakistan Red Crescent, 23 Aug 2026](https://reliefweb.int/node/4226714/))"
+    }
+   },
+   "href": "https://api.reliefweb.int/v2/disasters/52675"
+  },
+  {
+   "id": "52670",
+   "score": 1,
+   "fields": {
+    "name": "Colombia: Earthquake - Aug 2026",
+    "status": "ongoing",
+    "primary_country": {
+     "name": "Colombia"
+    },
+    "country": [
+     {
+      "name": "Colombia"
+     }
+    ],
+    "type": [
+     {
+      "name": "Earthquake"
+     }
+    ],
+    "url": "https://reliefweb.int/taxonomy/term/52670",
+    "date": {
+     "created": "2026-08-11T00:50:57+00:00"
+    },
+    "profile": {
+     "overview": "According to information from the Colombian Geological Service (SGC), an earthquake with a preliminary magnitude of 7.4 was recorded on Monday, August 10, 2026, in the morning, with its epicenter in the town of San Jos\u00e9 del Palmar, in the department of Choc\u00f3, located on the Colombian Pacific coast, at a depth of 82 kilometers.\n\nAlthough the epicenter was in the department of Choc\u00f3, direct impacts were also felt in the departments of Caldas, Risaralda, and Valle del Cauca. Preliminary reports from media outlets and municipal governments indicate damage in the capitals and other municipalities of these departments: in Valle de Cauca, 3 people were injured in El Cairo and 2 died in El Zarzal, in addition to the collapse of 20 buildings and minor structural damage to 2 hospitals; in Risaralda, 18 people died; and in Choc\u00f3, 10 people were injured and 3 are missing. The number of people affected in the area continues to rise, and the President of the Republic has established a Unified Command Post. ([Cruz Roja Colombiana & IFRC, 10 Aug 2026](https://reliefweb.int/node/4225066))"
+    }
+   },
+   "href": "https://api.reliefweb.int/v2/disasters/52670"
+  },
+  {
+   "id": "52669",
+   "score": 1,
+   "fields": {
+    "name": "India: Flash Floods - Jul 2026",
+    "status": "ongoing",
+    "primary_country": {
+     "name": "India"
+    },
+    "country": [
+     {
+      "name": "India"
+     }
+    ],
+    "type": [
+     {
+      "name": "Flash Flood"
+     },
+     {
+      "name": "Flood"
+     }
+    ],
+    "url": "https://reliefweb.int/taxonomy/term/52669",
+    "date": {
+     "created": "2026-08-06T12:29:09+00:00"
+    },
+    "profile": {
+     "overview": "The Assam floods began on 19 July 2026, triggered by exceptionally heavy monsoonal rainfall, which reached up to 490% above normal levels in parts of Upper Assam. Rising river levels and continuous rainfall caused floodwaters to spread rapidly across multiple districts, inundating villages, agricultural land, and critical infrastructure. The situation worsened throughout the following week as flooding expanded, and the number of affected people increased steadily. The emergency reached its peak on 27-28 July, when more than 800 villages were inundated and flood impacts were at their highest. Charaideo, Sivasagar, and Jorhat emerged as some of the worst-affected districts, experiencing widespread village inundation and damage to livelihoods and agriculture. Since late July, receding river levels and improving weather conditions have led to a gradual improvement in the flood situation. However, despite the overall decline in flood impacts, 1,144,733 people remain affected across eight districts, with floodwaters still impacting 437 villages. While the crisis has moved beyond its peak, significant humanitarian and recovery needs persist in the most affected areas. ([IFRC, 6 Aug 2026](https://reliefweb.int/node/4224648))"
+    }
+   },
+   "href": "https://api.reliefweb.int/v2/disasters/52669"
+  },
+  {
+   "id": "52662",
+   "score": 1,
+   "fields": {
+    "name": "Tajikistan: Floods - Jul 2026",
+    "status": "ongoing",
+    "primary_country": {
+     "name": "Tajikistan"
+    },
+    "country": [
+     {
+      "name": "Tajikistan"
+     }
+    ],
+    "type": [
+     {
+      "name": "Flash Flood"
+     },
+     {
+      "name": "Flood"
+     },
+     {
+      "name": "Mud Slide"
+     }
+    ],
+    "url": "https://reliefweb.int/taxonomy/term/52662",
+    "date": {
+     "created": "2026-07-27T02:11:22+00:00"
+    },
+    "profile": {
+     "overview": "On 11 July 2026, at approximately 15:40 local time, following intense rainfall, flash floods and mudflows affected the villages of Darg and Kazdon in Shamtuch Jamoat, Ayni District, Sughd Region. The disaster caused significant damage to residential houses, auxiliary structures, agricultural land, drinking water supply and irrigation systems, electricity infrastructure, internal village roads, and private property. The affected population experienced disruptions to essential services and livelihoods. [...] According to the official assessment, 672 households in the villages of Darg and Kazdon were affected by the flash floods and mudflows. ([IFRC, 24 Jul 2026](https://reliefweb.int/node/4223086))"
+    }
+   },
+   "href": "https://api.reliefweb.int/v2/disasters/52662"
+  },
+  {
+   "id": "52661",
+   "score": 1,
+   "fields": {
+    "name": "Kyrgyzstan: Flash Floods - Jul 2026",
+    "status": "ongoing",
+    "primary_country": {
+     "name": "Kyrgyzstan"
+    },
+    "country": [
+     {
+      "name": "Kyrgyzstan"
+     }
+    ],
+    "type": [
+     {
+      "name": "Flash Flood"
+     },
+     {
+      "name": "Flood"
+     },
+     {
+      "name": "Mud Slide"
+     }
+    ],
+    "url": "https://reliefweb.int/taxonomy/term/52661",
+    "date": {
+     "created": "2026-07-27T02:04:46+00:00"
+    },
+    "profile": {
+     "overview": "On 13 July 2026, at approximately 19:30 local time, intense short-duration rainfall over the mountainous catchment areas of Nooken district triggered mudflows along two separate channels. The Besh-Korgon channel overflowed and inundated the lower streets of Kochkor-Ata city, destroying 3 electricity poles in the Besh-Korgon settlement. Simultaneously, the Kara-Bulak channel overflowed into Ergesh Aliev village, while separate mudflows descending from higher elevations submerged the villages of Kurulush, Boston, and Kop- Tam in the Mombekov village area. The event occurred in Nooken district, Jalal-Abad oblast, Kyrgyzstan, affecting Kochkor-Ata city and the villages of Ergesh Aliev, Kurulush, Boston, and Kop-Tam.\n\nThe mudflows struck the evening of 13 July 2026 (19:30 local time). District civil protection authorities were mobilized the same evening, and clearance and mud-pumping operations were still ongoing as of 02:00 on 14 July 2026. A state of emergency has been declared in the district, and the situation is being monitored by RCSK in coordination with local civil protection authorities. ([IFRC, 24 Jul 2026](https://reliefweb.int/node/4223080))"
+    }
+   },
+   "href": "https://api.reliefweb.int/v2/disasters/52661"
+  },
+  {
+   "id": "52659",
+   "score": 1,
+   "fields": {
+    "name": "Afghanistan: Flash Floods - Jul 2026",
+    "status": "ongoing",
+    "primary_country": {
+     "name": "Afghanistan"
+    },
+    "country": [
+     {
+      "name": "Afghanistan"
+     }
+    ],
+    "type": [
+     {
+      "name": "Flash Flood"
+     },
+     {
+      "name": "Flood"
+     }
+    ],
+    "url": "https://reliefweb.int/taxonomy/term/52659",
+    "date": {
+     "created": "2026-07-22T04:52:40+00:00"
+    },
+    "profile": {
+     "overview": "Heavy and continuous rainfall on 20 July triggered flash flooding in several areas of eastern Afghanistan. The impacts have varied significantly between locations with the most severe impacts reported in Parun City, Nuristan Province, alongside flooding in Torkham, Nangarhar Province, and Alingar District, Laghman Province. Parun City was severely affected by a sudden flash flood at approximately 15:00 hrs on 20 July. So far 23 people have been confirmed dead, 15 have been injured with others reported missing. Search and rescue operations are ongoing. ([OCHA, 21 Jul 2026](https://reliefweb.int/node/4222342))\n\nAccording to preliminary information compiled by the Afghan Red Crescent Society (ARCS), more than 910 families were affected. The floods caused 31 deaths and 11 injuries, with 77 cases of missing persons reported. Shelter damage was significant, with 910 houses completely and partially damaged, particularly in several provinces of Nuristan, Laghman, Parwan, Logar, Kabul, Kapisa, Panjsher, Nangarhar, Ghazni, Khost ,Maidan Wardak, Paktika and Paktia provinces. In addition, the floods had a severe impact on livelihoods, resulting in the loss of 330 livestock and damage to approximately 5240 jeribs of agricultural land, further increasing vulnerabilities among farming and pastoral households. ([ARCS & IFRC, 25 Jul 2026](https://reliefweb.int/node/4223089))\n\nBeyond Nuristan, flooding and landslides damaged shelter, agricultural land, irrigation systems, education infrastructure and livelihood assets across the affected provinces. Laghman, initially reported as having sustained no residential damage, was confirmed by 28 July to have 187 families affected, 183 houses damaged or destroyed, approximately 800 acres of seasonal crops lost and some 310 livestock lost or damaged. In Paktika, flooding destroyed 14 houses, killed 37 livestock and washed away approximately 122 hectares of agricultural land. Public schools and community-based education facilities were damaged across Nangarhar, Kunar, Nuristan and Laghman. Flooding and landslides may also have displaced or exposed explosive ordnance, creating a secondary hazard for affected communities and responders. ([IFRC, 6 Aug 2026](https://reliefweb.int/node/4224652))\n\nOn 3 August, a second flash flood struck Barg-e-Matal district in eastern Nuristan, affecting 191 houses, which were either destroyed or damaged. The floods also damaged bridges, roads, flood protection walls, agricultural land and water supply networks. In the Central Region, flash floods across nine provinces resulted in two fatalities and six injuries. A total of 316 houses were affected, impacting 2,057 people. Approximately 1.6 million square meters of agricultural land were damaged, around 300 livestock were killed, and 17 schools sustained damage, further affecting livelihoods and access to basic services. A separate flooding incident in Paktia province destroyed 11 houses and damaged agricultural land. ([UNICEF, 21 Aug 2026](https://reliefweb.int/node/4226707))"
+    }
+   },
+   "href": "https://api.reliefweb.int/v2/disasters/52659"
+  },
+  {
+   "id": "52658",
+   "score": 1,
+   "fields": {
+    "name": "Myanmar: Floods - Jul 2026",
+    "status": "ongoing",
+    "primary_country": {
+     "name": "Myanmar"
+    },
+    "country": [
+     {
+      "name": "Myanmar"
+     }
+    ],
+    "type": [
+     {
+      "name": "Flood"
+     }
+    ],
+    "url": "https://reliefweb.int/taxonomy/term/52658",
+    "date": {
+     "created": "2026-07-22T02:15:40+00:00"
+    },
+    "profile": {
+     "overview": "Heavy and continuous monsoon rainfall caused rising water levels and flooding across low-lying and flood-prone areas of Ayeyarwady Region. The situation escalated on 30 July 2026, when an embankment near Myit Kyo Village in Laymyatna Township breached, and floodwaters rapidly entered Laymyatna town and surrounding communities. The flooding has affected residential areas, agricultural land, roads, and public infrastructure, with communities along the Ngawun River being particularly affected. Water levels in the Ngawun River have exceeded the danger level and remain elevated, with further rainfall potentially worsening the situation. \n\nThe Myanmar Red Cross Society (MRCS) Regional Branch started the response with its own resources on 1 August 2026, and the information indicates impacts across 5 wards, 23 village tracts, and 122 villages in Laymyatna Township; 2 wards, 16 village tracts, and 14 villages in Yegyi Township; and 10 village tracts and 33 villages in Hinthada Township. The most significant impacts are in Laymyethna, Yegyi, and Hinthada Townships, among other townships in Ayeyarwady, particularly communities located along the Ngawun River and other low-lying areas. [...] Approximately 8,907 households, representing 28,455 people, had been affected and displaced to 28 evacuation camps, including community centres, schools, temporary shelters, and monasteries. ([IFRC, 17 Aug 2026](https://reliefweb.int/node/4225954))\n\nIn Myanmar, heavy rainfall associated with a Low Pressure Area (INVEST 92W) caused flooding across several townships in Tanintharyi, including Bokepyin, Dawei, Thayetchaung, Launglon, Palaw, and Yebyu. According to DDM, as of 29 Sep, approximately 19K people (1.7K households) were affected, with 2.6K houses and 56 schools affected. Humanitarian assistance has been initiated and continues to be provided to affected communities by the relevant authorities and stakeholders. ([AHA Centre, 5 Oct 2026](https://reliefweb.int/node/4232604))\n\nIn late September 2026, a low-pressure system over the North Andaman Sea and Mon-Tanintharyi coastal areas intensified into a depression, resulting in strong monsoon conditions across southern Myanmar. The system brought heavy rainfall, strong winds, flooding and landslides, with significant impacts reported in Tanintharyi Region, particularly in Launglon, Dawei, Thayetchaung and Tanintharyi Townships. [...] The humanitarian impact has increased significantly since the onset of the event. A Rapid Needs Assessment conducted by the Myanmar Red Cross Society (MRCS), in coordination with local authorities, indicates that approximately 49,371 people and 7,629 houses have been affected across four townships: Dawei, Launglon, Thayetchaung and Tanintharyi. An estimated 9,032 people were temporarily displaced and accommodated in 24 evacuation centres. The most severe impacts were reported in Launglon Township, where more than 400 households (approximately 2,560 people) were affected and over 400 houses were destroyed. A total of 25 deaths and 11 injuries were also reported. ([IFRC, 12 Oct 2026](https://reliefweb.int/node/4233716))"
+    }
+   },
+   "href": "https://api.reliefweb.int/v2/disasters/52658"
+  },
+  {
+   "id": "52657",
+   "score": 1,
+   "fields": {
+    "name": "Chad: Cholera Outbreak - Jun 2026",
+    "status": "ongoing",
+    "primary_country": {
+     "name": "Chad"
+    },
+    "country": [
+     {
+      "name": "Chad"
+     }
+    ],
+    "type": [
+     {
+      "name": "Epidemic"
+     }
+    ],
+    "url": "https://reliefweb.int/taxonomy/term/52657",
+    "date": {
+     "created": "2026-07-20T12:03:52+00:00"
+    },
+    "profile": {
+     "overview": "On 16 June, the Ministry of Public Health and Prevention declared a cholera outbreak in Karal health district, Haraz-al-Biar department (bordering the Lac province and the far-northern Cameroon region), an area hosting more than 30,000 displaced people. Laboratory tests confirmed Vibrio cholerae O1 Ogawa, with 16 cases and one death reported. ([OCHA, 23 Jun 2026](https://reliefweb.int/node/4217493))\n\nAs of 23 June, the cholera outbreak in Karal health district, Hadjer Lamis Province, had affected three of the district's 14 health areas. A total of 52 suspected and probable cases, including 9 laboratory-confirmed cases and one death, had been reported. The outbreak remains localized but the risk of further spread is high due to poor water, sanitation and hygiene conditions, the onset of the rainy season, the proximity of the newly affected area to an internally displaced persons site, and shortages of cholera rapid diagnostic tests in the 11 health areas that have not yet reported cases. ([Croix-Rouge du Tchad, 24 Jun 2026](https://reliefweb.int/node/4217808))\n\nAs of 29 June, the cholera outbreak in Karal health district had resulted in at least 13 deaths. Health authorities and humanitarian partners continued case management, epidemiological surveillance, household disinfection, community awareness and preparations for an oral cholera vaccination campaign. ([OCHA, 30 Jun 2026](https://reliefweb.int/node/4218619))\n\nBy 16 August, the cholera outbreak had spread from Hadjer-Lamis Province to N\u2019Djamena and Lac Province. Laboratory-confirmed cases had been detected in six health districts, while 14 health areas and 65 villages or neighbourhoods had reported at least one case. Nationwide, 484 cases and 21 deaths had been recorded, including 11 community deaths, giving a case fatality rate of 4.3 per cent. Lac Province had become the main area of active transmission, with 218 cases and eight deaths. The Ministry of Public Health and Prevention received 1,924,650 doses of oral cholera vaccine for campaigns in N\u2019Djamena and Lac Province. ([IFRC, 14 Sep 2026](https://reliefweb.int/node/4229793))\n\nAs of 7 September, the outbreak had grown to 867 cumulative cases and 42 deaths, representing a case fatality rate of 4.8 per cent. Lac Province accounted for 533 cases and 27 deaths, including 96 new cases and 13 deaths reported in Kouloudia during one week. Following an earlier reduction in transmission in Karal, new outbreaks emerged in Massakory and Mani health districts in Hadjer-Lamis Province. Transmission also persisted in several districts of N\u2019Djamena. Oral cholera vaccination coverage exceeded 90 per cent in several targeted districts in Lac Province and N\u2019Djamena, although the response continued to face shortages of safe water, sanitation facilities, medical and WASH supplies, together with difficult access to isolated communities. ([OCHA, 17 Sep 2026](https://reliefweb.int/node/4230346))"
+    }
+   },
+   "href": "https://api.reliefweb.int/v2/disasters/52657"
+  }
+ ]
+}

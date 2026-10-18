@@ -44,12 +44,21 @@ def test_spc_drops_mesoscale_discussions_and_outlooks_keeps_watch(http):
     assert reports[0]["source_type"] == "noaa_spc"
 
 
-def test_nhc_gtwo_entry_is_kept_with_nhc_type(http):
+def test_nhc_outlook_without_formation_expected_is_filtered(http):
+    # The hand-made outlook has no "Formation chance" line, i.e. nothing forming
     http.route("nhc.noaa.gov", http.fixture("nhc_gtwo.xml"))
+    assert fetch_rss_feeds([NHC]) == []
+
+
+def test_nhc_recorded_outlooks_keep_only_basins_with_a_formation_chance(http):
+    # Recorded 2026-10-18: Atlantic 7-day low, Eastern Pacific 7-day high,
+    # Central Pacific "formation is not expected"
+    from pathlib import Path
+    http.route("nhc.noaa.gov", Path(__file__).parent / "fixtures" / "recorded-20261018" / "nhc_gtwo.xml")
     reports = fetch_rss_feeds([NHC])
-    assert len(reports) == 1
-    assert reports[0]["source_type"] == "nhc"
-    assert "gtwo.php" in reports[0]["link"]
+    assert sorted(r["title"] for r in reports) == [
+        "Atlantic Tropical Weather Outlook", "Eastern Pacific Tropical Weather Outlook"]
+    assert all(r["source_type"] == "nhc" and "gtwo.php" in r["link"] for r in reports)
 
 
 def test_reliefweb_item_with_url_and_date(http):
@@ -65,7 +74,8 @@ def test_reliefweb_item_with_url_and_date(http):
 def test_reliefweb_item_without_url_or_date_falls_back(http):
     http.route("api.reliefweb.int", http.fixture("reliefweb_v2.json"))
     second = fetch_rss_feeds([RELIEFWEB])[1]
-    assert second["link"] == "https://reliefweb.int/disasters"
+    # The fallback keeps the disasters page but stays unique per item
+    assert second["link"].startswith("https://reliefweb.int/disasters#")
     assert second["published"] == ""
 
 
@@ -86,10 +96,10 @@ def test_wfigs_with_coordinates_links_to_map_pin(http):
     assert first["note"] == "~12,346 acres, 20% contained, Baker County, US-OR"
 
 
-def test_wfigs_without_coordinates_uses_generic_inciweb_link(http):
+def test_wfigs_without_coordinates_uses_inciweb_link_unique_per_fire(http):
     http.route("arcgis.com", http.fixture("wfigs.json"))
     second = fetch_rss_feeds([WFIGS])[1]
-    assert second["link"] == "https://inciweb.wildfire.gov/"
+    assert second["link"].startswith("https://inciweb.wildfire.gov/#")
     assert second["title"] == "Ridge Complex (US-ID)"
 
 
@@ -113,14 +123,12 @@ def _wfigs_payload(*names):
     return {"features": [{"attributes": {"attr_IncidentName": n, "attr_POOState": "US-CA"}} for n in names]}
 
 
-@pytest.mark.xfail(strict=True, reason="BUG: WFIGS fires without coordinates all share link https://inciweb.wildfire.gov/, so dedup treats them as one")
 def test_wfigs_fires_without_coordinates_get_distinct_dedup_keys(http):
     http.route("arcgis.com", _wfigs_payload("Alpha", "Bravo"))
     links = [r["link"] for r in fetch_rss_feeds([WFIGS])]
     assert len(links) == 2 and len(set(links)) == 2
 
 
-@pytest.mark.xfail(strict=True, reason="BUG: ReliefWeb disasters without url all share link https://reliefweb.int/disasters, so dedup treats them as one")
 def test_reliefweb_disasters_without_url_get_distinct_dedup_keys(http):
     http.route("api.reliefweb.int", {"data": [
         {"fields": {"name": "Flood A"}}, {"fields": {"name": "Flood B"}}]})

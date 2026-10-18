@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<atom:link href="https://www.nhc.noaa.gov/gtwo.xml" rel="self" type="application/rss+xml" />
+<pubDate>Sun, 18 Oct 2026 17:32:24 UTC</pubDate>
+<lastBuildDate>Sun, 18 Oct 2026 17:32:24 UTC</lastBuildDate>
+<title>National Hurricane Center Graphical Tropical Weather Outlooks</title>
+<description>National Hurricane Center Graphical Tropical Weather Outlooks</description>
+<link>https://www.nhc.noaa.gov/</link>
+<copyright>none</copyright>
+<managingEditor>nhcwebmaster@noaa.gov (NHC Webmaster)</managingEditor>
+<language>en-us</language>
+<webMaster>nhcwebmaster@noaa.gov (NHC Webmaster)</webMaster>
+<image>
+<url>https://www.nhc.noaa.gov/images/xml_logo_nhc.gif</url>
+<link>https://www.nhc.noaa.gov/</link>
+<title>National Hurricane Center Graphical Tropical Weather Outlooks</title>
+<description>NOAA logo</description>
+<width>95</width>
+<height>45</height>
+</image>
+<item>
+<title>Atlantic Tropical Weather Outlook</title>
+<description>
+<![CDATA[
+<br /><a href="https://www.nhc.noaa.gov/gtwo.php?basin=atlc&amp;fdays=2">
+<img src="https://www.nhc.noaa.gov/xgtwo/resize/xgtwo_atl_2d0_w400.png" alt="Atlantic 2-Day Graphical Outlook Image" width="400" height="302" /></a>
+<br /><a href="https://www.nhc.noaa.gov/gtwo.php?basin=atlc&amp;fdays=7">
+<img src="https://www.nhc.noaa.gov/xgtwo/resize/xgtwo_atl_7d0_w400.png" alt="Atlantic 7-Day Graphical Outlook Image" width="400" height="302" /></a>
+<br /><br />
+<div class='textbackground'><div class='textproduct'><br />
+508 <br>ABNT20 KNHC 181728<br>TWOAT <br><br>Tropical Weather Outlook<br>NWS National Hurricane Center Miami FL<br>200 PM EDT Sun Oct 18 2026<br><br>For the North Atlantic...Caribbean Sea and the Gulf of America:<br><br>Off the East Coast of the United States:<br>A storm-force non-tropical low pressure area is expected to form <br>later today or tonight off the southeast coast of the United States. <br>This low is likely to move slowly and erratically through the middle <br>of this week, and some subtropical development is possible during <br>that time. Regardless of development, this system will cause high <br>winds, coastal flooding, and dangerous surf along portions of the <br>U.S. East Coast. Please consult statements and warnings from local <br>National Weather Service offices and the Weather Prediction Center <br>for more information, along with High Seas Forecasts and Storm <br>Warnings issued by the National Weather Service.<br>* Formation chance through 48 hours...low...near 0 percent.<br>* Formation chance through 7 days...low...30 percent.<br><br>&&<br>High Seas Forecasts issued by the National Weather Service<br>can be found under AWIPS header NFDHSFAT1, WMO header FZNT01 <br>KWBC, and online at ocean.weather.gov/shtml/NFDHSFAT1.php<br><br>$$<br>Forecaster Beven<br><br></div></div><br />
+]]>
+</description>
+<pubDate>Sun, 18 Oct 2026 17:28:25 UTC</pubDate>
+<link>https://www.nhc.noaa.gov/gtwo.php?basin=atlc</link>
+<guid>https://www.nhc.noaa.gov/gtwo.php?basin=atlc&amp;202610181728</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+<item>
+<title>Eastern Pacific Tropical Weather Outlook</title>
+<description>
+<![CDATA[
+<br /><a href="https://www.nhc.noaa.gov/gtwo.php?basin=epac&amp;fdays=2">
+<img src="https://www.nhc.noaa.gov/xgtwo/resize/xgtwo_pac_2d0_w400.png" alt="Eastern North Pacific 2-Day Graphical Outlook Image" width="400" height="302" /></a>
+<br /><a href="https://www.nhc.noaa.gov/gtwo.php?basin=epac&amp;fdays=7">
+<img src="https://www.nhc.noaa.gov/xgtwo/resize/xgtwo_pac_7d0_w400.png" alt="Eastern North Pacific 7-Day Graphical Outlook Image" width="400" height="302" /></a>
+<br /><br />
+<div class='textbackground'><div class='textproduct'><br />
+000<br>ABPZ20 KNHC 181138<br>TWOEP <br><br>Tropical Weather Outlook<br>NWS National Hurricane Center Miami FL<br>500 AM PDT Sun Oct 18 2026<br><br>For the eastern and central North Pacific east of 180 longitude:<br><br>Active Systems:<br>The National Hurricane Center is issuing advisories on Hurricane <br>Trudy, located offshore of southwestern Mexico.<br><br>South of Southern Mexico:<br>An area of low pressure is forecast to form well offshore of <br>southern Mexico within a couple of days. Environmental conditions <br>appear conducive for gradual development thereafter, and a tropical <br>depression is likely to form around the middle of this week while it <br>moves westward to west-northwestward, well south of Mexico. <br>* Formation chance through 48 hours...low...near 0 percent. <br>* Formation chance through 7 days...high...80 percent.<br><br>$$<br>Forecaster Adams<br><br></div></div><br />
+]]>
+</description>
+<pubDate>Sun, 18 Oct 2026 11:38:55 UTC</pubDate>
+<link>https://www.nhc.noaa.gov/gtwo.php?basin=epac</link>
+<guid>https://www.nhc.noaa.gov/gtwo.php?basin=epac&amp;202610181138</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+<item>
+<title>Central Pacific Tropical Weather Outlook</title>
+<description>
+<![CDATA[
+<br /><a href="https://www.nhc.noaa.gov/gtwo.php?basin=cpac&amp;fdays=2">
+<img src="https://www.nhc.noaa.gov/xgtwo/resize/xgtwo_cpac_2d0_w400.png" alt="Central North Pacific 2-Day Graphical Outlook Image" width="400" height="302" /></a>
+<br /><a href="https://www.nhc.noaa.gov/gtwo.php?basin=cpac&amp;fdays=7">
+<img src="https://www.nhc.noaa.gov/xgtwo/resize/xgtwo_cpac_7d0_w400.png" alt="Central North Pacific 7-Day Graphical Outlook Image" width="400" height="302" /></a>
+<br /><br />
+<div class='textbackground'><div class='textproduct'><br />
+000<br>ACPN50 PHFO 181138<br>TWOCP <br><br>Tropical Weather Outlook<br>NWS Central Pacific Hurricane Center Honolulu HI<br>Issued by NWS National Hurricane Center Miami FL<br>200 AM HST Sun Oct 18 2026<br><br>For the central North Pacific...between 140W and 180W:<br><br>Active Systems:<br>The National Hurricane Center is issuing advisories on Hurricane<br>Trudy, located offshore of southwestern Mexico.<br><br>Tropical cyclone formation is not expected during the next 7 days.<br><br>$$<br>Forecaster Adams<br>NNNN<br><br></div></div><br />
+]]>
+</description>
+<pubDate>Sun, 18 Oct 2026 11:38:55 UTC</pubDate>
+<link>https://www.nhc.noaa.gov/gtwo.php?basin=cpac</link>
+<guid>https://www.nhc.noaa.gov/gtwo.php?basin=cpac&amp;202610181138</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+</channel>
+</rss>

@@ -82,18 +82,18 @@ def send_disaster_alert_block(blocks, max_retries=3, backoff_factor=2, channel=N
                 # Log the problematic blocks
                 logging.error(f"Problematic blocks: {json.dumps(blocks, indent=2)}")
                 
-                # Try to send a simplified message instead
+                # Deliver the same alerts as plain text. A generic "error
+                # formatting" notice would carry no alert and, because the
+                # entries stay unrecorded, would repeat on every run.
+                plain = blocks_to_text(blocks)
                 try:
-                    simplified_message = "⚠️ *Disaster Alert System*: New alerts detected, but there was an error formatting the message."
-                    client.chat_postMessage(
-                        channel=channel,
-                        text=simplified_message
-                    )
-                    logging.info("Sent simplified message after block formatting error")
-                    return False  # Still count as failure of the original message
-                except SlackApiError:
-                    pass  # If this also fails, continue with retry logic
-                    
+                    client.chat_postMessage(channel=channel, text=plain)
+                    logging.warning("Block Kit rejected; delivered the alerts as plain text instead.")
+                    send_error_notice("Slack rejected the alert blocks (invalid_blocks); the alerts were delivered as plain text. See the bot log for the blocks.")
+                    return True
+                except SlackApiError as e2:
+                    logging.error(f"Plain-text fallback also failed: {e2.response.get('error', e2)}")
+
                 # Don't retry for invalid blocks as it's likely a formatting issue
                 break
                 
@@ -133,6 +133,22 @@ def send_disaster_alert_block(blocks, max_retries=3, backoff_factor=2, channel=N
                 logging.error("Max retries reached. Failed to send message to Slack.")
     
     return False
+
+def blocks_to_text(blocks):
+    """Flatten Block Kit blocks to mrkdwn text, keeping every alert line."""
+    parts = []
+    for block in blocks:
+        if block.get("type") in ("header", "section"):
+            text = (block.get("text") or {}).get("text", "")
+        elif block.get("type") == "context":
+            text = " ".join(e.get("text", "") for e in block.get("elements", []))
+        else:
+            continue
+        if text:
+            parts.append(text)
+    # chat.postMessage truncates text beyond 40,000 characters
+    return "\n\n".join(parts)[:39000]
+
 
 def send_error_notice(text):
     """

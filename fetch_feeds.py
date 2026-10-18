@@ -1,6 +1,8 @@
 ### fetch_feeds.py
 
+from urllib.parse import quote
 import calendar
+import html
 import email.utils
 import feedparser
 import os
@@ -38,6 +40,19 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
+
+# NHC outlooks state each system's chance of formation in a fixed phrase:
+# "Formation chance through 7 days...high...80 percent."
+_NHC_CHANCE = re.compile(r"formation chance through 7 days\W*(low|medium|high)\b", re.IGNORECASE)
+NHC_LEVELS = {"low": 1, "medium": 2, "high": 3}
+
+
+def nhc_formation_level(text):
+    """Highest 7-day formation category in an NHC outlook: 0 none, 1 low,
+    2 medium, 3 high. 0 covers "formation is not expected" outlooks."""
+    found = _NHC_CHANCE.findall(html.unescape(text or ""))
+    return max((NHC_LEVELS[w.lower()] for w in found), default=0)
+
 
 def get_user_agent():
     """
@@ -174,7 +189,11 @@ def fetch_reliefweb_api(feed_url, headers):
         title = fields.get("name") or "Unnamed disaster"
         # Never fall back to item['href']: that is the API JSON endpoint,
         # which returns 400 without an appname — useless as a Slack link.
-        link = fields.get("url") or "https://reliefweb.int/disasters"
+        # Without a url the fallback needs the item id, or every such
+        # disaster shares one link (the dedup key) and only the first posts.
+        link = fields.get("url") or (
+            "https://reliefweb.int/disasters#" + quote(str(item.get("id") or title))
+        )
 
         countries = ", ".join(
             c.get("name", "") for c in fields.get("country", []) if c.get("name")
@@ -212,7 +231,7 @@ def fetch_reliefweb_api(feed_url, headers):
     return reports
 
 
-def _wfigs_map_link(lat, lon):
+def _wfigs_map_link(lat, lon, fire_id=None):
     """
     Link a WFIGS incident to a map pin at its discovery coordinates.
 
@@ -224,7 +243,10 @@ def _wfigs_map_link(lat, lon):
     deterministic run-to-run (it is also the dedup key).
     """
     if lat is None or lon is None:
-        return "https://inciweb.wildfire.gov/"
+        # Without coordinates every fire would share one link, and the link is
+        # the dedup key: the first would suppress all the others. The fragment
+        # keeps the page the same and the key unique.
+        return f"https://inciweb.wildfire.gov/#{quote(str(fire_id))}" if fire_id else "https://inciweb.wildfire.gov/"
     return f"https://www.google.com/maps/search/?api=1&query={lat:.4f},{lon:.4f}"
 
 
@@ -299,7 +321,7 @@ def fetch_wfigs_incidents(feed_url, headers):
             "title": title,
             "summary": summary,
             "note": note,
-            "link": _wfigs_map_link(lat, lon),
+            "link": _wfigs_map_link(lat, lon, a.get("attr_UniqueFireIdentifier") or a.get("UniqueFireIdentifier") or title),
             "published": published,
             "source": "NIFC WFIGS",
             "source_type": "inciweb",
@@ -467,7 +489,8 @@ def fetch_rss_feeds(feeds):
                             
                             # Skip Mesoscale Discussions and Outlooks
                             if (link and ("/md/" in link.lower() or "/outlook/" in link.lower())) or \
-                               (title and (title.lower().startswith("spc md") or "outlook" in title.lower())):
+                               (title and (title.lower().startswith("spc md") or "outlook" in title.lower()
+                                          or "no watches are valid" in title.lower())):
                                 logging.info(f"Pre-filtered SPC report in XML parsing: {title}")
                                 filtered_count += 1
                                 items_to_remove.append(item)
@@ -540,6 +563,12 @@ def fetch_rss_feeds(feeds):
                 link = entry.get('link', 'No Link')
                 published = entry.get('published', entry.get('updated', 'No Published Date'))
                 
+                # NHC outlooks with no system expected to form are noise;
+                # active storms are covered by advisories and GDACS.
+                if feed_source_type == "nhc" and nhc_formation_level(summary) == 0:
+                    logging.info(f"Filtered NHC outlook with no formation expected: {title}")
+                    continue
+
                 # Final GDACS green alert filtering
                 if feed_source_type == "gdacs":
                     title_lower = title.lower()

@@ -11,6 +11,7 @@ import time
 import sqlite3
 import logging
 import json
+import re
 
 # Load environment variables
 load_dotenv()
@@ -119,6 +120,87 @@ def save_sent_entries(new_links):
     except Exception as e:
         logging.error(f"Error saving sent entries: {e}")
 
+from fetch_feeds import NHC_LEVELS, nhc_formation_level
+
+_USGS_MAG = re.compile(r"\s*M\s*([0-9]+(?:\.[0-9]+)?)", re.IGNORECASE)
+_GDACS_LEVELS = {"green": 0, "orange": 1, "red": 2}
+
+
+def severity(report):
+    """(label, rank) for sources whose single link carries a changing level,
+    else None. USGS: magnitude. GDACS: alert color. NHC: highest 7-day
+    formation chance in the basin's outlook (the link is one per basin)."""
+    source_type = (report.get("source_type") or "").lower()
+    title = report.get("title") or ""
+    if source_type == "usgs":
+        m = _USGS_MAG.match(title)
+        if m:
+            return f"M{m.group(1)}", float(m.group(1))
+    elif source_type == "gdacs":
+        level = title.split(" ", 1)[0].lower()
+        if level in _GDACS_LEVELS:
+            return level, _GDACS_LEVELS[level]
+    elif source_type == "nhc":
+        rank = nhc_formation_level(report.get("summary"))
+        label = {v: k for k, v in NHC_LEVELS.items()}.get(rank, "none")
+        return label, rank
+    return None
+
+
+def _rank_of(source_type, label):
+    try:
+        if source_type == "usgs":
+            return float(label.lstrip("Mm"))
+        if source_type == "gdacs":
+            return _GDACS_LEVELS[label]
+        if source_type == "nhc":
+            return NHC_LEVELS.get(label, 0)
+    except (KeyError, ValueError):
+        pass
+    return None
+
+
+def dedup_key(report):
+    """
+    The key a report is recorded under in sent_entries: the link, plus the
+    severity label for sources that re-use one link while the level changes
+    (see severity). Titles are not used whole, because some sources (SPC)
+    put a timestamp in every title.
+    """
+    link = report.get("link", "") or ""
+    sev = severity(report)
+    return f"{link}#{sev[0]}" if sev else link
+
+
+def already_sent(report, sent_entries):
+    """
+    True unless the report is new or an escalation.
+
+    For USGS, GDACS and NHC a report under an already-recorded link alerts
+    again only when its level is higher than every level recorded for that
+    link: M5.6 to M6.1, orange to red, low to high formation chance. A
+    downgrade or a same-level update stays quiet.
+
+    Rows written before dedup_key existed hold the bare link; matching it
+    keeps a deploy from re-posting everything still in the feeds. Such a row
+    expires with the normal 30-day cleanup.
+    """
+    link = report.get("link", "") or ""
+    if dedup_key(report) in sent_entries or link in sent_entries:
+        return True
+    sev = severity(report)
+    if not sev:
+        return False
+    source_type = (report.get("source_type") or "").lower()
+    prefix = link + "#"
+    for entry in sent_entries:
+        if entry.startswith(prefix):
+            rank = _rank_of(source_type, entry[len(prefix):])
+            if rank is not None and rank >= sev[1]:
+                return True
+    return False
+
+
 def main():
     """
     Main function to fetch, process, and send disaster alerts.
@@ -136,7 +218,7 @@ def main():
     logging.info(f"Fetched {len(disasters)} disaster reports from RSS feeds.")
     
     # Filter out already sent entries
-    new_disasters = [d for d in disasters if d['link'] not in sent_entries]
+    new_disasters = [d for d in disasters if not already_sent(d, sent_entries)]
     
     if not new_disasters:
         logging.info("No new disaster reports to process.")
@@ -146,18 +228,28 @@ def main():
     
     # Process and summarize the disasters into structured groups
     groups, status = process_disasters(new_disasters)
-    new_links = [d['link'] for d in new_disasters]
+    new_keys = [dedup_key(d) for d in new_disasters]
 
     if status == "ok" and groups:
         # Format and send the alert to Slack
-        formatted_blocks = format_alert_block(groups)
+        rendered = set()
+        formatted_blocks = format_alert_block(groups, rendered_links=rendered)
         logging.debug("Formatted blocks to be sent to Slack:")
         logging.debug(json.dumps(formatted_blocks, indent=2))
+
+        # Items that reached a group but were cut by the block cap stay
+        # unrecorded so the next run delivers them. Entries that never
+        # reached a group were filtered out and are recorded as processed.
+        grouped = {item.get("link") for g in groups for item in g.get("items", [])}
+        omitted = grouped - rendered
+        keys_to_save = [dedup_key(d) for d in new_disasters if d.get("link") not in omitted]
+        if omitted:
+            logging.warning(f"{len(omitted)} alert(s) cut by the Slack block limit; left for the next run.")
 
         # Send the alert to Slack; only record entries as sent if delivery
         # succeeded, so a failed post is retried next run instead of lost.
         if send_disaster_alert_block(formatted_blocks):
-            save_sent_entries(new_links)
+            save_sent_entries(keys_to_save)
             logging.info("Disaster alert sent to Slack successfully.")
         else:
             logging.error(
@@ -166,7 +258,7 @@ def main():
     elif status == "empty":
         # Everything was filtered out (green alerts, low magnitude, etc.).
         # Record the entries so they are not re-processed on every run.
-        save_sent_entries(new_links)
+        save_sent_entries(new_keys)
         logging.info("All new entries filtered out - recorded as processed, no alert sent.")
     else:
         # LLM summarization failed - leave entries unrecorded so they retry.
